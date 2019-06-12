@@ -1,7 +1,7 @@
 {
    "computingresources":{
       "UKI-NORTHGRID-MAN-HEP-condor-arc-1":{
-         "Site":"UKI-NORTHGIRD-MAN-HEP",
+         "site":"UKI-NORTHGIRD-MAN-HEP",
          "type":"batch",
          "jobmanager":"condor",
          "jobmanager_version":"8.6.18",
@@ -63,7 +63,7 @@
          }
       },
       "UKI-NORTHGRID-MAN-HEP-condor-arc-2":{
-         "Site":"UKI-NORTHGIRD-MAN-HEP",
+         "site":"UKI-NORTHGIRD-MAN-HEP",
          "type":"batch",
          "jobmanager":"condor",
          "jobmanager_version":"8.6.18",
@@ -125,7 +125,7 @@
          }
       },
       "UKI-NORTHGRID-MAN-HEP-torque-cream":{
-         "Site":"UKI-NORTHGIRD-MAN-HEP",
+         "site":"UKI-NORTHGIRD-MAN-HEP",
          "type":"batch",
          "jobmanager":"torque",
          "jobmanager_version":"2.5",

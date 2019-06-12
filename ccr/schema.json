@@ -10,9 +10,9 @@
       "patternProperties": {
         "^.*$": {
           "type": "object",
-          "required": ["Site", "type", "jobmanager", "jobmanager_version", "status", "number_logical_cpus", "capacity_HS06", "os", "default_walltime_minutes","default_cputime_minutes", "memory_GB", "assigned_vos", "comment", "publication_time"],
+          "required": ["site", "type", "jobmanager", "jobmanager_version", "status", "number_logical_cpus", "capacity_HS06", "os", "default_walltime_minutes","default_cputime_minutes", "memory_GB", "assigned_vos", "comment", "publication_time"],
           "properties": {
-            "Site": { "type": "string", "pattern": "^(.*)$" },
+            "site": { "type": "string", "pattern": "^(.*)$" },
             "type": { "type": "string", "enum": ["batch", "vacuum"] } ,
             "jobmanager": { "type": "string", "enum": ["condor", "torque","Vcycle","VAC","sge","slurm","lsf"] } ,
             "jobmanager_version": { "type": "string", "pattern": "^([0-9.-]*)$" },
@@ -32,11 +32,12 @@
               "patternProperties": {
                 "^.*$": {
                   "type": "object",
-                  "required": [ "flavour","version" ],
+                  "required": [ "flavour","version","endpoint_urls" ],
                   "properties": {
                     "flavour": { "type": "string", "enum": ["ARC-CE", "HTCondor-CE", "CREAM-CE", "VAC"] } ,
                     "version": { "type": "string", "pattern": "^([0-9.-]*)$" },
-                    "endpoint_urls": { "type": "array", "items": { "type": "string" } }
+                    "endpoint_urls": { "type": "array", "items": { "type": "string" } },
+                    "shares": { "type": "array", "items": { "type": "string" } }
                   },
                   "additionalProperties": false
                 }
