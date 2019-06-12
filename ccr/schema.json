@@ -41,6 +41,24 @@
                 }
               },
               "additionalProperties": false
+            },
+            "shares": {
+              "type": "object",
+              "patternProperties": {
+                "^.*$": {
+                  "type": "object",
+                  "required": [ "max_walltime_minutes","max_cputime_minutes","max_main_memory_GB" ],
+                  "properties": {
+                    "type": { "type": "string", "enum": ["queue", "pull"] } ,
+                    "max_walltime_minutes": { "type": "number" },
+                    "max_cputime_minutes": { "type": "number" },
+                    "max_main_memory_GB": { "type": "number" },
+                    "assigned_vos": { "type": "array", "items": { "type": "string" } }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
             }
           },
           "additionalProperties": false
@@ -50,4 +68,6 @@
     }
   }
 }
+
+
 

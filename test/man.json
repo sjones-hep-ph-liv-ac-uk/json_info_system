@@ -153,15 +153,15 @@
                "assigned_vos":[
                   "atlas"
                ]
-            },
-            "accesspoints":{
-               "CREAM1.16.4":{
-                  "endpoint_urls":[
-                     "https://ce03.tier2.hep.manchester.ac.uk:8443"
-                  ],
-                  "flavour":"CREAM-CE",
-                  "version":"1.16.4"
-               }
+            }
+         },
+         "accesspoints":{
+            "CREAM1.16.4":{
+               "endpoint_urls":[
+                  "https://ce03.tier2.hep.manchester.ac.uk:8443"
+               ],
+               "flavour":"CREAM-CE",
+               "version":"1.16.4"
             }
          }
       }
