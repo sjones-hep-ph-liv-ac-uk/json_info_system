@@ -1,0 +1,115 @@
+{
+  "computingresources":{
+    "CONDOR_C7":{
+      "Site": "UKI-NORTHGRID-LIV-HEP",
+      "type": "batch",
+      "jobmanager": "condor",
+      "jm_version": "8.6.3-1",
+      "status": "production",
+      "number_logical_cpus": 944,
+      "capacity_HS06": 10020.48,
+      "os": "CentOS 7.6",
+      "max_walltime_minutes": 4320.0,
+      "memory_GB":   2.083,
+      "assigned_vos": ["alice", "atlas", "biomed", "calice", "cernatschool.org", "cms", "dteam", "dune", "epic.vo.gridpp.ac.uk", "esr", "geant4", "gridpp", "hyperk.org", "ilc", "lhcb", "lsst", "lz", "magic", "mice", "na62.vo.gridpp.ac.uk", "ops", "pheno", "planck", "skatelescope.eu", "snoplus.snolab.ca", "t2k.org", "vo.moedal.org", "vo.northgrid.ac.uk", "zeus"],
+      "comment": "no comment",
+      "publication_time": 1551348939,
+      "accesspoints":{
+        "CONDOR_C7":{
+          "endpoint_urls": ["hepgrid5.ph.liv.ac.uk:2811/nordugrid-Condor-grid"],
+          "flavour": "ARC-CE",
+          "version": "5.4.1-1"
+        }
+      }
+    },
+    "CONDOR_SL6":{
+      "Site": "UKI-NORTHGRID-LIV-HEP",
+      "type": "batch",
+      "jobmanager": "condor",
+      "jm_version": "8.2.7-300022",
+      "status": "production",
+      "number_logical_cpus": 120,
+      "capacity_HS06": 1274.4,
+      "os": "SL 6.4",
+      "max_walltime_minutes": 4320.0,
+      "memory_GB":   2.083,
+      "assigned_vos": ["alice", "atlas", "biomed", "calice", "cernatschool.org", "cms", "dteam", "dune", "epic.vo.gridpp.ac.uk", "esr", "geant4", "gridpp", "hyperk.org", "ilc", "lhcb", "lsst", "lz", "magic", "mice", "na62.vo.gridpp.ac.uk", "ops", "pheno", "planck", "skatelescope.eu", "snoplus.snolab.ca", "t2k.org", "vo.moedal.org", "vo.northgrid.ac.uk", "zeus"],
+      "comment": "no comment",
+      "publication_time": 1551348939,
+      "accesspoints":{
+        "CONDOR_SL6":{
+          "endpoint_urls": ["hepgrid2.ph.liv.ac.uk:2811/nordugrid-Condor-grid"],
+          "flavour": "ARC-CE",
+          "version": "5.1.2-1"
+        }
+      }
+    },
+    "HTCONDOR_CE":{
+      "Site": "UKI-NORTHGRID-LIV-HEP",
+      "type": "batch",
+      "jobmanager": "condor",
+      "jm_version": "8.6.12-1",
+      "status": "production",
+      "number_logical_cpus": 752,
+      "capacity_HS06": 7170.72,
+      "os": "CentOS 7.6",
+      "max_walltime_minutes": 4320.0,
+      "memory_GB":   2.000,
+      "assigned_vos": ["alice", "atlas", "biomed", "calice", "cernatschool.org", "cms", "dteam", "dune", "epic.vo.gridpp.ac.uk", "esr", "geant4", "gridpp", "hyperk.org", "ilc", "lhcb", "lsst", "lz", "magic", "mice", "na62.vo.gridpp.ac.uk", "ops", "pheno", "planck", "skatelescope.eu", "snoplus.snolab.ca", "t2k.org", "vo.moedal.org", "vo.northgrid.ac.uk", "zeus"],
+      "comment": "no comment",
+      "publication_time": 1551348939,
+      "accesspoints":{
+        "HTCONDOR_CE":{
+          "endpoint_urls": ["hepgrid6.ph.liv.ac.uk:9619"],
+          "flavour": "HTCondor-CE",
+          "version": "3.2.0-1"
+        }
+      }
+    },
+    "vac01.ph.liv.ac.uk":{
+      "Site": "UKI-NORTHGRID-LIV-HEP",
+      "type": "vacuum",
+      "jobmanager": "VAC",
+      "jm_version": "02.00.03-1",
+      "status": "production",
+      "number_logical_cpus": 162,
+      "capacity_HS06": 1899.612,
+      "os": "SL 6.4",
+      "max_walltime_minutes": 4320.0,
+      "memory_GB":   2.667,
+      "assigned_vos": ["alice", "atlas", "gridpp", "lhcb", "na62"],
+      "comment": "no comment",
+      "publication_time": 1551348939,
+      "accesspoints":{
+        "vac01.ph.liv.ac.uk":{
+          "endpoint_urls": ["vac01.ph.liv.ac.uk"],
+          "flavour": "VAC",
+          "version": "02.00.03-1"
+        }
+      }
+    },
+    "vachammer.ph.liv.ac.uk":{
+      "Site": "UKI-NORTHGRID-LIV-HEP",
+      "type": "vacuum",
+      "jobmanager": "VAC",
+      "jm_version": "02.00.03-1",
+      "status": "production",
+      "number_logical_cpus": 520,
+      "capacity_HS06": 6268.0,
+      "os": "SL 6.4",
+      "max_walltime_minutes": 4320.0,
+      "memory_GB":   2.273,
+      "assigned_vos": ["alice", "atlas", "gridpp", "lhcb", "na62"],
+      "comment": "no comment",
+      "publication_time": 1551348939,
+      "accesspoints":{
+        "vachammer.ph.liv.ac.uk":{
+          "endpoint_urls": ["vachammer.ph.liv.ac.uk"],
+          "flavour": "VAC",
+          "version": "02.00.03-1"
+        }
+      }
+    }
+  }
+}
+
