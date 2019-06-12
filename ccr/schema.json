@@ -16,7 +16,7 @@
             "type": { "type": "string", "enum": ["batch", "vacuum"] } ,
             "jobmanager": { "type": "string", "enum": ["condor", "torque","Vcycle","VAC","sge","slurm","lsf"] } ,
             "jobmanager_version": { "type": "string", "pattern": "^([0-9.-]*)$" },
-            "status": { "type": "string", "enum": ["production", "test"] } ,
+            "status": { "type": "string", "enum": ["development","pre-production","testing","production" ] } ,
             "number_logical_cpus": { "type": "integer" },
             "capacity_HS06": { "type": "number" },
             "os": { "type": "string" },
