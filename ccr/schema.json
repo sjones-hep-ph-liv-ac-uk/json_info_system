@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.gridpp.ac.uk/ccr.json",
+  "type": "object",
+  "title": "Computing Resources Schema",
+  "required": [ "computingresources" ],
+  "properties": {
+    "computingresources": {
+      "type": "object",
+      "patternProperties": {
+        "^.*$": {
+          "type": "object",
+          "required": [ "Site","type" ],
+          "properties": {
+            "Site": { "type": "string", "pattern": "^(.*)$" },
+            "type": { "type": "string", "enum": ["batch", "vacuum"] } ,
+            "jobmanager": { "type": "string", "enum": ["condor", "vac"] } ,
+            "jm_version": { "type": "string", "pattern": "^([0-9.-]*)$" },
+            "status": { "type": "string", "enum": ["production", "test"] } ,
+            "number_logical_cpus": { "type": "integer" },
+            "capacity_HS06": { "type": "number" },
+            "os": { "type": "string" },
+            "max_walltime_minutes": { "type": "number" },
+            "memory_GB": { "type": "number" },
+            "assigned_vos": { "type": "array", "items": { "type": "string" } },
+            "comment": { "type": "string" },
+            "publication_time": { "type": "integer" },
+            "accesspoints": {
+              "type": "object",
+              "patternProperties": {
+                "^.*$": {
+                  "type": "object",
+                  "required": [ "flavour","version" ],
+                  "properties": {
+                    "flavour": { "type": "string", "enum": ["ARC-CE", "HTCONDOR-CE", "CREAM-CE", "VAC"] } ,
+                    "version": { "type": "string", "pattern": "^([0-9.-]*)$" },
+                    "endpoint_urls": { "type": "array", "items": { "type": "string" } }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
+
