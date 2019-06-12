@@ -17,7 +17,7 @@
             "jobmanager": { "type": "string", "enum": ["condor", "torque","Vcycle","VAC","sge","slurm","lsf"] } ,
             "jobmanager_version": { "type": "string", "pattern": "^([0-9.-]*)$" },
             "status": { "type": "string", "enum": ["development","pre-production","testing","production" ] } ,
-            "number_logical_cpus": { "type": "integer" },
+            "number_logical_cpus": { "type": "number" },
             "capacity_HS06": { "type": "number" },
             "os": { "type": "string" },
             "coprocessor": { "type": "string", "const": "GPU" },
@@ -26,7 +26,7 @@
             "memory_GB": { "type": "number" },
             "assigned_vos": { "type": "array", "items": { "type": "string" } },
             "comment": { "type": "string" },
-            "publication_time": { "type": "integer" },
+            "publication_time": { "type": "number" },
             "accesspoints": {
               "type": "object",
               "patternProperties": {
@@ -52,10 +52,10 @@
                   "required": [ "max_walltime_minutes","max_cputime_minutes","max_main_memory_GB" ],
                   "properties": {
                     "type": { "type": "string", "enum": ["queue", "pull"] } ,
+                    "assigned_vos": { "type": "array", "items": { "type": "string" } }
                     "max_walltime_minutes": { "type": "number" },
                     "max_cputime_minutes": { "type": "number" },
                     "max_main_memory_GB": { "type": "number" },
-                    "assigned_vos": { "type": "array", "items": { "type": "string" } }
                   },
                   "additionalProperties": false
                 }
@@ -70,6 +70,3 @@
     }
   }
 }
-
-
-
