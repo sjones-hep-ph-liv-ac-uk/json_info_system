@@ -10,17 +10,18 @@
       "patternProperties": {
         "^.*$": {
           "type": "object",
-          "required": [ "Site","type" ],
+          "required": ["Site", "type", "jobmanager", "jobmanager_version", "status", "number_logical_cpus", "capacity_HS06", "os", "default_walltime_minutes","default_cputime_minutes", "memory_GB", "assigned_vos", "comment", "publication_time"],
           "properties": {
             "Site": { "type": "string", "pattern": "^(.*)$" },
             "type": { "type": "string", "enum": ["batch", "vacuum"] } ,
-            "jobmanager": { "type": "string", "enum": ["condor", "vac"] } ,
-            "jm_version": { "type": "string", "pattern": "^([0-9.-]*)$" },
+            "jobmanager": { "type": "string", "enum": ["condor", "torque","Vcycle","VAC","sge","slurm","lsf"] } ,
+            "jobmanager_version": { "type": "string", "pattern": "^([0-9.-]*)$" },
             "status": { "type": "string", "enum": ["production", "test"] } ,
             "number_logical_cpus": { "type": "integer" },
             "capacity_HS06": { "type": "number" },
             "os": { "type": "string" },
-            "max_walltime_minutes": { "type": "number" },
+            "default_walltime_minutes": { "type": "number" },
+            "default_cputime_minutes": { "type": "number" },
             "memory_GB": { "type": "number" },
             "assigned_vos": { "type": "array", "items": { "type": "string" } },
             "comment": { "type": "string" },
@@ -32,7 +33,7 @@
                   "type": "object",
                   "required": [ "flavour","version" ],
                   "properties": {
-                    "flavour": { "type": "string", "enum": ["ARC-CE", "HTCONDOR-CE", "CREAM-CE", "VAC"] } ,
+                    "flavour": { "type": "string", "enum": ["ARC-CE", "HTCondor-CE", "CREAM-CE", "VAC"] } ,
                     "version": { "type": "string", "pattern": "^([0-9.-]*)$" },
                     "endpoint_urls": { "type": "array", "items": { "type": "string" } }
                   },
