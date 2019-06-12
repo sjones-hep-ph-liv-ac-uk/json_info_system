@@ -20,6 +20,7 @@
             "number_logical_cpus": { "type": "integer" },
             "capacity_HS06": { "type": "number" },
             "os": { "type": "string" },
+            "coprocessor": { "type": "string", "const": "GPU" },
             "default_walltime_minutes": { "type": "number" },
             "default_cputime_minutes": { "type": "number" },
             "memory_GB": { "type": "number" },
