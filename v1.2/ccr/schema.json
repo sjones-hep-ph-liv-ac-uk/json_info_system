@@ -52,10 +52,10 @@
                   "required": [ "max_walltime_minutes","max_cputime_minutes","max_main_memory_GB" ],
                   "properties": {
                     "type": { "type": "string", "enum": ["queue", "pull"] } ,
-                    "assigned_vos": { "type": "array", "items": { "type": "string" } }
+                    "assigned_vos": { "type": "array", "items": { "type": "string" } },
                     "max_walltime_minutes": { "type": "number" },
                     "max_cputime_minutes": { "type": "number" },
-                    "max_main_memory_GB": { "type": "number" },
+                    "max_main_memory_GB": { "type": "number" }
                   },
                   "additionalProperties": false
                 }
