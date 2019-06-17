@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://www.gridpp.ac.uk/ccr.json",
+  "$id": "https://www.gridpp.ac.uk/ccr_v1.5.json",
   "type": "object",
   "title": "Computing Resources Schema",
   "required": [ "computingresources" ],
@@ -10,20 +10,19 @@
       "patternProperties": {
         "^.*$": {
           "type": "object",
-          "required": ["site", "type", "jobmanager", "jobmanager_version", "status", "number_logical_cpus", "capacity_HS06", "os", "default_walltime_minutes","default_cputime_minutes", "memory_GB", "assigned_vos", "comment", "publication_time"],
+          "required": ["site", "type", "jobmanager", "jobmanager_version", "status", "number_logical_cpus", "capacity_hs06", "os", "max_walltime_minutes", "max_memory_gb", "assigned_vos", "publication_time"],
           "properties": {
             "site": { "type": "string", "pattern": "^(.*)$" },
             "type": { "type": "string", "enum": ["batch", "vacuum"] } ,
-            "jobmanager": { "type": "string", "enum": ["condor", "torque","Vcycle","VAC","sge","slurm","lsf"] } ,
-            "jobmanager_version": { "type": "string", "pattern": "^([0-9.-]*)$" },
+            "jobmanager": { "type": "string", "enum": ["condor", "torque","VAC","uk.ac.gridpp.vcycle","sge","slurm","lsf"] } ,
+            "jobmanager_version": { "type": "string" },
             "status": { "type": "string", "enum": ["development","pre-production","testing","production" ] } ,
             "number_logical_cpus": { "type": "number" },
-            "capacity_HS06": { "type": "number" },
+            "capacity_hs06": { "type": "number" },
             "os": { "type": "string" },
             "coprocessor": { "type": "string", "const": "GPU" },
-            "default_walltime_minutes": { "type": "number" },
-            "default_cputime_minutes": { "type": "number" },
-            "memory_GB": { "type": "number" },
+            "max_walltime_minutes": { "type": "number" },
+            "max_memory_gb": { "type": "number" },
             "assigned_vos": { "type": "array", "items": { "type": "string" } },
             "comment": { "type": "string" },
             "publication_time": { "type": "number" },
@@ -34,8 +33,8 @@
                   "type": "object",
                   "required": [ "flavour","version","endpoint_urls" ],
                   "properties": {
-                    "flavour": { "type": "string", "enum": ["ARC-CE", "HTCondor-CE", "CREAM-CE", "VAC"] } ,
-                    "version": { "type": "string", "pattern": "^([0-9.-]*)$" },
+                    "flavour": { "type": "string", "enum": ["ARC-CE", "HTCondor-CE", "CREAM-CE", "VAC" ,"uk.ac.gridpp.vcycle"] } ,
+                    "version": { "type": "string" },
                     "endpoint_urls": { "type": "array", "items": { "type": "string" } },
                     "shares": { "type": "array", "items": { "type": "string" } }
                   },
@@ -49,13 +48,12 @@
               "patternProperties": {
                 "^.*$": {
                   "type": "object",
-                  "required": [ "max_walltime_minutes","max_cputime_minutes","max_main_memory_GB" ],
+                  "required": [ "type" ],
                   "properties": {
-                    "type": { "type": "string", "enum": ["queue", "pull"] } ,
+                    "type": { "type": "string" } ,
                     "assigned_vos": { "type": "array", "items": { "type": "string" } },
                     "max_walltime_minutes": { "type": "number" },
-                    "max_cputime_minutes": { "type": "number" },
-                    "max_main_memory_GB": { "type": "number" }
+                    "max_memory_gb": { "type": "number" }
                   },
                   "additionalProperties": false
                 }

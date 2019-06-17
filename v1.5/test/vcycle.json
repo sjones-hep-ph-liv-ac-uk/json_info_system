@@ -1,0 +1,53 @@
+{
+  "computingresources": {
+    "vcycle-cern.lhcb.cern": {
+      "capacity_hs06":12345,
+      "status": "production",
+      "publication_time": 1557996158,
+      "jobmanager": "uk.ac.gridpp.vcycle",
+      "site": "CERN-PROD",
+      "os": "not relevant",
+      "max_walltime_minutes": 5000,
+      "max_memory_gb": 9999999,
+      "assigned_vos": [],
+      "shares": {
+        "lhcb-vm-prod": {
+          "max_walltime_minutes": 5000,
+          "type": "machinetype",
+          "assigned_vos": [
+            "lhcb"
+          ]
+        },
+        "lhcb-squid": {
+          "max_walltime_minutes": 525600,
+          "type": "machinetype",
+          "assigned_vos": [
+            "lhcb"
+          ]
+        },
+        "lhcb-vm-dev": {
+          "max_walltime_minutes": 5000,
+          "type": "machinetype",
+          "assigned_vos": [
+            "lhcb"
+          ]
+        }
+      },
+      "number_logical_cpus": 100,
+      "jobmanager_version": "03.00+pre01",
+      "accesspoints": {
+        "vcycle-cern.lhcb.cern": {
+          "version": "03.00+pre01",
+          "flavour": "uk.ac.gridpp.vcycle",
+          "endpoint_urls": [
+            "vcycle-cern.lhcb.cern"
+          ]
+        }
+      },
+      "type": "vacuum"
+    }
+  }
+}
+ 
+ 
+
