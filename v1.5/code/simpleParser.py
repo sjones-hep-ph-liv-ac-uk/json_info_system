@@ -7,7 +7,7 @@ def die(s):
   sys.exit(1)
 
 def usage():
-  print "Give a json filename as an argument, e.g. -f abc.json";
+  print "Give a json filename as an argument, e.g. -j abc.json";
 
 def getExtrinsics(bigList,smallList):
   # The contract is: all in small list must exist in big list.
