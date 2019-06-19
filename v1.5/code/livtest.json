@@ -1,0 +1,59 @@
+{
+  "computingresources":{
+    "CONDOR_C7":{
+      "site": "UKI-NORTHGRID-LIV-HEP",
+      "type": "batch",
+      "jobmanager": "condor",
+      "jobmanager_version": "8.6.3-1",
+      "status": "production",
+      "number_logical_cpus": 944,
+      "capacity_hs06": 10020.48,
+      "os": "CentOS 7.6",
+      "max_walltime_minutes": 4320.0,
+      "max_memory_gb":   2.083,
+      "assigned_vos": ["alice", "atlas", "ska","icecube", "biomed", "calice", "cernatschool.org", "cms", "dteam", "dune", "epic.vo.gridpp.ac.uk", "esr", "geant4", "gridpp", "hyperk.org", "ilc", "lhcb", "lsst", "lz", "magic", "mice", "na62.vo.gridpp.ac.uk", "ops", "pheno", "planck", "skatelescope.eu", "snoplus.snolab.ca", "t2k.org", "vo.moedal.org", "vo.northgrid.ac.uk", "zeus"],
+      "comment": "no comment",
+      "publication_time": 1551348939,
+      "shares": {
+        "long" : {
+          "type": "queue",
+          "max_walltime_minutes": 4300,
+          "max_memory_gb": 3,
+          "assigned_vos": ["atlas"]
+        },
+        "near": {
+          "type": "queue",
+          "max_walltime_minutes": 1444,
+          "max_memory_gb": 3,
+          "assigned_vos": ["ska","icecube","pheno"]
+        },
+        "medium": {
+          "type": "queue",
+          "max_walltime_minutes": 1444,
+          "max_memory_gb": 3,
+          "assigned_vos": ["ska","icecube","pheno"]
+        },
+        "far": {
+          "type": "queue",
+          "max_walltime_minutes": 1444,
+          "max_memory_gb": 12,
+          "assigned_vos": ["atlas","icecube"]
+        }
+      },
+      "accesspoints":{
+        "CONDOR_C7":{
+          "endpoint_urls": ["hepgrid5.ph.liv.ac.uk:2811/nordugrid-Condor-grid"],
+          "flavour": "ARC-CE",
+          "version": "5.4.1-1",
+          "shares": ["medium","long"]
+        },
+        "CONDOR_C7x":{
+          "endpoint_urls": ["hepgrid5.ph.liv.ac.uk:2811/nordugrid-Condor-grid"],
+          "flavour": "ARC-CE",
+          "version": "5.4.1-1"
+        }
+      }
+    }
+  }
+}
+
