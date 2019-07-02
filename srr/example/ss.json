@@ -1,0 +1,438 @@
+{
+    "storageservice": {
+        "datastores": [], 
+        "latestupdate": 1559901829, 
+        "name": "bohr3226.tier2.hep.manchester.ac.uk", 
+        "implementation": "DPM", 
+        "storageendpoints": [
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "gsiftp", 
+                "name": "gsiftp", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "gsiftp://bohr3226.tier2.hep.manchester.ac.uk/"
+            }, 
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "https", 
+                "name": "https", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "https://bohr3226.tier2.hep.manchester.ac.uk/"
+            }, 
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "xrootd", 
+                "name": "xrootd", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "root://bohr3226.tier2.hep.manchester.ac.uk/"
+            }, 
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "srm", 
+                "name": "srm", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "srm://bohr3226.tier2.hep.manchester.ac.uk:8446/srm/managerv2?SFN=/"
+            }
+        ], 
+        "qualitylevel": "production", 
+        "storageshares": [
+            {
+                "name": "LHCb_USER", 
+                "servingstate": "open", 
+                "totalsize": 2199023255552, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "lhcb"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/lhcb/user"
+                ]
+            }, 
+            {
+                "name": "PHENODISK", 
+                "servingstate": "open", 
+                "totalsize": 536870912000, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 18386142960, 
+                "vos": [
+                    "pheno"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/pheno"
+                ]
+            }, 
+            {
+                "name": "DTEAMDISK", 
+                "servingstate": "open", 
+                "totalsize": 16492674416640, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 162570177, 
+                "vos": [
+                    "dteam"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/dteam"
+                ]
+            }, 
+            {
+                "name": "BESDISK", 
+                "servingstate": "open", 
+                "totalsize": 1099511627776, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "bes"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/bes"
+                ]
+            }, 
+            {
+                "name": "LZDISK", 
+                "servingstate": "open", 
+                "totalsize": 1099511627776, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "lz"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/lz"
+                ]
+            }, 
+            {
+                "name": "GRIDPPDISK", 
+                "servingstate": "open", 
+                "totalsize": 536870912000, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 7099555463, 
+                "vos": [
+                    "gridpp"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/gridpp"
+                ]
+            }, 
+            {
+                "name": "DUNEDISK", 
+                "servingstate": "open", 
+                "totalsize": 1077521395220480, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 849579155370998, 
+                "vos": [
+                    "dune"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/dune"
+                ]
+            }, 
+            {
+                "name": "LHCBDISK", 
+                "servingstate": "open", 
+                "totalsize": 1099511627776, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "lhcb"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/lhcb"
+                ]
+            }, 
+            {
+                "name": "LHCb-Disk", 
+                "servingstate": "open", 
+                "totalsize": 307863255777280, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 240317536312969, 
+                "vos": [
+                    "lhcb/Role=production", 
+                    "lhcb"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/lhcb/lhcb"
+                ]
+            }, 
+            {
+                "name": "OPSDISK", 
+                "servingstate": "open", 
+                "totalsize": 536870912000, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 1720, 
+                "vos": [
+                    "ops"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/ops"
+                ]
+            }, 
+            {
+                "name": "BIOMEDDISK", 
+                "servingstate": "open", 
+                "totalsize": 2199023255552, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 1811946575967, 
+                "vos": [
+                    "biomed"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/biomed"
+                ]
+            }, 
+            {
+                "name": "CMSDISK", 
+                "servingstate": "open", 
+                "totalsize": 2199023255552, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "cms"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/cms"
+                ]
+            }, 
+            {
+                "name": "ICECUBEDISK", 
+                "servingstate": "open", 
+                "totalsize": 536870912000, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "icecube"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/icecube"
+                ]
+            }, 
+            {
+                "name": "SKATELESCOPEDISK", 
+                "servingstate": "open", 
+                "totalsize": 32985348833280, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 17383646332263, 
+                "vos": [
+                    "skatelescope.eu"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/skatelescope.eu"
+                ]
+            }, 
+            {
+                "name": "NORTHGRIDDISK", 
+                "servingstate": "open", 
+                "totalsize": 43980465111040, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 32948609921366, 
+                "vos": [
+                    "vo.northgrid.ac.uk"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/vo.northgrid.ac.uk"
+                ]
+            }, 
+            {
+                "name": "FERMILABDISK", 
+                "servingstate": "open", 
+                "totalsize": 1099511627776, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "fermilab"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/fermilab"
+                ]
+            }, 
+            {
+                "name": "ATLASDISK", 
+                "servingstate": "open", 
+                "totalsize": 1099511627776, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": -3124815025179, 
+                "vos": [
+                    "atlas"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/atlas"
+                ]
+            }, 
+            {
+                "name": "ILCDISK", 
+                "servingstate": "open", 
+                "totalsize": 2199023255552, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "ilc"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/ilc"
+                ]
+            }, 
+            {
+                "name": "ATLASDATADISK", 
+                "servingstate": "open", 
+                "totalsize": 2528876743884800, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 2244544170142971, 
+                "vos": [
+                    "atlas/Role=production"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/atlas/atlasdatadisk"
+                ]
+            }, 
+            {
+                "name": "ATLASLOCALGROUPDISK", 
+                "servingstate": "open", 
+                "totalsize": 520068999938048, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 415701883898982, 
+                "vos": [
+                    "atlas/uk", 
+                    "atlas/Role=production"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/atlas/atlaslocalgroupdisk"
+                ]
+            }, 
+            {
+                "name": "HONEDISK", 
+                "servingstate": "open", 
+                "totalsize": 2199023255552, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "hone"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/hone"
+                ]
+            }, 
+            {
+                "name": "T2KDISK", 
+                "servingstate": "open", 
+                "totalsize": 2199023255552, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 380, 
+                "vos": [
+                    "t2k.org"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/t2k.org"
+                ]
+            }, 
+            {
+                "name": "LSSTDISK", 
+                "servingstate": "open", 
+                "totalsize": 32985348833280, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 24281486329899, 
+                "vos": [
+                    "lsst"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/lsst"
+                ]
+            }, 
+            {
+                "name": "ATLASSCRATCHDISK", 
+                "servingstate": "open", 
+                "totalsize": 65970697666560, 
+                "timestamp": 1559901829, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 47052293737760, 
+                "vos": [
+                    "atlas", 
+                    "atlas/Role=production"
+                ], 
+                "path": [
+                    "/dpm/tier2.hep.manchester.ac.uk/home/atlas/atlasscratchdisk"
+                ]
+            }
+        ], 
+        "implementationversion": "1.12.1"
+    }
+}
+
