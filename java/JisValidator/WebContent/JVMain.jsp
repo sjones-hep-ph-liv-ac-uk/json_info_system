@@ -51,11 +51,15 @@
         </div>
         <div class="col-lg-3">
             <label class='radiolabel'>
+            <input type="radio" name="choiceofoption" value="View the compute schema" />View the current schema</label>
+        </div>
+        <div class="col-lg-3">
+            <label class='radiolabel'>
             <input type="radio" name="choiceofoption" value="Check storage JSON file" />Check storage JSON file</label>
         <div>
         <div class="col-lg-3">
             <label class='radiolabel'>
-            <input type="radio" name="choiceofoption" value="View the current schema" />View the current schema</label>
+            <input type="radio" name="choiceofoption" value="View the storage  schema" />View the current schema</label>
         </div>
         <!---Label is here for placement of error message--->
         <label for="choiceofoption" class="error" style="display:none;">Please choose one.</label>
