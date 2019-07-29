@@ -82,7 +82,7 @@ public class ComputeIntegrityChecker {
 						// When exiting a resource make sure no VOs in the shares are extrinsic to the
 						// VOs in the resource section (if any)
 						if (resourceLevelVOs.isEmpty() != true) {
-							String problemVOs = getExtrinsics(resourceLevelVOs, sharesLevelVOs);
+							String problemVOs = Utils.getExtrinsics(resourceLevelVOs, sharesLevelVOs);
 							if (problemVOs.length() != 0) {
 								return ("inconsistent assigned VOs in resource " + currentResource
 										+ ", check resource and share VOs for " + problemVOs);
@@ -90,7 +90,7 @@ public class ComputeIntegrityChecker {
 						}
 
 						if (resourceLevelShares.isEmpty() != true) {
-							String problemShares = getExtrinsics(resourceLevelShares, apsLevelShares);
+							String problemShares = Utils.getExtrinsics(resourceLevelShares, apsLevelShares);
 							if (problemShares.length() != 0) {
 								return ("inconsistent shares for resource " + currentResource + ", check shares for "
 										+ problemShares);
@@ -191,21 +191,5 @@ public class ComputeIntegrityChecker {
 		return "";
 	}
 	
-	private String getExtrinsics(ArrayList<String> bigList, ArrayList<String> smallList) {
-		// All in small list must exist in big list, else return list of missing
-		String extrinsics = "";
-		for (String small : smallList) {
-			Boolean itExists = false;
-			for (String big : bigList) {
-				if (small.equals(big)) {
-					itExists = true;
-				}
-			}
-			if (itExists != true) {
-				extrinsics = extrinsics + small + " ";
-			}
-		}
-		return extrinsics;
-	}
 	
 }

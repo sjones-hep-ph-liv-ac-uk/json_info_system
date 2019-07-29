@@ -13,19 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-//import org.everit.json.schema.Schema;
-//import org.everit.json.schema.ValidationException;
-//import org.everit.json.schema.loader.SchemaLoader;
-//import org.json.JSONObject;
-//import org.json.JSONTokener;
-//
-//import com.basingwerk.jisvalidator.checkers.Checker;
-//import com.basingwerk.jisvalidator.checkers.ComputeIntegrityChecker;
-//import com.basingwerk.jisvalidator.checkers.Result;
-//
-//import org.apache.tomcat.util.http.fileupload.IOUtils;
-
-
 /**
  * Servlet implementation class JVMainController
  */
@@ -57,8 +44,8 @@ public class JVMainController extends HttpServlet {
 			rd.forward(request, response);
 			return;
 	    }
-	    else if ("View the current schema".equals(opt)) {
-			InputStream inputStream = this.getClass().getResourceAsStream("/schema.json");
+	    else if ("View the compute schema".equals(opt)) {
+			InputStream inputStream = this.getClass().getResourceAsStream("/crrschema.json");
 			Scanner s = new Scanner(inputStream).useDelimiter("\\A");
 			String result = s.hasNext() ? s.next() : "";
 			request.setAttribute("theSchema", result);
@@ -67,8 +54,22 @@ public class JVMainController extends HttpServlet {
 			return;
 			
 	    }
+	    else if ("Check storage JSON file".equals(opt)) {
+			rd = request.getRequestDispatcher("/JVStorage.jsp");
+			rd.forward(request, response);
+			return;
+	    }
+	    else if ("View the storage schema".equals(opt)) {
+			InputStream inputStream = this.getClass().getResourceAsStream("/srrschema.json");
+			Scanner s = new Scanner(inputStream).useDelimiter("\\A");
+			String result = s.hasNext() ? s.next() : "";
+			request.setAttribute("theSchema", result);
+			rd = request.getRequestDispatcher("/JVViewSchema.jsp");
+			rd.forward(request, response);
+			return;
+	    }
 	    else {
-	    	response.getWriter().println("Not impleneted yet");
+	    	response.getWriter().println("Not implemented yet");
 	    }
 	}
 
@@ -80,6 +81,5 @@ public class JVMainController extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }
 

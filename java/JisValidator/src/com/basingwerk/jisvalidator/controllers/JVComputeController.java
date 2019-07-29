@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 //import org.everit.json.schema.*;
-import com.basingwerk.jisvalidator.checkers.Checker;
+import com.basingwerk.jisvalidator.checkers.ComputeChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
 
 
@@ -41,7 +41,7 @@ public class JVComputeController extends HttpServlet {
 
 		String json = request.getParameter("jistext");
 		
-		Checker c = new Checker(json);
+		ComputeChecker c = new ComputeChecker(json);
 		Result r = c.check();
 		
 		if (r.getCode() == Result.OK) {
