@@ -30,7 +30,7 @@ public class StorageChecker {
     }
     // It's well formed JSON, and it complies with the schema. Does it have
     // referential integrity?
-    ComputeIntegrityChecker rc = new ComputeIntegrityChecker(json);
+    StorageIntegrityChecker rc = new StorageIntegrityChecker(json);
     String result = rc.check();
     if (result.length() == 0) {
       return new Result(Result.OK, "no errors");
