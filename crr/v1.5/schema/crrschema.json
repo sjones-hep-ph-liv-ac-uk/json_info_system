@@ -1,0 +1,133 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://http://wlcg.cern.ch/ccr_v1.5.json",
+	"type": "object",
+	"title": "Computing Resource Reporting Schema",
+	"required": ["computingresources"],
+	"properties": {
+		"computingresources": {
+			"type": "object",
+			"patternProperties": {
+				"^.*$": {
+					"type": "object",
+					"required": ["site", "type", "jobmanager", "jobmanager_version", "status", "number_logical_cpus", "capacity_hs06", "os", "max_walltime_minutes", "max_memory_gb", "assigned_vos", "publication_time"],
+					"properties": {
+						"site": {
+							"type": "string",
+							"pattern": "^(.*)$"
+						},
+						"type": {
+							"type": "string",
+							"enum": ["batch", "vacuum"]
+						},
+						"jobmanager": {
+							"type": "string",
+							"enum": ["condor", "torque", "VAC", "uk.ac.gridpp.vcycle", "sge", "slurm", "lsf"]
+						},
+						"jobmanager_version": {
+							"type": "string"
+						},
+						"status": {
+							"type": "string",
+							"enum": ["development", "pre-production", "testing", "production"]
+						},
+						"number_logical_cpus": {
+							"type": "number"
+						},
+						"capacity_hs06": {
+							"type": "number"
+						},
+						"os": {
+							"type": "string"
+						},
+						"coprocessor": {
+							"type": "string",
+							"const": "GPU"
+						},
+						"max_walltime_minutes": {
+							"type": "number"
+						},
+						"max_memory_gb": {
+							"type": "number"
+						},
+						"assigned_vos": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"comment": {
+							"type": "string"
+						},
+						"publication_time": {
+							"type": "number"
+						},
+						"accesspoints": {
+							"type": "object",
+							"patternProperties": {
+								"^.*$": {
+									"type": "object",
+									"required": ["flavour", "version", "endpoint_urls"],
+									"properties": {
+										"flavour": {
+											"type": "string",
+											"enum": ["ARC-CE", "HTCondor-CE", "CREAM-CE", "VAC", "uk.ac.gridpp.vcycle"]
+										},
+										"version": {
+											"type": "string"
+										},
+										"endpoint_urls": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"shares": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										}
+									},
+									"additionalProperties": false
+								}
+							},
+							"additionalProperties": false
+						},
+						"shares": {
+							"type": "object",
+							"patternProperties": {
+								"^.*$": {
+									"type": "object",
+									"required": ["type"],
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"assigned_vos": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"max_walltime_minutes": {
+											"type": "number"
+										},
+										"max_memory_gb": {
+											"type": "number"
+										}
+									},
+									"additionalProperties": false
+								}
+							},
+							"additionalProperties": false
+						}
+					},
+					"additionalProperties": false
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"additionalProperties": false
+}

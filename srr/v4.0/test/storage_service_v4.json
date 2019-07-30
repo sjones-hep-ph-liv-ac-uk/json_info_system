@@ -1,0 +1,143 @@
+{
+	"storageservice": {
+		"name": "FZK-ATLAS",
+		"id": "global unique",
+		"servicetype": "org.wlcg.se",
+		"implementation": "dcache",
+		"implementationversion": "2.13.51",
+		"capabilities": ["data.access.file", "data.access.streaming", "data.management.storage"],
+		"qualitylevel": "production",
+		"storagecapacity": {
+			"online": {
+				"totalsize": 11,
+				"usedsize": 2,
+				"reservedsize": 3
+			},
+			"offline": {
+				"totalsize": 21,
+				"usedsize": 4,
+				"reservedsize": 5
+			},
+			"nearline": {
+				"totalsize": -1,
+				"usedsize": -1,
+				"reservedsize": -1
+			}
+		},
+		"message": "optional comment",
+		"latestupdate": 1502719262,
+		"storageendpoints": [{
+				"name": "atlassrm",
+				"id": "global unique",
+				"endpointurl": "httpg://atlassrm-fzk.gridka.de:8443/srm/managerv2",
+				"interfacetype": "srm",
+				"interfaceversion": "2.2",
+				"capabilities": ["data.management.transfer", "data.management.storage"],
+				"qualitylevel": "production",
+				"assignedshares": ["all"],
+				"message": ""
+			},
+			{
+				"name": "atlasgsiftp",
+				"id": "global unique",
+				"endpointurl": "gsiftp://f01-060-114-e.gridka.de:2811",
+				"interfacetype": "gsiftp",
+				"interfaceversion": "1.0.0",
+				"capabilities": ["data.management.transfer"],
+				"qualitylevel": "production",
+				"assignedshares": ["ATLASDATADISK", "ATLASGROUPDISK"],
+				"message": "blah"
+			}
+		],
+
+		"storageshares": [{
+				"name": "ATLASDATADISK",
+				"id": "global unique",
+				"policyrules": ["defaultpermission", "acl1", "acl2"],
+				"servingstate": "open",
+				"accessmode": ["read/0", "delete/2"],
+				"accesslatency": "online",
+				"retentionpolicy": "replicated",
+				"lifetime": {
+					"default": "1 week",
+					"maximum": "",
+					"expiration": "never"
+				},
+				"timestamp": 1502719262,
+				"totalsize": 26789588699,
+				"usedsize": 123564878,
+				"numberoffiles": -1,
+				"path": ["/storage/data/atlasdatadisk/", "/disks/atlasdata/"],
+				"assignedendpoints": ["all"],
+				"vos": ["atlas"],
+				"message": ""
+			},
+			{
+				"name": "ATLASSCRATCHDISK",
+				"id": "FZK - ATLAS.S2",
+				"policyrules": ["scratchpermission"],
+				"servingstate": "open",
+				"accessmode": ["pilot read/0", "pilot write/3"],
+				"lifetime": {
+					"default": "1 week",
+					"maximum": "1 year",
+					"expiration": "release"
+				},
+				"timestamp": 1502719262,
+				"totalsize": 6789588699,
+				"usedsize": 23564878,
+				"numberoffiles": -1,
+				"path": ["/storage/data/scratch/"],
+				"assignedendpoints": ["atlassrm"],
+				"vos": ["atlas"],
+				"message": ""
+			},
+			{
+				"name": "ATLASGROUPDISK",
+				"id": "FZK - ATLAS.S3",
+				"policyrules": ["defaultpermission"],
+				"servingstate": "closed",
+				"accessmode": ["read/0"],
+				"accesslatency": "online",
+				"timestamp": 1502719262,
+				"totalsize": 46789588699,
+				"usedsize": 23564878,
+				"numberoffiles": 1568747,
+				"path": ["/storage/data/atlasgroup/"],
+				"assignedendpoints": ["atlasgsiftp"],
+				"vos": ["atlas"],
+				"message": ""
+			}
+		],
+		"datastores": [{
+				"name": "ATLAS Tape",
+				"id": "global unique",
+				"datastoretype": "tape",
+				"accesslatency": "offline",
+				"totalsize": 45784567485956578,
+				"vendor": "some vendor name",
+				"bandwith": {
+					"network": "abc",
+					"disk": "def",
+					"etc": "ghi"
+				},
+				"message": ""
+			},
+			{
+				"name": "ATLAS Disk",
+				"id": "global unique",
+				"datastoretype": "disk",
+				"accesslatency": "offline",
+				"totalsize": 45784567485956578,
+				"vendor": "some vendor name",
+				"bandwith": {
+					"network": "abc",
+					"disk": "def",
+					"etc": "ghi"
+				},
+				"message": ""
+			}
+		]
+	}
+}
+
