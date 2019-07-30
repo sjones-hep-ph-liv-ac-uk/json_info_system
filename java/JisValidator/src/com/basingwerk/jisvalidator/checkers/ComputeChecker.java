@@ -9,34 +9,34 @@ import org.json.JSONTokener;
 
 public class ComputeChecker {
 
-	private String json;
+  private String json;
 
-	public ComputeChecker(String j) {
-		this.json = j;
-	}
+  public ComputeChecker(String j) {
+    this.json = j;
+  }
 
-	public Result check() {
+  public Result check() {
 
-		InputStream is = this.getClass().getResourceAsStream("/crrschema.json");
+    InputStream is = this.getClass().getResourceAsStream("/crrschema.json");
 
-		String error = "No error";
-		try {
-			JSONObject rawSchema = new JSONObject(new JSONTokener(is));
-			Schema schema = SchemaLoader.load(rawSchema);
-			schema.validate(new JSONObject(json));
-		} catch (Exception e) {
-			error = e.getMessage();
-			return new Result(Result.SCHEMAFAULT, error);
-		}
-		// It's well formed JSON, and it complies with the schema. Does it have
-		// referential integrity?
-		ComputeIntegrityChecker rc = new ComputeIntegrityChecker(json);
-		String result = rc.check();
-		if (result.length() == 0) {
-			return new Result(Result.OK, "no errors");
-		} else {
-			return new Result(Result.INTEGRITYFAULT, result);
+    String error = "No error";
+    try {
+      JSONObject rawSchema = new JSONObject(new JSONTokener(is));
+      Schema schema = SchemaLoader.load(rawSchema);
+      schema.validate(new JSONObject(json));
+    } catch (Exception e) {
+      error = e.getMessage();
+      return new Result(Result.SCHEMAFAULT, error);
+    }
+    // It's well formed JSON, and it complies with the schema. Does it have
+    // referential integrity?
+    ComputeIntegrityChecker rc = new ComputeIntegrityChecker(json);
+    String result = rc.check();
+    if (result.length() == 0) {
+      return new Result(Result.OK, "no errors");
+    } else {
+      return new Result(Result.INTEGRITYFAULT, result);
 
-		}
-	}
+    }
+  }
 }

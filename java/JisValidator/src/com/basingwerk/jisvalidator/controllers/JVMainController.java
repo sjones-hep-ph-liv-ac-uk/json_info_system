@@ -18,68 +18,61 @@ import org.apache.log4j.Logger;
  */
 @WebServlet("/JVMainController")
 public class JVMainController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public JVMainController() {
-		super();
-	}
+  /**
+   * @see HttpServlet#HttpServlet()
+   */
+  public JVMainController() {
+    super();
+  }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		RequestDispatcher rd = null;
-		Logger logger = Logger.getLogger(JVMainController.class);
-		// logger.fatal(json);
+  /**
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+   *      response)
+   */
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    RequestDispatcher rd = null;
+    Logger logger = Logger.getLogger(JVMainController.class);
+    // logger.fatal(json);
 
-		String opt = request.getParameter("choiceofoption");
-	    // compare selected value 
-	    if ("Check compute JSON file".equals(opt)) {
-			rd = request.getRequestDispatcher("/JVCompute.jsp");
-			rd.forward(request, response);
-			return;
-	    }
-	    else if ("View the compute schema".equals(opt)) {
-			InputStream inputStream = this.getClass().getResourceAsStream("/crrschema.json");
-			Scanner s = new Scanner(inputStream).useDelimiter("\\A");
-			String result = s.hasNext() ? s.next() : "";
-			request.setAttribute("theSchema", result);
-			rd = request.getRequestDispatcher("/JVViewSchema.jsp");
-			rd.forward(request, response);
-			return;
-			
-	    }
-	    else if ("Check storage JSON file".equals(opt)) {
-			rd = request.getRequestDispatcher("/JVStorage.jsp");
-			rd.forward(request, response);
-			return;
-	    }
-	    else if ("View the storage schema".equals(opt)) {
-			InputStream inputStream = this.getClass().getResourceAsStream("/srrschema.json");
-			Scanner s = new Scanner(inputStream).useDelimiter("\\A");
-			String result = s.hasNext() ? s.next() : "";
-			request.setAttribute("theSchema", result);
-			rd = request.getRequestDispatcher("/JVViewSchema.jsp");
-			rd.forward(request, response);
-			return;
-	    }
-	    else {
-	    	response.getWriter().println("Not implemented yet");
-	    }
-	}
+    String opt = request.getParameter("choiceofoption");
+    // compare selected value
+    if ("Check compute JSON file".equals(opt)) {
+      rd = request.getRequestDispatcher("/JVCompute.jsp");
+      rd.forward(request, response);
+      return;
+    } else if ("View the compute schema".equals(opt)) {
+      InputStream inputStream = this.getClass().getResourceAsStream("/crrschema.json");
+      Scanner s = new Scanner(inputStream).useDelimiter("\\A");
+      String result = s.hasNext() ? s.next() : "";
+      request.setAttribute("theSchema", result);
+      rd = request.getRequestDispatcher("/JVViewSchema.jsp");
+      rd.forward(request, response);
+      return;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
-	}
+    } else if ("Check storage JSON file".equals(opt)) {
+      rd = request.getRequestDispatcher("/JVStorage.jsp");
+      rd.forward(request, response);
+      return;
+    } else if ("View the storage schema".equals(opt)) {
+      InputStream inputStream = this.getClass().getResourceAsStream("/srrschema.json");
+      Scanner s = new Scanner(inputStream).useDelimiter("\\A");
+      String result = s.hasNext() ? s.next() : "";
+      request.setAttribute("theSchema", result);
+      rd = request.getRequestDispatcher("/JVViewSchema.jsp");
+      rd.forward(request, response);
+      return;
+    } else {
+      response.getWriter().println("Not implemented yet");
+    }
+  }
+
+  /**
+   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+   *      response)
+   */
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    doGet(request, response);
+  }
 }
-

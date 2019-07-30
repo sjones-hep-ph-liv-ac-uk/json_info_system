@@ -14,58 +14,53 @@ import org.apache.log4j.Logger;
 import com.basingwerk.jisvalidator.checkers.ComputeChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
 
-
 /**
  * Servlet implementation class JVMainController
  */
 @WebServlet("/JVComputeController")
 public class JVComputeController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public JVComputeController() {
-		super();
-	}
+  /**
+   * @see HttpServlet#HttpServlet()
+   */
+  public JVComputeController() {
+    super();
+  }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		RequestDispatcher rd = null;
-		Logger logger = Logger.getLogger(JVComputeController.class);
-		// logger.fatal(json);
+  /**
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+   *      response)
+   */
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    RequestDispatcher rd = null;
+    Logger logger = Logger.getLogger(JVComputeController.class);
+    // logger.fatal(json);
 
-		String json = request.getParameter("jistext");
-		
-		ComputeChecker c = new ComputeChecker(json);
-		Result r = c.check();
-		
-		if (r.getCode() == Result.OK) {
-			request.setAttribute("theMessage", "No errors");
-			rd = request.getRequestDispatcher("/JVResultPage.jsp");
-			rd.forward(request, response);
-			return;
-		}
-		else {
-			request.setAttribute("theMessage", r.getDescription());
-			rd = request.getRequestDispatcher("/JVErrorPage.jsp");
-			rd.forward(request, response);
-			return;
-		}
-	}
+    String json = request.getParameter("jistext");
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
-	}
+    ComputeChecker c = new ComputeChecker(json);
+    Result r = c.check();
+
+    if (r.getCode() == Result.OK) {
+      request.setAttribute("theMessage", "No errors");
+      rd = request.getRequestDispatcher("/JVResultPage.jsp");
+      rd.forward(request, response);
+      return;
+    } else {
+      request.setAttribute("theMessage", r.getDescription());
+      rd = request.getRequestDispatcher("/JVErrorPage.jsp");
+      rd.forward(request, response);
+      return;
+    }
+  }
+
+  /**
+   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+   *      response)
+   */
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    doGet(request, response);
+  }
 
 }
-
