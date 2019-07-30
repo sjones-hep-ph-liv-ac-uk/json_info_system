@@ -1,0 +1,261 @@
+{
+    "storageservice": {
+        "datastores": [], 
+        "latestupdate": 1564413425, 
+        "name": "fal-pygrid-30.lancs.ac.uk", 
+        "implementation": "DPM", 
+        "storageendpoints": [
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "gsiftp", 
+                "name": "gsiftp", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "gsiftp://fal-pygrid-30.lancs.ac.uk/"
+            }, 
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "https", 
+                "name": "https", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "https://fal-pygrid-30.lancs.ac.uk/"
+            }, 
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "xrootd", 
+                "name": "xrootd", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "root://fal-pygrid-30.lancs.ac.uk/"
+            }, 
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "srm", 
+                "name": "srm", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "srm://fal-pygrid-30.lancs.ac.uk:8446/srm/managerv2?SFN=/"
+            }
+        ], 
+        "qualitylevel": "production", 
+        "storageshares": [
+            {
+                "name": "SNODATADISK", 
+                "servingstate": "open", 
+                "totalsize": 10995116277760, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 1493640751631, 
+                "vos": [
+                    "snoplus.snolab.ca/Role=production"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/snoplus.snolab.ca/production"
+                ]
+            }, 
+            {
+                "name": "dteam", 
+                "servingstate": "open", 
+                "totalsize": 1099511627776, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 111301689557, 
+                "vos": [
+                    "dteam"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/dteam"
+                ]
+            }, 
+            {
+                "name": "IRISDISKTEST", 
+                "servingstate": "open", 
+                "totalsize": 10737418240, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "dteam"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/dteam/iristtest"
+                ]
+            }, 
+            {
+                "name": "SKAPOOL", 
+                "servingstate": "open", 
+                "totalsize": 21990232555520, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 839285, 
+                "vos": [
+                    "skatelescope.eu"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/skatelescope.eu"
+                ]
+            }, 
+            {
+                "name": "ATLASLOCALGROUPDISK", 
+                "servingstate": "open", 
+                "totalsize": 549755813888000, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 245043319000241, 
+                "vos": [
+                    "atlas", 
+                    "atlas/Role=production"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/atlas/atlaslocalgroupdisk"
+                ]
+            }, 
+            {
+                "name": "dteam", 
+                "servingstate": "open", 
+                "totalsize": 53687091200, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 256841, 
+                "vos": [
+                    "ops"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/ops"
+                ]
+            }, 
+            {
+                "name": "lhcb", 
+                "servingstate": "open", 
+                "totalsize": 53687091200, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 6939, 
+                "vos": [
+                    "lhcb"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/lhcb"
+                ]
+            }, 
+            {
+                "name": "ATLASSCRATCHDISK", 
+                "servingstate": "open", 
+                "totalsize": 82463372083200, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 61908581427722, 
+                "vos": [
+                    "atlas", 
+                    "atlas/Role=production"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/atlas/atlasscratchdisk"
+                ]
+            }, 
+            {
+                "name": "T2KORGDISK", 
+                "servingstate": "open", 
+                "totalsize": 31885837205504, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 19736000323160, 
+                "vos": [
+                    "t2k.org"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/t2k.org"
+                ]
+            }, 
+            {
+                "name": "CTAPOOL", 
+                "servingstate": "open", 
+                "totalsize": 109951162777600, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 12236, 
+                "vos": [
+                    "vo.cta.in2p3.fr"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/vo.cta.in2p3.fr"
+                ]
+            }, 
+            {
+                "name": "ATLASDATADISK", 
+                "servingstate": "open", 
+                "totalsize": 2583852325273600, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 2307071357794681, 
+                "vos": [
+                    "atlas/Role=production"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/atlas"
+                ]
+            }, 
+            {
+                "name": "gridpp", 
+                "servingstate": "open", 
+                "totalsize": 53687091200, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 6973365059, 
+                "vos": [
+                    "gridpp"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/gridpp"
+                ]
+            }, 
+            {
+                "name": "LSSTPOOL", 
+                "servingstate": "open", 
+                "totalsize": 109951162777600, 
+                "timestamp": 1564413425, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 49448197857369, 
+                "vos": [
+                    "lsst"
+                ], 
+                "path": [
+                    "/dpm/lancs.ac.uk/home/lsst"
+                ]
+            }
+        ], 
+        "implementationversion": "1.13.0"
+    }
+}
+
