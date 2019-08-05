@@ -3,8 +3,9 @@ package com.basingwerk.jisvalidator.checkers;
 public class Result {
 
   public static int OK = 0;
-  public static int SCHEMAFAULT = 1;
-  public static int INTEGRITYFAULT = 2;
+  public static int PROGRAMFAULT = 1;
+  public static int SCHEMAFAULT = 2;
+  public static int INTEGRITYFAULT = 3;
 
   private final int code;
 

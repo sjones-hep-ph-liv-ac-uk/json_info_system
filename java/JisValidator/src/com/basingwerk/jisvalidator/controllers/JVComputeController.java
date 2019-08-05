@@ -35,23 +35,24 @@ public class JVComputeController extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     RequestDispatcher rd = null;
     Logger logger = Logger.getLogger(JVComputeController.class);
-    // logger.fatal(json);
 
     String json = request.getParameter("jistext");
 
-    ComputeChecker c = new ComputeChecker(json);
-    Result r = c.check();
+    ComputeChecker checker = new ComputeChecker(json);
+    Result result = checker.check();
 
-    if (r.getCode() == Result.OK) {
+    if (result.getCode() == Result.OK) {
       request.setAttribute("theMessage", "No errors");
       rd = request.getRequestDispatcher("/JVResultPage.jsp");
       rd.forward(request, response);
       return;
+      
     } else {
-      request.setAttribute("theMessage", r.getDescription());
+      request.setAttribute("theMessage", result.getDescription());
       rd = request.getRequestDispatcher("/JVErrorPage.jsp");
       rd.forward(request, response);
       return;
+      
     }
   }
 
@@ -62,5 +63,4 @@ public class JVComputeController extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     doGet(request, response);
   }
-
 }

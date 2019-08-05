@@ -38,7 +38,7 @@
   <form name="JVMain" action="JVComputeController" method="post" >
          Please paste your crr JSON in the text box and click the button:
          <br>
-         <textarea rows = "30" cols = "60" name = "jistext" class="span6 input-large search-query">
+         <textarea rows = "30" cols = "132" name = "jistext" class="span6 input-large search-query">
             ...replace this with the json you want to check ...
          </textarea><br>
          <input type = "submit" value = "Validate" />

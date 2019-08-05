@@ -1,7 +1,7 @@
 {
 	"storageservice": {
 		"name": "FZK-ATLAS",
-		"id": "global unique",
+		"id": "global uniqueA",
 		"servicetype": "org.wlcg.se",
 		"implementation": "dcache",
 		"implementationversion": "2.13.51",
@@ -28,7 +28,7 @@
 		"latestupdate": 1502719262,
 		"storageendpoints": [{
 				"name": "atlassrm",
-				"id": "global unique",
+				"id": "global uniqueB",
 				"endpointurl": "httpg://atlassrm-fzk.gridka.de:8443/srm/managerv2",
 				"interfacetype": "srm",
 				"interfaceversion": "2.2",
@@ -39,7 +39,7 @@
 			},
 			{
 				"name": "atlasgsiftp",
-				"id": "global unique",
+				"id": "global uniqueC",
 				"endpointurl": "gsiftp://f01-060-114-e.gridka.de:2811",
 				"interfacetype": "gsiftp",
 				"interfaceversion": "1.0.0",
@@ -52,7 +52,7 @@
 
 		"storageshares": [{
 				"name": "ATLASDATADISK",
-				"id": "global unique",
+				"id": "global uniqueD",
 				"policyrules": ["defaultpermission", "acl1", "acl2"],
 				"servingstate": "open",
 				"accessmode": ["read/0", "delete/2"],
@@ -111,7 +111,7 @@
 		],
 		"datastores": [{
 				"name": "ATLAS Tape",
-				"id": "global unique",
+				"id": "global uniqueE",
 				"datastoretype": "tape",
 				"accesslatency": "offline",
 				"totalsize": 45784567485956578,
@@ -125,7 +125,7 @@
 			},
 			{
 				"name": "ATLAS Disk",
-				"id": "global unique",
+				"id": "global uniqueF",
 				"datastoretype": "disk",
 				"accesslatency": "offline",
 				"totalsize": 45784567485956578,

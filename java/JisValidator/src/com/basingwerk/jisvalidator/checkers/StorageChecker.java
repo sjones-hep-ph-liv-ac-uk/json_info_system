@@ -2,6 +2,7 @@ package com.basingwerk.jisvalidator.checkers;
 
 import java.io.InputStream;
 
+import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
@@ -10,8 +11,10 @@ import org.json.JSONTokener;
 public class StorageChecker {
 
   private String json;
+  private Logger logger;
 
   public StorageChecker(String j) {
+    logger = Logger.getLogger(StorageChecker.class);
     this.json = j;
   }
 
@@ -28,14 +31,21 @@ public class StorageChecker {
       error = e.getMessage();
       return new Result(Result.SCHEMAFAULT, error);
     }
+
     // It's well formed JSON, and it complies with the schema. Does it have
     // referential integrity?
-    StorageIntegrityChecker rc = new StorageIntegrityChecker(json);
-    String result = rc.check();
-    if (result.length() == 0) {
+    try {
+      StorageSemanticChecker rc = new StorageSemanticChecker(json);
+      String result = rc.check();
+
+      if (result.length() != 0) 
+        return new Result(Result.INTEGRITYFAULT, result);
+
       return new Result(Result.OK, "no errors");
-    } else {
-      return new Result(Result.INTEGRITYFAULT, result);
+      
+    } catch (CheckerException e) {
+      error = e.getMessage();
+      return new Result(Result.PROGRAMFAULT, error);
     }
   }
 }

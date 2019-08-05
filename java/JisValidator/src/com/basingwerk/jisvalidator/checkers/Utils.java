@@ -34,4 +34,18 @@ public class Utils {
     }
     return duplicates;
   }
+
+  public static String getDuplicates(String[] list) {
+    // Return any duplicates in a list
+    String duplicates = "";
+    HashMap<String, Boolean> h = new HashMap<String, Boolean>();
+    for (String item : list) {
+      if (h.containsKey(item)) {
+        duplicates = duplicates + item + " ";
+      } else {
+        h.put(item, true);
+      }
+    }
+    return duplicates;
+  }
 }

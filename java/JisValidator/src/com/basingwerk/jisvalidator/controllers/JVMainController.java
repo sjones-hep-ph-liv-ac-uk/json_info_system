@@ -32,16 +32,16 @@ public class JVMainController extends HttpServlet {
    *      response)
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    RequestDispatcher rd = null;
     Logger logger = Logger.getLogger(JVMainController.class);
-    // logger.fatal(json);
+    RequestDispatcher rd = null;
 
     String opt = request.getParameter("choiceofoption");
-    // compare selected value
+
     if ("Check compute JSON file".equals(opt)) {
       rd = request.getRequestDispatcher("/JVCompute.jsp");
       rd.forward(request, response);
       return;
+      
     } else if ("View the compute schema".equals(opt)) {
       InputStream inputStream = this.getClass().getResourceAsStream("/crrschema.json");
       Scanner s = new Scanner(inputStream).useDelimiter("\\A");
@@ -55,6 +55,7 @@ public class JVMainController extends HttpServlet {
       rd = request.getRequestDispatcher("/JVStorage.jsp");
       rd.forward(request, response);
       return;
+      
     } else if ("View the storage schema".equals(opt)) {
       InputStream inputStream = this.getClass().getResourceAsStream("/srrschema.json");
       Scanner s = new Scanner(inputStream).useDelimiter("\\A");
@@ -63,6 +64,7 @@ public class JVMainController extends HttpServlet {
       rd = request.getRequestDispatcher("/JVViewSchema.jsp");
       rd.forward(request, response);
       return;
+      
     } else {
       response.getWriter().println("Not implemented yet");
     }
