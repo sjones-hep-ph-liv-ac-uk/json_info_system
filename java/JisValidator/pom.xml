@@ -15,10 +15,27 @@
 			<url>https://mvnrepository.com</url>
 		</repository>
 		<repository>
-			<id>https://repo.spring.io/plugins-release/</id>
+			<id>plugins-release/</id>
 			<name>https://repo.spring.io/plugins-release/</name>
 			<url>https://repo.spring.io/plugins-release/</url>
 		</repository>
+
+		<repository>
+			<id>xmlrpc</id>
+			<name>https://mvnrepository.com/artifact/org.apache.xmlrpc/xmlrpc</name>
+			<url>https://mvnrepository.com/artifact/org.apache.xmlrpc/xmlrpc</url>
+		</repository>
+
+		<repository>
+			<id>xmlrpc-common</id>
+			<name>https://mvnrepository.com/artifact/org.apache.xmlrpc/xmlrpc-common</name>
+			<url>https://mvnrepository.com/artifact/org.apache.xmlrpc/xmlrpc-common</url>
+		</repository>
+		<!-- <repository> -->
+		<!-- <id>spark-core</id> -->
+		<!-- <name>https://mvnrepository.com/artifact/org.apache.spark/spark-core</name> -->
+		<!-- <url>https://mvnrepository.com/artifact/org.apache.spark/spark-core</url> -->
+		<!-- </repository> -->
 	</repositories>
 
 
@@ -79,33 +96,32 @@
 			<artifactId>org.everit.json.schema</artifactId>
 			<version>1.0.0</version>
 		</dependency>
-<dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>jsp-api</artifactId>
-        <version>2.0</version>
-        <scope>provided</scope>
-    </dependency>
-<dependency>
-    <groupId>javax.servlet</groupId>
-    <artifactId>servlet-api</artifactId>
-    <version>2.5</version>
-</dependency>    
+
 		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.9.4</version>
+			<groupId>com.github.jsurfer</groupId>
+			<artifactId>jsurfer-core</artifactId>
+			<version>1.2.8</version>
 		</dependency>
 
 		<dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>javax.ws.rs</artifactId>
-			<version>1.0</version>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.7</version>
 		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -113,10 +129,82 @@
 			<scope>provided</scope>
 		</dependency>
 
+
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.9.6</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>javax.ws.rs</groupId> -->
+		<!-- <artifactId>javax.ws.rs</artifactId> -->
+		<!-- <version>1.0</version> -->
+		<!-- </dependency> -->
+
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-util</artifactId>
 			<version>8.0.30</version>
 		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>3.0.11.Final</version>
+			<!-- <scope>provided</scope> -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-multipart-provider</artifactId>
+			<version>3.0.11.Final</version>
+			<!-- <scope>provided</scope> -->
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxb-provider</artifactId>
+			<version>3.0.11.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>3.8.1.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson-provider</artifactId>
+			<version>3.0.11.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-multipart-provider</artifactId>
+			<version>3.0.11.Final</version>
+		</dependency>
 	</dependencies>
+
 </project>

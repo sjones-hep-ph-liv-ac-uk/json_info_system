@@ -38,7 +38,7 @@
 
    <div class="container"> 
 
-That  JSON was well formed,  compliant with the schema, and has relational integrity. 
+That  JSON was well formed,  compliant with the schema, and passes integrity checks.
 The message from the validator (if any) was:
 <br>     
 <br>${theMessage}
