@@ -20,24 +20,7 @@
 			<url>https://repo.spring.io/plugins-release/</url>
 		</repository>
 
-		<repository>
-			<id>xmlrpc</id>
-			<name>https://mvnrepository.com/artifact/org.apache.xmlrpc/xmlrpc</name>
-			<url>https://mvnrepository.com/artifact/org.apache.xmlrpc/xmlrpc</url>
-		</repository>
-
-		<repository>
-			<id>xmlrpc-common</id>
-			<name>https://mvnrepository.com/artifact/org.apache.xmlrpc/xmlrpc-common</name>
-			<url>https://mvnrepository.com/artifact/org.apache.xmlrpc/xmlrpc-common</url>
-		</repository>
-		<!-- <repository> -->
-		<!-- <id>spark-core</id> -->
-		<!-- <name>https://mvnrepository.com/artifact/org.apache.spark/spark-core</name> -->
-		<!-- <url>https://mvnrepository.com/artifact/org.apache.spark/spark-core</url> -->
-		<!-- </repository> -->
 	</repositories>
-
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -152,12 +135,6 @@
 			<version>2.9.6</version>
 		</dependency>
 
-		<!-- <dependency> -->
-		<!-- <groupId>javax.ws.rs</groupId> -->
-		<!-- <artifactId>javax.ws.rs</artifactId> -->
-		<!-- <version>1.0</version> -->
-		<!-- </dependency> -->
-
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-util</artifactId>
@@ -206,5 +183,4 @@
 			<version>3.0.11.Final</version>
 		</dependency>
 	</dependencies>
-
 </project>
