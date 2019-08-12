@@ -31,19 +31,22 @@ public class StorageSemanticChecker {
     }
 
     try {
-      StorageCapacity online = surfer.collectOne(theJson, StorageCapacity.class, "$.storageservice.storagecapacity.online");
-      if (online.validValues() != true) {
-        return "online storagecapacity is invalid";
-      }
+      Object o = surfer.collectOne(theJson, Object.class, "$.storageservice.storagecapacity");
+      if (o != null) {
+        StorageCapacity online = surfer.collectOne(theJson, StorageCapacity.class, "$.storageservice.storagecapacity.online");
+        if (online.validValues() != true) {
+          return "online storagecapacity is invalid";
+        }
 
-      StorageCapacity offline = surfer.collectOne(theJson, StorageCapacity.class, "$.storageservice.storagecapacity.offline");
-      if (offline.validValues() != true) {
-        return "offline storagecapacity is invalid";
-      }
+        StorageCapacity offline = surfer.collectOne(theJson, StorageCapacity.class, "$.storageservice.storagecapacity.offline");
+        if (offline.validValues() != true) {
+          return "offline storagecapacity is invalid";
+        }
 
-      StorageCapacity nearline = surfer.collectOne(theJson, StorageCapacity.class, "$.storageservice.storagecapacity.nearline");
-      if (nearline.validValues() != true) {
-        return "nearline storagecapacity is invalid";
+        StorageCapacity nearline = surfer.collectOne(theJson, StorageCapacity.class, "$.storageservice.storagecapacity.nearline");
+        if (nearline.validValues() != true) {
+          return "nearline storagecapacity is invalid";
+        }
       }
 
     } catch (NullPointerException n) {
@@ -84,18 +87,20 @@ public class StorageSemanticChecker {
       // Check VOs
       String voDups = Utils.getDuplicates(ss.getVos());
       if (voDups.length() > 0)
-        return "In storageshare " + ss.getName() + ", vos are not unique; "+ voDups;
+        return "In storageshare " + ss.getName() + ", vos are not unique; " + voDups;
 
       // Check path(s)
       String pathDups = Utils.getDuplicates(ss.getPath());
       if (pathDups.length() > 0)
-        return "In storageshare " + ss.getName() + ", path is not unique; "+ pathDups;
+        return "In storageshare " + ss.getName() + ", path is not unique; " + pathDups;
 
       // Check accessmodes
-      String amDups =  Utils.getDuplicates(ss.getAccessmode());
-      if (amDups.length() > 0) 
+      String [] am = ss.getAccessmode();
+      if (am != null) {
+      String amDups = Utils.getDuplicates(am);
+      if (amDups.length() > 0)
         return "In storageshare " + ss.getName() + ", accessmode  is not unique: " + amDups;
-
+      }
     }
 
     // Check datastores
@@ -106,18 +111,18 @@ public class StorageSemanticChecker {
       if (dsNamesUnique.containsKey(ds.getName()))
         return "datastore name " + ds.getName() + " is not unique";
       dsNamesUnique.put(ds.getName(), true);
-      
+
       if (dsIdsUnique.containsKey(ds.getId()))
         return "datastore id " + ds.getId() + " is not unique";
       dsIdsUnique.put(ds.getId(), true);
-      
+
     }
 
     // For each storageendpoint, ensure one assignedshare "all",
     // or that each assignedshare is amongst storageshares
     for (StorageEndpoint se : seps) {
       String assignedShares[] = se.getAssignedshares();
-      
+
       HashMap<String, Boolean> asUnique = new HashMap<String, Boolean>();
       for (String as : assignedShares) {
         if (asUnique.containsKey(as)) {
@@ -149,7 +154,7 @@ public class StorageSemanticChecker {
           return "In storageshare " + ss.getName() + ", assignedendpoint " + aep + " is not unique";
         }
         aepUnique.put(aep, true);
-        
+
         if (aep.equals("all")) {
           if (assignedEndpoints.length != 1) {
             return "In storageshare " + ss.getName() + ", assignedendpoint has all as well as discrete values";

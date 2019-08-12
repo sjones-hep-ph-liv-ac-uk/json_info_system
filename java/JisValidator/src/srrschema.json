@@ -8,8 +8,8 @@
 	"properties": {
 		"storageservice": {
 			"type": "object",
-			"required": ["name", "id", "servicetype", "implementation", "implementationversion",
-				"capabilities", "qualitylevel", "latestupdate", "storagecapacity", "storageendpoints", "storageshares", "datastores"
+			"required": ["name", "id", "implementation", "implementationversion",
+				"qualitylevel", "latestupdate", "storageendpoints", "storageshares", "datastores"
 			],
 			"additionalProperties": false,
 			"properties": {
@@ -20,8 +20,8 @@
 					"type": "string"
 				},
 				"servicetype": {
-					"type": "string",
-					"enum": ["org.wlcg.se", "org.wlcg.ce", "org.wlcg.atlas.se", "org.wlcg.fts", "org.wlcg.pilotfactory"]
+					"type": "string"
+					
 				},
 				"implementation": {
 					"type": "string"
@@ -32,11 +32,7 @@
 				"capabilities": {
 					"type": "array",
 					"items": {
-						"type": "string",
-						"enum": ["data.access.file", "data.access.streaming",
-							"data.access.relational", "data.access.xml", "data.management.replica", "data.management.storage",
-							"data.management.transfer", "data.management.3rdpartytransfer", "data.naming.resolver", "data.transfer"
-						]
+						"type": "string"
 					}
 				},
 				"qualitylevel": {
@@ -108,7 +104,7 @@
 					"type": "array",
 					"items": {
 						"type": "object",
-						"required": ["name", "id", "endpointurl", "interfacetype", "interfaceversion", "capabilities", "qualitylevel", "assignedshares"],
+						"required": ["name", "id", "endpointurl", "interfacetype", "qualitylevel", "assignedshares"],
 						"additionalProperties": false,
 						"properties": {
 							"name": {
@@ -129,11 +125,7 @@
 							"capabilities": {
 								"type": "array",
 								"items": {
-									"type": "string",
-									"enum": ["data.access.file", "data.access.streaming",
-										"data.access.relational", "data.access.xml", "data.management.replica", "data.management.storage",
-										"data.management.transfer", "data.management.3rdpartytransfer", "data.naming.resolver", "data.transfer"
-									]
+									"type": "string"
 								}
 							},
 							"qualitylevel": {
@@ -157,7 +149,7 @@
 					"type": "array",
 					"items": {
 						"type": "object",
-						"required": ["name", "id", "policyrules", "accessmode", "servingstate", "timestamp", "totalsize", "usedsize", "numberoffiles", "path", "assignedendpoints", "vos"],
+						"required": ["name", "id",  "servingstate", "timestamp", "totalsize", "usedsize", "numberoffiles", "path", "assignedendpoints", "vos"],
 						"additionalProperties": false,
 						"properties": {
 							"name": {
@@ -275,13 +267,16 @@
 							},
 							"bandwith": {
 								"type": "object",
-								"required": ["network", "disk"],
-								"additionalProperties": true,
+								"required": ["network", "disk", "etc"],
+								"additionalProperties": false,
 								"properties": {
 									"network": {
 										"type": "string"
 									},
 									"disk": {
+										"type": "string"
+									},
+									"etc": {
 										"type": "string"
 									}
 								}

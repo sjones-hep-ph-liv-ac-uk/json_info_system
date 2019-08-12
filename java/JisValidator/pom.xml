@@ -15,7 +15,7 @@
 			<url>https://mvnrepository.com</url>
 		</repository>
 		<repository>
-			<id>plugins-release/</id>
+			<id>plugins-release</id>
 			<name>https://repo.spring.io/plugins-release/</name>
 			<url>https://repo.spring.io/plugins-release/</url>
 		</repository>
@@ -31,11 +31,6 @@
 			<name>https://mvnrepository.com/artifact/org.apache.xmlrpc/xmlrpc-common</name>
 			<url>https://mvnrepository.com/artifact/org.apache.xmlrpc/xmlrpc-common</url>
 		</repository>
-		<!-- <repository> -->
-		<!-- <id>spark-core</id> -->
-		<!-- <name>https://mvnrepository.com/artifact/org.apache.spark/spark-core</name> -->
-		<!-- <url>https://mvnrepository.com/artifact/org.apache.spark/spark-core</url> -->
-		<!-- </repository> -->
 	</repositories>
 
 
@@ -51,13 +46,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<webXml>./WebContent/WEB-INF/web.xml</webXml>
-				</configuration>
-			</plugin>
+
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.1</version>
@@ -69,6 +58,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
+				<version>1.1</version>
 				<configuration>
 					<url>http://127.0.0.1:8080/manager/text</url>
 					<server>mytomcat</server>
@@ -152,12 +142,6 @@
 			<version>2.9.6</version>
 		</dependency>
 
-		<!-- <dependency> -->
-		<!-- <groupId>javax.ws.rs</groupId> -->
-		<!-- <artifactId>javax.ws.rs</artifactId> -->
-		<!-- <version>1.0</version> -->
-		<!-- </dependency> -->
-
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-util</artifactId>
@@ -174,14 +158,12 @@
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
 			<version>3.0.11.Final</version>
-			<!-- <scope>provided</scope> -->
 		</dependency>
 
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-multipart-provider</artifactId>
 			<version>3.0.11.Final</version>
-			<!-- <scope>provided</scope> -->
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
@@ -191,20 +173,10 @@
 
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
-			<artifactId>resteasy-jaxrs</artifactId>
-			<version>3.8.1.Final</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jackson-provider</artifactId>
 			<version>3.0.11.Final</version>
 		</dependency>
-		<dependency>
-			<groupId>org.jboss.resteasy</groupId>
-			<artifactId>resteasy-multipart-provider</artifactId>
-			<version>3.0.11.Final</version>
-		</dependency>
+
 	</dependencies>
 
 </project>
