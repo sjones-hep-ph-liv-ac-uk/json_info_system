@@ -64,7 +64,7 @@
 					<server>mytomcat</server>
 					<path>/JisValidator</path>
 					<username>tcadmin</username>
-					<password>jgDS62GV</password>
+					<password>somerubbish</password>
 				</configuration>
 			</plugin>
 		</plugins>
