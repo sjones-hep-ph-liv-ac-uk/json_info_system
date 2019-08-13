@@ -9,6 +9,7 @@ import com.basingwerk.jisvalidator.jsonsurferhelpers.DataStore;
 import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageCapacity;
 import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageEndpoint;
 import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageShare;
+import com.basingwerk.jisvalidator.utils.Utils;
 
 public class StorageSemanticChecker {
   private Logger logger;

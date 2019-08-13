@@ -43,7 +43,7 @@ public class JVMainController extends HttpServlet {
       return;
       
     } else if ("View the compute schema".equals(opt)) {
-      InputStream inputStream = this.getClass().getResourceAsStream("/crrschema.json");
+      InputStream inputStream = this.getClass().getResourceAsStream("/crrschema_1.5.json");
       Scanner s = new Scanner(inputStream).useDelimiter("\\A");
       String result = s.hasNext() ? s.next() : "";
       request.setAttribute("theSchema", result);
@@ -57,7 +57,7 @@ public class JVMainController extends HttpServlet {
       return;
       
     } else if ("View the storage schema".equals(opt)) {
-      InputStream inputStream = this.getClass().getResourceAsStream("/srrschema.json");
+      InputStream inputStream = this.getClass().getResourceAsStream("/srrschema_4.1.json");
       Scanner s = new Scanner(inputStream).useDelimiter("\\A");
       String result = s.hasNext() ? s.next() : "";
       request.setAttribute("theSchema", result);

@@ -1,0 +1,293 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://http://wlcg.cern.ch/srr_v4.0.json",
+	"type": "object",
+	"title": "Storage Resource Reporting Schema",
+	"required": ["storageservice"],
+	"additionalProperties": false,
+	"properties": {
+		"storageservice": {
+			"type": "object",
+			"required": ["name", "id", "implementation", "implementationversion",
+				"qualitylevel", "latestupdate", "storageendpoints", "storageshares", "datastores"
+			],
+			"additionalProperties": false,
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"servicetype": {
+					"type": "string"
+					
+				},
+				"implementation": {
+					"type": "string"
+				},
+				"implementationversion": {
+					"type": "string"
+				},
+				"capabilities": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"qualitylevel": {
+					"type": "string",
+					"enum": ["development", "testing", "pre-production", "production"]
+				},
+				"message": {
+					"type": "string"
+				},
+				"latestupdate": {
+					"type": "number"
+				},
+				"storagecapacity": {
+					"type": "object",
+					"required": ["online", "offline", "nearline"],
+					"additionalProperties": false,
+					"properties": {
+						"online": {
+							"type": "object",
+							"required": ["totalsize", "usedsize", "reservedsize"],
+							"additionalProperties": false,
+							"properties": {
+								"totalsize": {
+									"type": "number"
+								},
+								"usedsize": {
+									"type": "number"
+								},
+								"reservedsize": {
+									"type": "number"
+								}
+							}
+						},
+						"offline": {
+							"type": "object",
+							"required": ["totalsize", "usedsize", "reservedsize"],
+							"additionalProperties": false,
+							"properties": {
+								"totalsize": {
+									"type": "number"
+								},
+								"usedsize": {
+									"type": "number"
+								},
+								"reservedsize": {
+									"type": "number"
+								}
+							}
+						},
+						"nearline": {
+							"type": "object",
+							"required": ["totalsize", "usedsize", "reservedsize"],
+							"additionalProperties": false,
+							"properties": {
+								"totalsize": {
+									"type": "number"
+								},
+								"usedsize": {
+									"type": "number"
+								},
+								"reservedsize": {
+									"type": "number"
+								}
+							}
+						}
+					}
+				},
+				"storageendpoints": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"required": ["name", "id", "endpointurl", "interfacetype", "qualitylevel", "assignedshares"],
+						"additionalProperties": false,
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"id": {
+								"type": "string"
+							},
+							"endpointurl": {
+								"type": "string"
+							},
+							"interfacetype": {
+								"type": "string"
+							},
+							"interfaceversion": {
+								"type": "string"
+							},
+							"capabilities": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							},
+							"qualitylevel": {
+								"type": "string",
+								"enum": ["development", "testing", "pre-production", "production"]
+							},
+							"assignedshares": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							},
+							"message": {
+								"type": "string"
+							}
+						}
+					}
+				},
+
+				"storageshares": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"required": ["name", "id",  "servingstate", "timestamp", "totalsize", "usedsize", "numberoffiles", "path", "assignedendpoints", "vos"],
+						"additionalProperties": false,
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"id": {
+								"type": "string"
+							},
+							"policyrules": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							},
+							"accessmode": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							},
+							"accesslatency": {
+								"type": "string",
+								"enum": ["online", "offline", "nearline"]
+							},
+							"servingstate": {
+								"type": "string",
+								"enum": ["open", "closed", "draining"]
+							},
+							"retentionpolicy": {
+								"type": "string",
+								"enum": ["none", "intermediate", "replicated"]
+							},
+							"lifetime": {
+								"type": "object",
+								"required": [],
+								"additionalProperties": false,
+								"properties": {
+									"default": {
+										"type": "string"
+									},
+									"maximum": {
+										"type": "string"
+									},
+									"expiration": {
+										"type": "string",
+										"enum": ["release", "warn", "never"]
+									}
+								}
+							},
+							"timestamp": {
+								"type": "number"
+							},
+							"totalsize": {
+								"type": "number"
+							},
+							"usedsize": {
+								"type": "number"
+							},
+							"numberoffiles": {
+								"type": "number"
+							},
+							"path": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							},
+							"assignedendpoints": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							},
+							"vos": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							},
+							"message": {
+								"type": "string"
+							}
+						}
+					}
+				},
+
+
+
+				"datastores": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"required": ["name", "id", "datastoretype", "accesslatency", "totalsize", "vendor", "bandwith"],
+						"additionalProperties": false,
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"id": {
+								"type": "string"
+							},
+							"datastoretype": {
+								"type": "string",
+								"enum": ["disk", "tape", "cloud"]
+							},
+							"accesslatency": {
+								"type": "string",
+								"enum": ["online", "offline", "nearline"]
+							},
+							"totalsize": {
+								"type": "number"
+							},
+							"vendor": {
+								"type": "string"
+							},
+							"bandwith": {
+								"type": "object",
+								"required": ["network", "disk", "etc"],
+								"additionalProperties": false,
+								"properties": {
+									"network": {
+										"type": "string"
+									},
+									"disk": {
+										"type": "string"
+									},
+									"etc": {
+										"type": "string"
+									}
+								}
+							},
+							"message": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

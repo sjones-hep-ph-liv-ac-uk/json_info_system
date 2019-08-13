@@ -3,6 +3,8 @@ package com.basingwerk.jisvalidator.checkers;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import com.basingwerk.jisvalidator.utils.Utils;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
