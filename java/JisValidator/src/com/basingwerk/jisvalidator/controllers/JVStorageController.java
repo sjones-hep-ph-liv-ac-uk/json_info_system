@@ -8,10 +8,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.everit.json.schema.Schema;
+
 //import org.everit.json.schema.*;
 import com.basingwerk.jisvalidator.checkers.StorageChecker;
+import com.basingwerk.jisvalidator.schema.SchemaHashMap;
 import com.basingwerk.jisvalidator.checkers.ComputeChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
 
@@ -38,8 +42,13 @@ public class JVStorageController extends HttpServlet {
     RequestDispatcher rd = null;
 
     String json = request.getParameter("jistext");
+    
+    HttpSession session = request.getSession(true);
+    String schemaVersion = (String) session.getAttribute("schemaVersion");
+    SchemaHashMap shm = new SchemaHashMap("srrschema_([\\d.]+)\\.json");
+    Schema schema = shm.get(schemaVersion);
 
-    StorageChecker checker = new StorageChecker(json);
+    StorageChecker checker = new StorageChecker(json,schema);
     Result result = checker.check();
 
     if (result.getCode() == Result.OK) {
@@ -49,6 +58,10 @@ public class JVStorageController extends HttpServlet {
       return;
       
     } else {
+      if (result.getDescription().length() > 0) 
+        request.setAttribute("theMessage", result.getDescription());
+      else 
+        request.setAttribute("theMessage", "Unknown error");
       request.setAttribute("theMessage", result.getDescription());
       rd = request.getRequestDispatcher("/JVErrorPage.jsp");
       rd.forward(request, response);

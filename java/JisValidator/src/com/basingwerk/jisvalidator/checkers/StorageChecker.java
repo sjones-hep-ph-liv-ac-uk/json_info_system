@@ -9,32 +9,26 @@ import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import com.basingwerk.jisvalidator.schema.CombinedSchemas;
 import com.basingwerk.jisvalidator.schema.SchemaHashMap;
 
 public class StorageChecker {
 
-  private String json;
+  private String jsonToCheck;
+  private Schema schema;
   private Logger logger;
 
-  public StorageChecker(String j) {
-    logger = Logger.getLogger(StorageChecker.class);
-    this.json = j;
+  public StorageChecker(String j, Schema s) {
+    this.jsonToCheck = j;
+    this.schema = s;
+    logger = Logger.getLogger(ComputeChecker.class);
   }
 
   public Result check() {
 
-//    InputStream is = this.getClass().getResourceAsStream("/srrschema_4.1.json");
-//    JSONObject rawSchema = new JSONObject(new JSONTokener(is));
-//    Schema schema = SchemaLoader.load(rawSchema);
-
-    SchemaHashMap shm = new SchemaHashMap("srrschema_([\\d.]+)\\.json");
-    String latest = shm.findLatestVersion();
-    Schema schema = shm.get(latest);
 
     String error = "No error";
     try {
-      schema.validate(new JSONObject(json));
+      schema.validate(new JSONObject(jsonToCheck));
     } catch (Exception e) {
       error = e.getMessage();
       return new Result(Result.SCHEMAFAULT, error);
@@ -43,7 +37,7 @@ public class StorageChecker {
     // It's well formed JSON, and it complies with the schema. Does it have
     // referential integrity?
     try {
-      StorageSemanticChecker rc = new StorageSemanticChecker(json);
+      StorageSemanticChecker rc = new StorageSemanticChecker(jsonToCheck);
       String result = rc.check();
 
       if (result.length() != 0)

@@ -24,7 +24,7 @@ public class Result implements Serializable  {
   @XmlElement(name = "description")
   private final String description;
 
-  Result(int code, String description) {
+  public Result(int code, String description) {
     this.code = code;
     this.description = description;
   }

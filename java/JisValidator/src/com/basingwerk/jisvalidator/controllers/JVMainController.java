@@ -10,8 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.everit.json.schema.Schema;
+
+import com.basingwerk.jisvalidator.schema.SchemaHashMap;
 
 /**
  * Servlet implementation class JVMainController
@@ -38,26 +42,42 @@ public class JVMainController extends HttpServlet {
     String opt = request.getParameter("choiceofoption");
 
     if ("Check compute JSON file".equals(opt)) {
+      String schemaVersion = request.getParameter("useCrrSchema");
+      HttpSession sess=request.getSession();
+      sess.setAttribute("schemaVersion",schemaVersion);
       rd = request.getRequestDispatcher("/JVCompute.jsp");
       rd.forward(request, response);
       return;
       
     } else if ("View the compute schema".equals(opt)) {
-      InputStream inputStream = this.getClass().getResourceAsStream("/crrschema_1.5.json");
+      String schemaVersion = request.getParameter("seeCrrSchema");
+      HttpSession sess=request.getSession();
+      sess.setAttribute("schemaVersion",schemaVersion);
+      
+      String schemaResource = "/crrschema_"+ schemaVersion + ".json";
+      InputStream inputStream = this.getClass().getResourceAsStream(schemaResource);
       Scanner s = new Scanner(inputStream).useDelimiter("\\A");
       String result = s.hasNext() ? s.next() : "";
+      
       request.setAttribute("theSchema", result);
       rd = request.getRequestDispatcher("/JVViewSchema.jsp");
       rd.forward(request, response);
       return;
 
     } else if ("Check storage JSON file".equals(opt)) {
+      String schemaVersion = request.getParameter("useSrrSchema");
+      HttpSession sess=request.getSession();
+      sess.setAttribute("schemaVersion",schemaVersion);
       rd = request.getRequestDispatcher("/JVStorage.jsp");
       rd.forward(request, response);
-      return;
       
     } else if ("View the storage schema".equals(opt)) {
-      InputStream inputStream = this.getClass().getResourceAsStream("/srrschema_4.1.json");
+      String schemaVersion = request.getParameter("seeSrrSchema");
+      HttpSession sess=request.getSession();
+      sess.setAttribute("schemaVersion",schemaVersion);
+
+      String schemaResource = "/srrschema_"+ schemaVersion + ".json";
+      InputStream inputStream = this.getClass().getResourceAsStream(schemaResource);
       Scanner s = new Scanner(inputStream).useDelimiter("\\A");
       String result = s.hasNext() ? s.next() : "";
       request.setAttribute("theSchema", result);
