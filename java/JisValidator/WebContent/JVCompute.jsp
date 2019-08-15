@@ -15,7 +15,6 @@
       }
     </style>
     <link href=href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"  rel="stylesheet">
-
   </head>
 
   <body>
