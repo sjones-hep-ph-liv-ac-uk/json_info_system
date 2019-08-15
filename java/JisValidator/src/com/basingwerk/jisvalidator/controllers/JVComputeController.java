@@ -46,19 +46,21 @@ public class JVComputeController extends HttpServlet {
     SchemaHashMap shm = new SchemaHashMap("crrschema_([\\d.]+)\\.json");
     Schema schema = shm.get(schemaVersion);
 
-    ComputeChecker checker = new ComputeChecker(json, schema);
+    String integrity = (String) session.getAttribute("checkCrrIntegrity");
+    ComputeChecker checker = new ComputeChecker(json, schema, integrity);
+
     Result result = checker.check();
 
     if (result.getCode() == Result.OK) {
-      request.setAttribute("theMessage", "No errors");
+      request.setAttribute("theMessage", result.getDescription());
       rd = request.getRequestDispatcher("/JVResultPage.jsp");
       rd.forward(request, response);
       return;
 
     } else {
-      if (result.getDescription().length() > 0) 
+      if (result.getDescription().length() > 0)
         request.setAttribute("theMessage", result.getDescription());
-      else 
+      else
         request.setAttribute("theMessage", "Unknown error");
       rd = request.getRequestDispatcher("/JVErrorPage.jsp");
       rd.forward(request, response);

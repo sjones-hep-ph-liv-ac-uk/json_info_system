@@ -42,31 +42,33 @@ public class JVStorageController extends HttpServlet {
     RequestDispatcher rd = null;
 
     String json = request.getParameter("jistext");
-    
+
     HttpSession session = request.getSession(true);
     String schemaVersion = (String) session.getAttribute("schemaVersion");
     SchemaHashMap shm = new SchemaHashMap("srrschema_([\\d.]+)\\.json");
     Schema schema = shm.get(schemaVersion);
 
-    StorageChecker checker = new StorageChecker(json,schema);
+    String integrity = (String) session.getAttribute("checkSrrIntegrity");
+    StorageChecker checker = new StorageChecker(json, schema, integrity);
+
     Result result = checker.check();
 
     if (result.getCode() == Result.OK) {
-      request.setAttribute("theMessage", "No errors");
+      request.setAttribute("theMessage", result.getDescription());
       rd = request.getRequestDispatcher("/JVResultPage.jsp");
       rd.forward(request, response);
       return;
-      
+
     } else {
-      if (result.getDescription().length() > 0) 
+      if (result.getDescription().length() > 0)
         request.setAttribute("theMessage", result.getDescription());
-      else 
+      else
         request.setAttribute("theMessage", "Unknown error");
       request.setAttribute("theMessage", result.getDescription());
       rd = request.getRequestDispatcher("/JVErrorPage.jsp");
       rd.forward(request, response);
       return;
-      
+
     }
   }
 

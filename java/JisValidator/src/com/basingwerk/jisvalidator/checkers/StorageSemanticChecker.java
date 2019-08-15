@@ -96,11 +96,11 @@ public class StorageSemanticChecker {
         return "In storageshare " + ss.getName() + ", path is not unique; " + pathDups;
 
       // Check accessmodes
-      String [] am = ss.getAccessmode();
+      String[] am = ss.getAccessmode();
       if (am != null) {
-      String amDups = Utils.getDuplicates(am);
-      if (amDups.length() > 0)
-        return "In storageshare " + ss.getName() + ", accessmode  is not unique: " + amDups;
+        String amDups = Utils.getDuplicates(am);
+        if (amDups.length() > 0)
+          return "In storageshare " + ss.getName() + ", accessmode  is not unique: " + amDups;
       }
     }
 

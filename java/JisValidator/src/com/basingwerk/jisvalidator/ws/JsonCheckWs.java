@@ -39,21 +39,22 @@ public class JsonCheckWs {
   private Logger logger;
 
   @POST
-  @Path("/srr")
+  @Path("/crr")
   @Consumes("multipart/form-data")
   @Produces("application/json")
-
-  public Response uploadSrrFile(@QueryParam("ver") String ver, MultipartFormDataInput input) {
-// curl -i  -F jsonfile=@/root/dev/json_info_system/srr/v4.0/test/storage_service_v4.json https://hep.ph.liv.ac.uk/JisValidator/rest/jsoncheckws/srr?ver=4.1
-
+  public Response uploadCrrFile(@QueryParam("ver") String ver, @QueryParam("integrity") String integrity,
+      MultipartFormDataInput input) {
     Result result;
 
     // What schema to use
-    SchemaHashMap shm = new SchemaHashMap("srrschema_([\\d.]+)\\.json");
-    if (ver == null) {
+    SchemaHashMap shm = new SchemaHashMap("crrschema_([\\d.]+)\\.json");
+
+    // param defaults
+    if (ver == null)
       ver = shm.findLatestVersion();
-    }
-    logger.fatal("ver == " + ver);
+    if (integrity == null)
+      integrity = "no";
+
     Schema schema = shm.get(ver);
     if (schema == null) {
       result = new Result(20, "Schema version not found ");
@@ -71,12 +72,11 @@ public class JsonCheckWs {
 
         // Handle the body of that part with an InputStream
         InputStream istream = inputPart.getBody(InputStream.class, null);
-        String json = convertStreamToString(istream);
-        StorageChecker checker = new StorageChecker(json, schema);
-        result = checker.check();
-        // return Response.status(404).build();
-        return Response.status(200).entity(result).build();
 
+        String json = convertStreamToString(istream);
+        ComputeChecker checker = new ComputeChecker(json, schema, integrity);
+        result = checker.check();
+        return Response.status(200).entity(result).build();
       } catch (IOException e) {
       }
     }
@@ -84,20 +84,25 @@ public class JsonCheckWs {
   }
 
   @POST
-  @Path("/crr")
+  @Path("/srr")
   @Consumes("multipart/form-data")
   @Produces("application/json")
-  public Response uploadCrrFile(@QueryParam("ver") String ver, MultipartFormDataInput input) {
+
+  public Response uploadSrrFile(@QueryParam("ver") String ver, @QueryParam("integrity") String integrity,
+      MultipartFormDataInput input) {
+// curl -i  -F jsonfile=@/root/dev/json_info_system/srr/v4.0/test/storage_service_v4.json https://hep.ph.liv.ac.uk/JisValidator/rest/jsoncheckws/srr?ver=4.1
 
     Result result;
-    
 
     // What schema to use
-    SchemaHashMap shm = new SchemaHashMap("crrschema_([\\d.]+)\\.json");
-    if (ver == null) {
+    SchemaHashMap shm = new SchemaHashMap("srrschema_([\\d.]+)\\.json");
+
+    // param defaults
+    if (ver == null)
       ver = shm.findLatestVersion();
-    }
-    logger.fatal("ver == " + ver);
+    if (integrity == null)
+      integrity = "no";
+
     Schema schema = shm.get(ver);
     if (schema == null) {
       result = new Result(20, "Schema version not found ");
@@ -115,11 +120,12 @@ public class JsonCheckWs {
 
         // Handle the body of that part with an InputStream
         InputStream istream = inputPart.getBody(InputStream.class, null);
-
         String json = convertStreamToString(istream);
-        ComputeChecker checker = new ComputeChecker(json, schema);
+        StorageChecker checker = new StorageChecker(json, schema, integrity);
         result = checker.check();
+        // return Response.status(404).build();
         return Response.status(200).entity(result).build();
+
       } catch (IOException e) {
       }
     }

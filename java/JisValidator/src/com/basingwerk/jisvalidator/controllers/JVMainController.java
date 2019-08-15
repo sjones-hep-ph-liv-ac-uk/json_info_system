@@ -42,41 +42,53 @@ public class JVMainController extends HttpServlet {
     String opt = request.getParameter("choiceofoption");
 
     if ("Check compute JSON file".equals(opt)) {
+      HttpSession sess = request.getSession();
       String schemaVersion = request.getParameter("useCrrSchema");
-      HttpSession sess=request.getSession();
-      sess.setAttribute("schemaVersion",schemaVersion);
+      sess.setAttribute("schemaVersion", schemaVersion);
+
+      String integrity = request.getParameter("checkCrrIntegrity");
+      if (integrity == null)
+        integrity = "no";
+      sess.setAttribute("checkCrrIntegrity", integrity);
+
       rd = request.getRequestDispatcher("/JVCompute.jsp");
       rd.forward(request, response);
       return;
-      
+
     } else if ("View the compute schema".equals(opt)) {
+      HttpSession sess = request.getSession();
       String schemaVersion = request.getParameter("seeCrrSchema");
-      HttpSession sess=request.getSession();
-      sess.setAttribute("schemaVersion",schemaVersion);
-      
-      String schemaResource = "/crrschema_"+ schemaVersion + ".json";
+      sess.setAttribute("schemaVersion", schemaVersion);
+
+      String schemaResource = "/crrschema_" + schemaVersion + ".json";
       InputStream inputStream = this.getClass().getResourceAsStream(schemaResource);
       Scanner s = new Scanner(inputStream).useDelimiter("\\A");
       String result = s.hasNext() ? s.next() : "";
-      
+
       request.setAttribute("theSchema", result);
       rd = request.getRequestDispatcher("/JVViewSchema.jsp");
       rd.forward(request, response);
       return;
 
     } else if ("Check storage JSON file".equals(opt)) {
+      HttpSession sess = request.getSession();
       String schemaVersion = request.getParameter("useSrrSchema");
-      HttpSession sess=request.getSession();
-      sess.setAttribute("schemaVersion",schemaVersion);
+      sess.setAttribute("schemaVersion", schemaVersion);
+
+      String integrity = request.getParameter("checkSrrIntegrity");
+      if (integrity == null)
+        integrity = "no";
+      sess.setAttribute("checkSrrIntegrity", integrity);
+
       rd = request.getRequestDispatcher("/JVStorage.jsp");
       rd.forward(request, response);
-      
-    } else if ("View the storage schema".equals(opt)) {
-      String schemaVersion = request.getParameter("seeSrrSchema");
-      HttpSession sess=request.getSession();
-      sess.setAttribute("schemaVersion",schemaVersion);
 
-      String schemaResource = "/srrschema_"+ schemaVersion + ".json";
+    } else if ("View the storage schema".equals(opt)) {
+      HttpSession sess = request.getSession();
+      String schemaVersion = request.getParameter("seeSrrSchema");
+      sess.setAttribute("schemaVersion", schemaVersion);
+
+      String schemaResource = "/srrschema_" + schemaVersion + ".json";
       InputStream inputStream = this.getClass().getResourceAsStream(schemaResource);
       Scanner s = new Scanner(inputStream).useDelimiter("\\A");
       String result = s.hasNext() ? s.next() : "";
@@ -84,7 +96,7 @@ public class JVMainController extends HttpServlet {
       rd = request.getRequestDispatcher("/JVViewSchema.jsp");
       rd.forward(request, response);
       return;
-      
+
     } else {
       response.getWriter().println("Not implemented yet");
     }

@@ -191,11 +191,11 @@ public class ComputeSemanticChecker {
 
         // ---------------------------------------
         // Wind it through the levels
-        if (text.equals("{")) 
+        if (text.equals("{"))
           currentLevel++;
-        if (text.equals("}")) 
+        if (text.equals("}"))
           currentLevel--;
-        
+
       }
       jParser.close();
     } catch (IOException e) {

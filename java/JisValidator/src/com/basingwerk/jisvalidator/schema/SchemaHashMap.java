@@ -23,7 +23,7 @@ import org.json.JSONTokener;
 import com.basingwerk.jisvalidator.utils.VersionSorter;
 
 public class SchemaHashMap extends HashMap<String, Schema> {
-  
+
   private Pattern filePattern;
 
   public SchemaHashMap(String regex) {
@@ -48,7 +48,7 @@ public class SchemaHashMap extends HashMap<String, Schema> {
         try {
           is = new FileInputStream(f);
           JSONObject rawSchema = new JSONObject(new JSONTokener(is));
-          
+
           Schema s = SchemaLoader.load(rawSchema);
           is.close();
           this.put(version, s);
@@ -57,17 +57,16 @@ public class SchemaHashMap extends HashMap<String, Schema> {
       }
     }
   }
-  
-  public  List getKeys() {
+
+  public List getKeys() {
     Set<String> ks = this.keySet();
     List<String> list = convertSetToList(ks);
     Collections.sort(list, new VersionSorter());
     Collections.reverse(list);
     return list;
   }
-  
-  
-  public  String  findLatestVersion() {
+
+  public String findLatestVersion() {
 //    Set<String> keySet = this.keySet();
 //    String[] keys= keySet.toArray(new String[0]);
 //    Arrays.sort(keys, new VersionSorter());
@@ -77,22 +76,21 @@ public class SchemaHashMap extends HashMap<String, Schema> {
     Collections.sort(list, new VersionSorter());
     Collections.reverse(list);
     return list.get(0);
-    
+
   }
 
-  public static <T> List<T> convertSetToList(Set<T> set) 
-  { 
-      // create an empty list 
-      List<T> list = new ArrayList<>(); 
+  public static <T> List<T> convertSetToList(Set<T> set) {
+    // create an empty list
+    List<T> list = new ArrayList<>();
 
-      // push each element in the set into the list 
-      for (T t : set) 
-          list.add(t); 
+    // push each element in the set into the list
+    for (T t : set)
+      list.add(t);
 
-      // return the list 
-      return list; 
-  }   
-  
+    // return the list
+    return list;
+  }
+
   private static File[] getResourceFolderFiles(String folder) {
     ClassLoader loader = Thread.currentThread().getContextClassLoader();
     URL url = loader.getResource(folder);
@@ -107,11 +105,11 @@ public class SchemaHashMap extends HashMap<String, Schema> {
     Schema schema = shm.get(latest);
     System.out.println(schema.toString());
   }
-  
+
   public String sayHello() {
     return "Hello";
   }
-  
+
   public int countSchemas() {
     List s = this.getKeys();
     return s.size();

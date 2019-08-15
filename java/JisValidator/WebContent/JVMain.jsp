@@ -53,7 +53,7 @@
 
 	<form name="JVMain" action="JVMainController" method="post">
 		<h2>Welcome to the JSON information system validation website</h2>
-		<h3>Chose a action, and the schema version to use</h3>
+		<h3>Chose an action, the schema version to use, and whether to make an optional integrity check</h3>
 		<br>
 
 		<form name="JVMain" action="JVMainController" method="post">
@@ -69,19 +69,7 @@
 							</c:forEach>
 					</select>
 					</td>
-				</tr>
-				<tr>
-					<td></label> <label class='radiolabel'> <input type="radio"
-							name="choiceofoption" value="View the compute schema" />View the
-							compute schema </td>
-					<td>
-					<select id="seeCrrSchema" name="seeCrrSchema">
-							<c:forEach var="crrkey" items="${crrkeys}">
-								<option value="${crrkey}">${crrkey}</option>
-							</c:forEach>
-					</select>
-					</td>
-							
+					<td>Check integrity <input type="checkbox" name="checkCrrIntegrity" value="yes"> </td>
 				</tr>
 				<tr>
 					<td>
@@ -97,8 +85,22 @@
 							</c:forEach>
 					</select>
 					</td>
-				
+					<td>Check integrity <input type="checkbox" name="checkSrrIntegrity" value="yes"> </td>
 				</tr>
+				<tr>
+					<td></label> <label class='radiolabel'> <input type="radio"
+							name="choiceofoption" value="View the compute schema" />View the
+							compute schema </td>
+					<td>
+					<select id="seeCrrSchema" name="seeCrrSchema">
+							<c:forEach var="crrkey" items="${crrkeys}">
+								<option value="${crrkey}">${crrkey}</option>
+							</c:forEach>
+					</select>
+					</td>
+					<td> </td>
+				</tr>
+
 				<tr>
 					<td>
 				</label>
@@ -113,6 +115,7 @@
 							</c:forEach>
 					</select>
 					</td>
+					<td></td>
 				</tr>
 			</table>
 			</label> <input type="submit" value="Chose" />

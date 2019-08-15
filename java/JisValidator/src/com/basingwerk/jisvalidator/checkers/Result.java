@@ -1,4 +1,5 @@
 package com.basingwerk.jisvalidator.checkers;
+
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,8 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlRootElement(name = "result")
-public class Result implements Serializable  {
-  
+public class Result implements Serializable {
+
   private static final long serialVersionUID = 1L;
 
   public static int OK = 0;

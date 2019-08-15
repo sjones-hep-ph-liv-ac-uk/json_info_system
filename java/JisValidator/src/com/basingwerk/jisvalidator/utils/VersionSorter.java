@@ -2,7 +2,6 @@ package com.basingwerk.jisvalidator.utils;
 
 import java.util.Comparator;
 
-
 public class VersionSorter implements Comparator<String> {
   @Override
   public int compare(String version1, String version2) {

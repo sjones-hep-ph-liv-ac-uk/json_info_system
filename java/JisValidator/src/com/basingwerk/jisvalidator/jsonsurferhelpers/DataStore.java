@@ -3,7 +3,7 @@ package com.basingwerk.jisvalidator.jsonsurferhelpers;
 import java.util.HashMap;
 
 public class DataStore {
-  
+
   String name;
   String id;
   String datastoretype;
@@ -76,7 +76,6 @@ public class DataStore {
   public void setMessage(String message) {
     this.message = message;
   }
-
 
   @Override
   public String toString() {

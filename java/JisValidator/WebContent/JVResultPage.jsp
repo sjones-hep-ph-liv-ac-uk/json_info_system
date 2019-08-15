@@ -38,8 +38,7 @@
 
    <div class="container"> 
 
-That  JSON was well formed,  compliant with the schema, and passes integrity checks.
-The message from the validator (if any) was:
+That  JSON passed all the checks selected. The message  (if any) was:
 <br>     
 <br>${theMessage}
 

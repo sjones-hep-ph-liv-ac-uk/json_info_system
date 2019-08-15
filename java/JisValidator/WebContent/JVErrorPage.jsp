@@ -38,8 +38,7 @@
 
    <div class="container"> 
 
-That  JSON was not well-formed, not compliant with the schema, or fails integrity checks. 
-The message from the validator was:
+That  JSON failed one of the selected the checks. The message was:
 <br>     
 <br><b>${theMessage}</b>
 
