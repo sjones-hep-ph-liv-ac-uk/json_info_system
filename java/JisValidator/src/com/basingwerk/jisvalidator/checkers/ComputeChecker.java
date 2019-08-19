@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 import org.json.JSONObject;
 
-import com.basingwerk.jisvalidator.schema.SchemaHashMap;
 
 public class ComputeChecker {
 
@@ -39,7 +38,7 @@ public class ComputeChecker {
     // It's well formed JSON, and it complies with the schema. Does it have semantic
     // integrity?
     try {
-      ComputeSemanticChecker checker = new ComputeSemanticChecker(jsonToCheck);
+      ComputeIntegrityChecker checker = new ComputeIntegrityChecker(jsonToCheck);
       String result = checker.check();
 
       if (result.length() != 0)

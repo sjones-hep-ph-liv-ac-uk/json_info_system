@@ -15,7 +15,11 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 
-import com.basingwerk.jisvalidator.schema.SchemaHashMap;
+import com.basingwerk.jisvalidator.schema.SchemaHolder;
+import com.basingwerk.jisvalidator.schema.CrrFinder;
+import com.basingwerk.jisvalidator.schema.SchemaDb;
+import com.basingwerk.jisvalidator.schema.SrrFinder;
+
 
 /**
  * Servlet implementation class JVMainController
@@ -60,10 +64,10 @@ public class JVMainController extends HttpServlet {
       String schemaVersion = request.getParameter("seeCrrSchema");
       sess.setAttribute("schemaVersion", schemaVersion);
 
-      String schemaResource = "/crrschema_" + schemaVersion + ".json";
-      InputStream inputStream = this.getClass().getResourceAsStream(schemaResource);
-      Scanner s = new Scanner(inputStream).useDelimiter("\\A");
-      String result = s.hasNext() ? s.next() : "";
+      CrrFinder s = CrrFinder.getInstance();
+      SchemaDb db = s.getSchemaDb();
+      SchemaHolder sc = db.get(schemaVersion);
+      String result = sc.getSchemaText(); 
 
       request.setAttribute("theSchema", result);
       rd = request.getRequestDispatcher("/JVViewSchema.jsp");
@@ -88,10 +92,11 @@ public class JVMainController extends HttpServlet {
       String schemaVersion = request.getParameter("seeSrrSchema");
       sess.setAttribute("schemaVersion", schemaVersion);
 
-      String schemaResource = "/srrschema_" + schemaVersion + ".json";
-      InputStream inputStream = this.getClass().getResourceAsStream(schemaResource);
-      Scanner s = new Scanner(inputStream).useDelimiter("\\A");
-      String result = s.hasNext() ? s.next() : "";
+      SrrFinder s = SrrFinder.getInstance();
+      SchemaDb db = s.getSchemaDb();
+      SchemaHolder sc = db.get(schemaVersion);
+      String result = sc.getSchemaText(); 
+
       request.setAttribute("theSchema", result);
       rd = request.getRequestDispatcher("/JVViewSchema.jsp");
       rd.forward(request, response);

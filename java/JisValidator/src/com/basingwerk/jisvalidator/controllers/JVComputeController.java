@@ -16,7 +16,10 @@ import org.everit.json.schema.Schema;
 //import org.everit.json.schema.*;
 import com.basingwerk.jisvalidator.checkers.ComputeChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
-import com.basingwerk.jisvalidator.schema.SchemaHashMap;
+import com.basingwerk.jisvalidator.schema.SchemaHolder;
+import com.basingwerk.jisvalidator.schema.CrrFinder;
+import com.basingwerk.jisvalidator.schema.SchemaDb;
+
 
 /**
  * Servlet implementation class JVMainController
@@ -43,8 +46,14 @@ public class JVComputeController extends HttpServlet {
     String json = request.getParameter("jistext");
     HttpSession session = request.getSession(true);
     String schemaVersion = (String) session.getAttribute("schemaVersion");
-    SchemaHashMap shm = new SchemaHashMap("crrschema_([\\d.]+)\\.json");
-    Schema schema = shm.get(schemaVersion);
+    
+    CrrFinder s = CrrFinder.getInstance();
+    SchemaDb db = s.getSchemaDb();
+    SchemaHolder sc = db.get(schemaVersion);
+    Schema schema = sc.getSchema(); 
+    
+//    SchemaHashMap shm = new SchemaHashMap("crrschema_([\\d.]+)\\.json");
+//    Schema schema = shm.get(schemaVersion);
 
     String integrity = (String) session.getAttribute("checkCrrIntegrity");
     ComputeChecker checker = new ComputeChecker(json, schema, integrity);

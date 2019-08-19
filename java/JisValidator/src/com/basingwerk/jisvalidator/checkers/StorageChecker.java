@@ -9,7 +9,6 @@ import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import com.basingwerk.jisvalidator.schema.SchemaHashMap;
 
 public class StorageChecker {
 
@@ -42,7 +41,7 @@ public class StorageChecker {
       return new Result(Result.OK, "Validator found no errors");
 
     try {
-      StorageSemanticChecker rc = new StorageSemanticChecker(jsonToCheck);
+      StorageIntegrityChecker rc = new StorageIntegrityChecker(jsonToCheck);
       String result = rc.check();
 
       if (result.length() != 0)
