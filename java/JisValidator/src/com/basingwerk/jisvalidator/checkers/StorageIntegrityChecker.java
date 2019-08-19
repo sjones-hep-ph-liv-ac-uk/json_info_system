@@ -11,14 +11,14 @@ import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageEndpoint;
 import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageShare;
 import com.basingwerk.jisvalidator.utils.Utils;
 
-public class StorageSemanticChecker {
+public class StorageIntegrityChecker {
   private Logger logger;
   private JsonSurfer surfer;
 
   String theJson;
 
-  public StorageSemanticChecker(String json) throws CheckerException {
-    logger = Logger.getLogger(StorageSemanticChecker.class);
+  public StorageIntegrityChecker(String json) throws CheckerException {
+    logger = Logger.getLogger(StorageIntegrityChecker.class);
     theJson = json;
     surfer = JsonSurfer.gson();
   }

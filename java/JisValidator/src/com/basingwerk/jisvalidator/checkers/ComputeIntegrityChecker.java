@@ -9,11 +9,11 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 
-public class ComputeSemanticChecker {
+public class ComputeIntegrityChecker {
 
   private JsonParser jParser;
 
-  public ComputeSemanticChecker(String json) throws CheckerException {
+  public ComputeIntegrityChecker(String json) throws CheckerException {
     JsonFactory jfactory = new JsonFactory();
 
     try {

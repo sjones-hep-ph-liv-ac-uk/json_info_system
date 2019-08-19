@@ -52,9 +52,6 @@ public class JVComputeController extends HttpServlet {
     SchemaHolder sc = db.get(schemaVersion);
     Schema schema = sc.getSchema(); 
     
-//    SchemaHashMap shm = new SchemaHashMap("crrschema_([\\d.]+)\\.json");
-//    Schema schema = shm.get(schemaVersion);
-
     String integrity = (String) session.getAttribute("checkCrrIntegrity");
     ComputeChecker checker = new ComputeChecker(json, schema, integrity);
 

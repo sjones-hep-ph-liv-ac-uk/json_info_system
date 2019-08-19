@@ -15,7 +15,11 @@ import org.everit.json.schema.Schema;
 
 //import org.everit.json.schema.*;
 import com.basingwerk.jisvalidator.checkers.StorageChecker;
-import com.basingwerk.jisvalidator.schema.SchemaHashMap;
+import com.basingwerk.jisvalidator.schema.SchemaHolder;
+import com.basingwerk.jisvalidator.schema.CrrFinder;
+import com.basingwerk.jisvalidator.schema.SchemaDb;
+import com.basingwerk.jisvalidator.schema.SrrFinder;
+
 import com.basingwerk.jisvalidator.checkers.ComputeChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
 
@@ -40,14 +44,17 @@ public class JVStorageController extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     Logger logger = Logger.getLogger(JVStorageController.class);
     RequestDispatcher rd = null;
-
+ 
     String json = request.getParameter("jistext");
 
     HttpSession session = request.getSession(true);
     String schemaVersion = (String) session.getAttribute("schemaVersion");
-    SchemaHashMap shm = new SchemaHashMap("srrschema_([\\d.]+)\\.json");
-    Schema schema = shm.get(schemaVersion);
-
+    
+    SrrFinder s = SrrFinder.getInstance();
+    SchemaDb db = s.getSchemaDb();
+    SchemaHolder sc = db.get(schemaVersion);
+    Schema schema = sc.getSchema(); 
+    
     String integrity = (String) session.getAttribute("checkSrrIntegrity");
     StorageChecker checker = new StorageChecker(json, schema, integrity);
 

@@ -1,7 +1,10 @@
 package com.basingwerk.jisvalidator.schema;
 
+import java.io.BufferedReader;
+import org.apache.log4j.Logger;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -22,12 +25,15 @@ import org.json.JSONTokener;
 
 import com.basingwerk.jisvalidator.utils.VersionSorter;
 
-public class SchemaHashMap extends HashMap<String, Schema> {
+public class SchemaDbHashMap extends HashMap<String, SchemaCombo> {
 
   private Pattern filePattern;
+  private Logger logger;
 
-  public SchemaHashMap(String regex) {
+  public SchemaDbHashMap(String regex) {
     super();
+    logger = Logger.getLogger(SchemaDbCrr.class);
+    logger.fatal("Getting an instance of SchemaDbHashMap");
     // "srrschema_([\\d.]+)\\.json"
     // "crrschema_([\\d.]+)\\.json"
     filePattern = Pattern.compile(regex);
@@ -46,19 +52,42 @@ public class SchemaHashMap extends HashMap<String, Schema> {
       if (m.find()) {
         String version = m.group(1);
         try {
+          logger.fatal("About to read " + fname);
+          String content = readFileIn(f);
+          logger.fatal("Done read " + fname);
+
           is = new FileInputStream(f);
           JSONObject rawSchema = new JSONObject(new JSONTokener(is));
-
           Schema s = SchemaLoader.load(rawSchema);
           is.close();
-          this.put(version, s);
+          SchemaCombo sc = new SchemaCombo(s, content);
+          this.put(version, sc);
         } catch (IOException e) {
+          logger.fatal("Error in loadSchemas " + e.getMessage());
         }
       }
     }
   }
 
+  public String readFileIn(File file) throws IOException {
+    BufferedReader reader = new BufferedReader(new FileReader(file));
+    StringBuilder stringBuilder = new StringBuilder();
+    String line = null;
+    String ls = System.getProperty("line.separator");
+    while ((line = reader.readLine()) != null) {
+      stringBuilder.append(line);
+      stringBuilder.append(ls);
+    }
+    // delete the last new line separator
+    stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+    reader.close();
+
+    String content = stringBuilder.toString();
+    return content;
+  }
+
   public List getKeys() {
+    logger.fatal("getting list from getKeys in SchemaDbHashMap");
     Set<String> ks = this.keySet();
     List<String> list = convertSetToList(ks);
     Collections.sort(list, new VersionSorter());
@@ -67,16 +96,11 @@ public class SchemaHashMap extends HashMap<String, Schema> {
   }
 
   public String findLatestVersion() {
-//    Set<String> keySet = this.keySet();
-//    String[] keys= keySet.toArray(new String[0]);
-//    Arrays.sort(keys, new VersionSorter());
-//    return keys[0];
     Set<String> ks = this.keySet();
     List<String> list = convertSetToList(ks);
     Collections.sort(list, new VersionSorter());
     Collections.reverse(list);
     return list.get(0);
-
   }
 
   public static <T> List<T> convertSetToList(Set<T> set) {
@@ -98,25 +122,4 @@ public class SchemaHashMap extends HashMap<String, Schema> {
     return new File(path).listFiles();
   }
 
-  public static void main(String[] args) {
-    SchemaHashMap shm = new SchemaHashMap("srrschema_([\\d.]+)\\.json");
-    String latest = shm.findLatestVersion();
-    System.out.println("latest version:" + latest);
-    Schema schema = shm.get(latest);
-    System.out.println(schema.toString());
-  }
-
-  public String sayHello() {
-    return "Hello";
-  }
-
-  public int countSchemas() {
-    List s = this.getKeys();
-    return s.size();
-  }
-
-  public String getSchemaText(String schemaVersion) {
-    Schema schema = this.get(schemaVersion);
-    return schema.getDescription();
-  }
 }
