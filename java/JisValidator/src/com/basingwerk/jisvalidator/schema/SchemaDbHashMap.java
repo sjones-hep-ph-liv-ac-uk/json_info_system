@@ -33,7 +33,7 @@ public class SchemaDbHashMap extends HashMap<String, SchemaCombo> {
   public SchemaDbHashMap(String regex) {
     super();
     logger = Logger.getLogger(SchemaDbCrr.class);
-    logger.fatal("Getting an instance of SchemaDbHashMap");
+    logger.debug("Getting an instance of SchemaDbHashMap");
     // "srrschema_([\\d.]+)\\.json"
     // "crrschema_([\\d.]+)\\.json"
     filePattern = Pattern.compile(regex);
@@ -52,9 +52,9 @@ public class SchemaDbHashMap extends HashMap<String, SchemaCombo> {
       if (m.find()) {
         String version = m.group(1);
         try {
-          logger.fatal("About to read " + fname);
+          logger.debug("About to read " + fname);
           String content = readFileIn(f);
-          logger.fatal("Done read " + fname);
+          logger.debug("Done read " + fname);
 
           is = new FileInputStream(f);
           JSONObject rawSchema = new JSONObject(new JSONTokener(is));
@@ -63,7 +63,7 @@ public class SchemaDbHashMap extends HashMap<String, SchemaCombo> {
           SchemaCombo sc = new SchemaCombo(s, content);
           this.put(version, sc);
         } catch (IOException e) {
-          logger.fatal("Error in loadSchemas " + e.getMessage());
+          logger.debug("Error in loadSchemas " + e.getMessage());
         }
       }
     }
@@ -87,7 +87,7 @@ public class SchemaDbHashMap extends HashMap<String, SchemaCombo> {
   }
 
   public List getKeys() {
-    logger.fatal("getting list from getKeys in SchemaDbHashMap");
+    logger.debug("getting list from getKeys in SchemaDbHashMap");
     Set<String> ks = this.keySet();
     List<String> list = convertSetToList(ks);
     Collections.sort(list, new VersionSorter());

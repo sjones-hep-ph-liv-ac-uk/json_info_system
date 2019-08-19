@@ -10,7 +10,7 @@ public class SchemaDbCrr {
 
   private SchemaDbCrr() {
     Logger logger = Logger.getLogger(SchemaDbCrr.class);
-    logger.fatal("Making the CRR SchemaDbHashMap ");
+    logger.debug("Making the CRR SchemaDbHashMap ");
     sdb = new SchemaDbHashMap("crrschema_([\\d.]+)\\.json");
   }
 
@@ -18,7 +18,7 @@ public class SchemaDbCrr {
 
   public static SchemaDbCrr getInstance() {
     Logger logger = Logger.getLogger(SchemaDbCrr.class);
-    logger.fatal("Getting an instance of SchemaDbCrr");
+    logger.debug("Getting an instance of SchemaDbCrr");
 
     if (SINGLE_INSTANCE == null) {
       synchronized (SchemaDbCrr.class) {

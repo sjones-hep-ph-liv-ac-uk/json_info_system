@@ -8,7 +8,7 @@ public class SchemaDbSrr {
   
   private SchemaDbSrr() {
     Logger logger = Logger.getLogger(SchemaDbSrr.class);
-    logger.fatal("Making the SRR SchemaDbHashMap ");
+    logger.debug("Making the SRR SchemaDbHashMap ");
     sdb = new SchemaDbHashMap("srrschema_([\\d.]+)\\.json");
   }
 
@@ -16,7 +16,7 @@ public class SchemaDbSrr {
 
   public static SchemaDbSrr getInstance() {
     Logger logger = Logger.getLogger(SchemaDbCrr.class);
-    logger.fatal("Getting an instance of SchemaDbSrr");
+    logger.debug("Getting an instance of SchemaDbSrr");
     if (SINGLE_INSTANCE == null) {
       synchronized (SchemaDbSrr.class) {
         SINGLE_INSTANCE = new SchemaDbSrr();

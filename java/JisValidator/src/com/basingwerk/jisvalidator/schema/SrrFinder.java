@@ -9,7 +9,7 @@ public class SrrFinder {
   
   private SrrFinder() {
     Logger logger = Logger.getLogger(SrrFinder.class);
-    logger.fatal("Making the SRR SchemaDbHashMap ");
+    logger.debug("Making the SRR SchemaDbHashMap ");
     sdb = new SchemaDb("srrschema_([\\d.]+)\\.json");
   }
 
@@ -17,7 +17,7 @@ public class SrrFinder {
 
   public static SrrFinder getInstance() {
     Logger logger = Logger.getLogger(CrrFinder.class);
-    logger.fatal("Getting an instance of SchemaDbSrr");
+    logger.debug("Getting an instance of SchemaDbSrr");
     if (SINGLE_INSTANCE == null) {
       synchronized (SrrFinder.class) {
         SINGLE_INSTANCE = new SrrFinder();

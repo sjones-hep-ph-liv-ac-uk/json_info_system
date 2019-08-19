@@ -11,7 +11,7 @@ public class CrrFinder {
 
   private CrrFinder() {
     Logger logger = Logger.getLogger(CrrFinder.class);
-    logger.fatal("Making the CRR SchemaDbHashMap ");
+    logger.debug("Making the CRR SchemaDbHashMap ");
     sdb = new SchemaDb("crrschema_([\\d.]+)\\.json");
   }
 
@@ -19,7 +19,7 @@ public class CrrFinder {
 
   public static CrrFinder getInstance() {
     Logger logger = Logger.getLogger(CrrFinder.class);
-    logger.fatal("Getting an instance of SchemaDbCrr");
+    logger.debug("Getting an instance of SchemaDbCrr");
 
     if (SINGLE_INSTANCE == null) {
       synchronized (CrrFinder.class) {
