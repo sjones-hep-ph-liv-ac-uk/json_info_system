@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="com.basingwerk.jisvalidator.schema.SchemaHashMap"%>
+<%@page import="com.basingwerk.jisvalidator.schema.SrrFinder"%>
+<%@page import="com.basingwerk.jisvalidator.schema.CrrFinder"%>
+<%@page import="com.basingwerk.jisvalidator.schema.SchemaDb"%>
 <%@page import="java.util.Set"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -38,20 +40,18 @@
       </div>
     </div>
 
-   <div class="container"> 
+   <div class="container">
 
 
+		<%
+		  SrrFinder srrDb = SrrFinder.getInstance();
+						 		  List srrkeys = srrDb.getSchemaDb().getKeys();
+						      request.setAttribute("srrkeys", srrkeCrrFinder     ScheCrrFinderDb = SchemaDbCrr.getInstance();
+						 		  List crrkeys = crrDb.getSchemaDb().getKeys();
+						      request.setAttribute("crrkeys", crrkeys);
+		%>
 
-	<%
-	  SchemaHashMap srrshm = new SchemaHashMap("srrschema_([\\d.]+)\\.json");
-	  List srrkeys = srrshm.getKeys();
-	  request.setAttribute("srrkeys", srrkeys);
-	  SchemaHashMap crrshm = new SchemaHashMap("crrschema_([\\d.]+)\\.json");
-	  List crrkeys = crrshm.getKeys();
-	  request.setAttribute("crrkeys", crrkeys);
-	%>
-
-	<form name="JVMain" action="JVMainController" method="post">
+		<form name="JVMain" action="JVMainController" method="post">
 		<h2>Welcome to the JSON information system validation website</h2>
 		<h3>Chose an action, the schema version to use, and whether to make an optional integrity check</h3>
 		<br>
