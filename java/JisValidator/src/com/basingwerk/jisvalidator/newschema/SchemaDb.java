@@ -1,4 +1,4 @@
-package com.basingwerk.jisvalidator.schema;
+package com.basingwerk.jisvalidator.newschema;
 
 import java.io.BufferedReader;
 import org.apache.log4j.Logger;
@@ -25,17 +25,14 @@ import org.json.JSONTokener;
 
 import com.basingwerk.jisvalidator.utils.VersionSorter;
 
-public class SchemaDbHashMap extends HashMap<String, SchemaCombo> {
+public class SchemaDb extends HashMap<String, SchemaHolder> {
 
   private Pattern filePattern;
   private Logger logger;
 
-  public SchemaDbHashMap(String regex) {
+  public SchemaDb(String regex) {
     super();
-    logger = Logger.getLogger(SchemaDbCrr.class);
-    logger.debug("Getting an instance of SchemaDbHashMap");
-    // "srrschema_([\\d.]+)\\.json"
-    // "crrschema_([\\d.]+)\\.json"
+    logger = Logger.getLogger(SchemaDb.class);
     filePattern = Pattern.compile(regex);
     loadSchemas();
   }
@@ -60,7 +57,7 @@ public class SchemaDbHashMap extends HashMap<String, SchemaCombo> {
           JSONObject rawSchema = new JSONObject(new JSONTokener(is));
           Schema s = SchemaLoader.load(rawSchema);
           is.close();
-          SchemaCombo sc = new SchemaCombo(s, content);
+          SchemaHolder sc = new SchemaHolder(s, content);
           this.put(version, sc);
         } catch (IOException e) {
           logger.debug("Error in loadSchemas " + e.getMessage());

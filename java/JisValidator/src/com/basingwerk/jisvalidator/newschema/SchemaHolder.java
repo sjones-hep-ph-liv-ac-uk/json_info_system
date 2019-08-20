@@ -1,10 +1,14 @@
-package com.basingwerk.jisvalidator.schema;
+package com.basingwerk.jisvalidator.newschema;
 
 import org.everit.json.schema.Schema;
 
-public class SchemaCombo {
-  public SchemaCombo(Schema schema, String schemaText) {
-    super();
+public class SchemaHolder {
+  // Holds text and processed versions of the schema
+  
+  private Schema schema;
+  private String schemaText; 
+
+  public SchemaHolder(Schema schema, String schemaText) {
     this.schema = schema;
     this.schemaText = schemaText;
   }
@@ -20,7 +24,5 @@ public class SchemaCombo {
   public void setSchemaText(String schemaText) {
     this.schemaText = schemaText;
   }
-  private Schema schema;
-  private String schemaText; 
 
 }
