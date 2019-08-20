@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Utils {
+
   public static String getExtrinsics(ArrayList<String> bigList, ArrayList<String> smallList) {
     // All in small list must exist in big list, else return list of missing
     String extrinsics = "";

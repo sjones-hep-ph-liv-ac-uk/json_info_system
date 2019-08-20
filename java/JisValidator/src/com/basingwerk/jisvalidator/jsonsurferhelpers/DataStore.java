@@ -82,5 +82,4 @@ public class DataStore {
     return "DataStore [name=" + name + ", id=" + id + ", datastoretype=" + datastoretype + ", accesslatency=" + accesslatency
         + ", totalsize=" + totalsize + ", vendor=" + vendor + ", bandwith=" + bandwith + ", message=" + message + "]";
   }
-
 }

@@ -41,22 +41,19 @@
       </div>
     </div>
 
-   <div class="container"> 
+   <div class="container">
 
-	<%
-  SchemaDbCrr crrDb = SchemaDbCrr.getInstance();
-  SchemaDb sdbCrr = crrDb.getSdb();
-  List crrkeys = sdbCrr.getKeys();
-  request.setAttribute("crrkeys", crrkeys);
-  
-  SchemaDbSrr srrDb = SchemaDbSrr.getInstance();
-  SchemaDb sdbSrr = srrDb.getSdb();
-  List srrkeys = sdbSrr.getKeys();
-  request.setAttribute("srrkeys", srrkeys);
-	
-	%>
+		<%
+		  SchemaDbCrr crrDb = SchemaDbCrr.getInstance();
+		  List crrkeys = crrDb.getKeys();
+		  request.setAttribute("crrkeys", crrkeys);
 
-	<form name="JVMain" action="JVMainController" method="post">
+		  SchemaDbSrr srrDb = SchemaDbSrr.getInstance();
+		  List srrkeys = srrDb.getKeys();
+		  request.setAttribute("srrkeys", srrkeys);
+		%>
+
+		<form name="JVMain" action="JVMainController" method="post">
 		<h2>Welcome to the JSON information system validation website</h2>
 		<h3>Chose an action, the schema version to use, and whether to make an optional integrity check</h3>
 		<br>

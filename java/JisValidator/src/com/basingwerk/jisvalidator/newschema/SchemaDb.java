@@ -16,13 +16,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-
 import com.basingwerk.jisvalidator.utils.VersionSorter;
 
 public class SchemaDb extends HashMap<String, SchemaHolder> {
@@ -118,5 +116,4 @@ public class SchemaDb extends HashMap<String, SchemaHolder> {
     String path = url.getPath();
     return new File(path).listFiles();
   }
-
 }

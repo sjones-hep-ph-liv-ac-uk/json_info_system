@@ -2,7 +2,6 @@ package com.basingwerk.jisvalidator.checkers;
 
 import java.util.Collection;
 import java.util.HashMap;
-
 import org.apache.log4j.Logger;
 import org.jsfr.json.JsonSurfer;
 import com.basingwerk.jisvalidator.jsonsurferhelpers.DataStore;
@@ -12,9 +11,9 @@ import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageShare;
 import com.basingwerk.jisvalidator.utils.Utils;
 
 public class StorageIntegrityChecker {
+
   private Logger logger;
   private JsonSurfer surfer;
-
   String theJson;
 
   public StorageIntegrityChecker(String json) throws CheckerException {

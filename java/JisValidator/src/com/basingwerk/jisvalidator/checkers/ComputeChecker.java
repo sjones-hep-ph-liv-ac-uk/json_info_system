@@ -1,11 +1,9 @@
 package com.basingwerk.jisvalidator.checkers;
 
 import javax.servlet.http.HttpSession;
-
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 import org.json.JSONObject;
-
 
 public class ComputeChecker {
 

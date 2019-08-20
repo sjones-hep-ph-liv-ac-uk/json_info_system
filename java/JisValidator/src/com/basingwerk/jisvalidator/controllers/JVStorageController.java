@@ -1,7 +1,6 @@
 package com.basingwerk.jisvalidator.controllers;
 
 import java.io.IOException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,17 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
-
-//import org.everit.json.newschema.*;
 import com.basingwerk.jisvalidator.checkers.StorageChecker;
 import com.basingwerk.jisvalidator.newschema.SchemaHolder;
 import com.basingwerk.jisvalidator.newschema.SchemaDb;
 import com.basingwerk.jisvalidator.newschema.SchemaDbCrr;
 import com.basingwerk.jisvalidator.newschema.SchemaDbSrr;
-
 import com.basingwerk.jisvalidator.checkers.ComputeChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
 
@@ -51,8 +46,7 @@ public class JVStorageController extends HttpServlet {
     String schemaVersion = (String) session.getAttribute("schemaVersion");
     
     SchemaDbSrr db = SchemaDbSrr.getInstance();
-    SchemaDb sdb = db.getSdb();
-    SchemaHolder sh = sdb.get(schemaVersion);
+    SchemaHolder sh = db.get(schemaVersion);
     Schema schema = sh.getSchema(); 
     
     String integrity = (String) session.getAttribute("checkSrrIntegrity");
@@ -65,7 +59,6 @@ public class JVStorageController extends HttpServlet {
       rd = request.getRequestDispatcher("/JVResultPage.jsp");
       rd.forward(request, response);
       return;
-
     } else {
       if (result.getDescription().length() > 0)
         request.setAttribute("theMessage", result.getDescription());
@@ -75,7 +68,6 @@ public class JVStorageController extends HttpServlet {
       rd = request.getRequestDispatcher("/JVErrorPage.jsp");
       rd.forward(request, response);
       return;
-
     }
   }
 

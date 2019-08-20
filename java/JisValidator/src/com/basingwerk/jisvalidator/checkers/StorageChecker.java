@@ -2,13 +2,11 @@ package com.basingwerk.jisvalidator.checkers;
 
 import java.io.InputStream;
 import java.util.HashMap;
-
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-
 
 public class StorageChecker {
 

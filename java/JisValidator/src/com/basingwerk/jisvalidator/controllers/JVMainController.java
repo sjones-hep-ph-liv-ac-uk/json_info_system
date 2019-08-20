@@ -3,7 +3,6 @@ package com.basingwerk.jisvalidator.controllers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,15 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
-
 import com.basingwerk.jisvalidator.newschema.SchemaHolder;
 import com.basingwerk.jisvalidator.newschema.SchemaDb;
 import com.basingwerk.jisvalidator.newschema.SchemaDbCrr;
 import com.basingwerk.jisvalidator.newschema.SchemaDbSrr;
-
 
 /**
  * Servlet implementation class JVMainController
@@ -65,8 +61,7 @@ public class JVMainController extends HttpServlet {
       sess.setAttribute("schemaVersion", schemaVersion);
 
       SchemaDbCrr db = SchemaDbCrr.getInstance();
-      SchemaDb sdb = db.getSdb();
-      SchemaHolder sh = sdb.get(schemaVersion);
+      SchemaHolder sh = db.get(schemaVersion);
       String result = sh.getSchemaText(); 
 
       request.setAttribute("theSchema", result);
@@ -93,8 +88,7 @@ public class JVMainController extends HttpServlet {
       sess.setAttribute("schemaVersion", schemaVersion);
 
       SchemaDbSrr db = SchemaDbSrr.getInstance();
-      SchemaDb sdb = db.getSdb();
-      SchemaHolder sh = sdb.get(schemaVersion);
+      SchemaHolder sh = db.get(schemaVersion);
       String result = sh.getSchemaText(); 
       
       request.setAttribute("theSchema", result);

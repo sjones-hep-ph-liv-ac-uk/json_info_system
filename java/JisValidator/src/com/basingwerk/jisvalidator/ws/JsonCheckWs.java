@@ -24,6 +24,7 @@ import com.basingwerk.jisvalidator.checkers.Result;
 import com.basingwerk.jisvalidator.checkers.StorageChecker;
 import com.basingwerk.jisvalidator.newschema.SchemaDb;
 import com.basingwerk.jisvalidator.newschema.SchemaDbCrr;
+import com.basingwerk.jisvalidator.newschema.SchemaDbSrr;
 import com.basingwerk.jisvalidator.newschema.SchemaHolder;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 
@@ -46,19 +47,15 @@ public class JsonCheckWs {
 
     Result result;
 
-//    CrrFinder finder = CrrFinder.getInstance(); 
-//    SchemaDb db = finder.getSchemaDb();
-    
     SchemaDbCrr db = SchemaDbCrr.getInstance();
-    SchemaDb sdb = db.getSdb();
     
     if (ver == null)
-      ver = sdb.findLatestVersion();
+      ver = db.findLatestVersion();
       
     if (integrity == null)
       integrity = "no";
 
-    SchemaHolder sh = sdb.get(ver);
+    SchemaHolder sh = db.get(ver);
     if (sh == null) {
       result = new Result(20, "Schema version not found ");
       return Response.status(200).entity(result).build();
@@ -97,16 +94,15 @@ public class JsonCheckWs {
 
     Result result;
 
-    SchemaDbCrr db = SchemaDbCrr.getInstance();
-    SchemaDb sdb = db.getSdb();
+    SchemaDbSrr db = SchemaDbSrr.getInstance();
     
     if (ver == null)
-      ver = sdb.findLatestVersion();
+      ver = db.findLatestVersion();
       
     if (integrity == null)
       integrity = "no";
 
-    SchemaHolder sh = sdb.get(ver);
+    SchemaHolder sh = db.get(ver);
     if (sh == null) {
       result = new Result(20, "Schema version not found ");
       return Response.status(200).entity(result).build();

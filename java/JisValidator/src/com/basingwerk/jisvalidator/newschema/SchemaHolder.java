@@ -24,5 +24,4 @@ public class SchemaHolder {
   public void setSchemaText(String schemaText) {
     this.schemaText = schemaText;
   }
-
 }

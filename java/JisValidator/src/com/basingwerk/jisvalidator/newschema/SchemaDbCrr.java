@@ -4,14 +4,12 @@ import org.apache.log4j.Logger;
 
 import com.basingwerk.jisvalidator.controllers.JVComputeController;
 
-public class SchemaDbCrr {
-
-  private SchemaDb sdb;
+public class SchemaDbCrr extends SchemaDb{
 
   private SchemaDbCrr () {
+    super("crrschema_([\\d.]+)\\.json");
     Logger logger = Logger.getLogger(SchemaDbCrr.class);
-    logger.debug("Making the CRR SchemaDbHashMap ");
-    sdb = new SchemaDb("crrschema_([\\d.]+)\\.json");
+    logger.debug("Constructing the CRR SchemaDb");
   }
 
   private static SchemaDbCrr SINGLE_INSTANCE = null;
@@ -26,9 +24,5 @@ public class SchemaDbCrr {
       }
     }
     return SINGLE_INSTANCE;
-  }
-
-  public SchemaDb getSdb() {
-    return sdb;
   }
 }

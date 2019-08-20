@@ -2,14 +2,12 @@ package com.basingwerk.jisvalidator.newschema;
 
 import org.apache.log4j.Logger;
 
-public class SchemaDbSrr {
+public class SchemaDbSrr extends SchemaDb {
 
-  private SchemaDb sdb;
-  
   private SchemaDbSrr() {
+    super("srrschema_([\\d.]+)\\.json");
     Logger logger = Logger.getLogger(SchemaDbSrr.class);
-    logger.debug("Making the SRR SchemaDbHashMap ");
-    sdb = new SchemaDb ("srrschema_([\\d.]+)\\.json");
+    logger.debug("Constructing the SRR SchemaDb");
   }
 
   private static SchemaDbSrr SINGLE_INSTANCE = null;
@@ -23,9 +21,5 @@ public class SchemaDbSrr {
       }
     }
     return SINGLE_INSTANCE;
-  }
-
-  public SchemaDb getSdb() {
-    return sdb;
   }
 }

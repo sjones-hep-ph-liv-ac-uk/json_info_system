@@ -92,5 +92,4 @@ public class StorageEndpoint {
         + ", interfaceversion=" + interfaceversion + ", capabilities=" + Arrays.toString(capabilities) + ", qualitylevel="
         + qualitylevel + ", assignedshares=" + Arrays.toString(assignedshares) + ", message=" + message + "]";
   }
-
 }
