@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="com.basingwerk.jisvalidator.schema.SrrFinder"%>
-<%@page import="com.basingwerk.jisvalidator.schema.CrrFinder"%>
+<%@page import="com.basingwerk.jisvalidator.newschema.SchemaDbCrr"%>
+<%@page import="com.basingwerk.jisvalidator.newschema.SchemaDbSrr"%>
+<%@page import="com.basingwerk.jisvalidator.newschema.SchemaDb"%>
+<%@page import="com.basingwerk.jisvalidator.newschema.SchemaHolder"%>
 <%@page import="java.util.Set"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -42,13 +44,15 @@
    <div class="container"> 
 
 	<%
-      SrrFinder srrDb = SrrFinder.getInstance();
-      List srrkeys = srrDb.getSchemaDb().getKeys();
-      request.setAttribute("srrkeys", srrkeys);
-      
-      CrrFinder crrDb = CrrFinder.getInstance();
-      List crrkeys = crrDb.getSchemaDb().getKeys();
-      request.setAttribute("crrkeys", crrkeys);
+  SchemaDbCrr crrDb = SchemaDbCrr.getInstance();
+  SchemaDb sdbCrr = crrDb.getSdb();
+  List crrkeys = sdbCrr.getKeys();
+  request.setAttribute("crrkeys", crrkeys);
+  
+  SchemaDbSrr srrDb = SchemaDbSrr.getInstance();
+  SchemaDb sdbSrr = srrDb.getSdb();
+  List srrkeys = sdbSrr.getKeys();
+  request.setAttribute("srrkeys", srrkeys);
 	
 	%>
 
