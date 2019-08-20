@@ -13,12 +13,12 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 
-//import org.everit.json.schema.*;
+//import org.everit.json.newschema.*;
 import com.basingwerk.jisvalidator.checkers.StorageChecker;
-import com.basingwerk.jisvalidator.schema.SchemaHolder;
-import com.basingwerk.jisvalidator.schema.CrrFinder;
-import com.basingwerk.jisvalidator.schema.SchemaDb;
-import com.basingwerk.jisvalidator.schema.SrrFinder;
+import com.basingwerk.jisvalidator.newschema.SchemaHolder;
+import com.basingwerk.jisvalidator.newschema.SchemaDb;
+import com.basingwerk.jisvalidator.newschema.SchemaDbCrr;
+import com.basingwerk.jisvalidator.newschema.SchemaDbSrr;
 
 import com.basingwerk.jisvalidator.checkers.ComputeChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
@@ -50,10 +50,10 @@ public class JVStorageController extends HttpServlet {
     HttpSession session = request.getSession(true);
     String schemaVersion = (String) session.getAttribute("schemaVersion");
     
-    SrrFinder s = SrrFinder.getInstance();
-    SchemaDb db = s.getSchemaDb();
-    SchemaHolder sc = db.get(schemaVersion);
-    Schema schema = sc.getSchema(); 
+    SchemaDbSrr db = SchemaDbSrr.getInstance();
+    SchemaDb sdb = db.getSdb();
+    SchemaHolder sh = sdb.get(schemaVersion);
+    Schema schema = sh.getSchema(); 
     
     String integrity = (String) session.getAttribute("checkSrrIntegrity");
     StorageChecker checker = new StorageChecker(json, schema, integrity);

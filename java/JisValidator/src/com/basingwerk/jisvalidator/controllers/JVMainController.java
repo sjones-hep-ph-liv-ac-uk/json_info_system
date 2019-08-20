@@ -15,10 +15,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 
-import com.basingwerk.jisvalidator.schema.SchemaHolder;
-import com.basingwerk.jisvalidator.schema.CrrFinder;
-import com.basingwerk.jisvalidator.schema.SchemaDb;
-import com.basingwerk.jisvalidator.schema.SrrFinder;
+import com.basingwerk.jisvalidator.newschema.SchemaHolder;
+import com.basingwerk.jisvalidator.newschema.SchemaDb;
+import com.basingwerk.jisvalidator.newschema.SchemaDbCrr;
+import com.basingwerk.jisvalidator.newschema.SchemaDbSrr;
 
 
 /**
@@ -64,10 +64,10 @@ public class JVMainController extends HttpServlet {
       String schemaVersion = request.getParameter("seeCrrSchema");
       sess.setAttribute("schemaVersion", schemaVersion);
 
-      CrrFinder s = CrrFinder.getInstance();
-      SchemaDb db = s.getSchemaDb();
-      SchemaHolder sc = db.get(schemaVersion);
-      String result = sc.getSchemaText(); 
+      SchemaDbCrr db = SchemaDbCrr.getInstance();
+      SchemaDb sdb = db.getSdb();
+      SchemaHolder sh = sdb.get(schemaVersion);
+      String result = sh.getSchemaText(); 
 
       request.setAttribute("theSchema", result);
       rd = request.getRequestDispatcher("/JVViewSchema.jsp");
@@ -92,11 +92,11 @@ public class JVMainController extends HttpServlet {
       String schemaVersion = request.getParameter("seeSrrSchema");
       sess.setAttribute("schemaVersion", schemaVersion);
 
-      SrrFinder s = SrrFinder.getInstance();
-      SchemaDb db = s.getSchemaDb();
-      SchemaHolder sc = db.get(schemaVersion);
-      String result = sc.getSchemaText(); 
-
+      SchemaDbSrr db = SchemaDbSrr.getInstance();
+      SchemaDb sdb = db.getSdb();
+      SchemaHolder sh = sdb.get(schemaVersion);
+      String result = sh.getSchemaText(); 
+      
       request.setAttribute("theSchema", result);
       rd = request.getRequestDispatcher("/JVViewSchema.jsp");
       rd.forward(request, response);

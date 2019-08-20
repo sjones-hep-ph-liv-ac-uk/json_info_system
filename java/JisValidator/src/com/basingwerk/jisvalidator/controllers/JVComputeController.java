@@ -13,12 +13,14 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 
-//import org.everit.json.schema.*;
+//import org.everit.json.newschema.*;
 import com.basingwerk.jisvalidator.checkers.ComputeChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
-import com.basingwerk.jisvalidator.schema.SchemaHolder;
-import com.basingwerk.jisvalidator.schema.CrrFinder;
-import com.basingwerk.jisvalidator.schema.SchemaDb;
+import com.basingwerk.jisvalidator.newschema.SchemaDb;
+import com.basingwerk.jisvalidator.newschema.SchemaDbCrr;
+import com.basingwerk.jisvalidator.newschema.SchemaHolder;
+//import com.basingwerk.jisvalidator.newschema.CrrFinder;
+//import com.basingwerk.jisvalidator.newschema.SchemaDb;
 
 
 /**
@@ -47,10 +49,10 @@ public class JVComputeController extends HttpServlet {
     HttpSession session = request.getSession(true);
     String schemaVersion = (String) session.getAttribute("schemaVersion");
     
-    CrrFinder s = CrrFinder.getInstance();
-    SchemaDb db = s.getSchemaDb();
-    SchemaHolder sc = db.get(schemaVersion);
-    Schema schema = sc.getSchema(); 
+    SchemaDbCrr db = SchemaDbCrr.getInstance();
+    SchemaDb sdb = db.getSdb();
+    SchemaHolder sh = sdb.get(schemaVersion);
+    Schema schema = sh.getSchema(); 
     
     String integrity = (String) session.getAttribute("checkCrrIntegrity");
     ComputeChecker checker = new ComputeChecker(json, schema, integrity);

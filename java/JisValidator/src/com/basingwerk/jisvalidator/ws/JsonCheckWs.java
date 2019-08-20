@@ -22,10 +22,9 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 import com.basingwerk.jisvalidator.checkers.ComputeChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
 import com.basingwerk.jisvalidator.checkers.StorageChecker;
-import com.basingwerk.jisvalidator.schema.CrrFinder;
-import com.basingwerk.jisvalidator.schema.SchemaDb;
-import com.basingwerk.jisvalidator.schema.SchemaHolder;
-import com.basingwerk.jisvalidator.schema.SrrFinder;
+import com.basingwerk.jisvalidator.newschema.SchemaDb;
+import com.basingwerk.jisvalidator.newschema.SchemaDbCrr;
+import com.basingwerk.jisvalidator.newschema.SchemaHolder;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 
 @Path("/jsoncheckws")
@@ -47,16 +46,19 @@ public class JsonCheckWs {
 
     Result result;
 
-    CrrFinder finder = CrrFinder.getInstance(); 
-    SchemaDb db = finder.getSchemaDb();
+//    CrrFinder finder = CrrFinder.getInstance(); 
+//    SchemaDb db = finder.getSchemaDb();
+    
+    SchemaDbCrr db = SchemaDbCrr.getInstance();
+    SchemaDb sdb = db.getSdb();
     
     if (ver == null)
-      ver = db.findLatestVersion();
+      ver = sdb.findLatestVersion();
       
     if (integrity == null)
       integrity = "no";
- 
-    SchemaHolder sh = db.get(ver);
+
+    SchemaHolder sh = sdb.get(ver);
     if (sh == null) {
       result = new Result(20, "Schema version not found ");
       return Response.status(200).entity(result).build();
@@ -95,16 +97,16 @@ public class JsonCheckWs {
 
     Result result;
 
-    SrrFinder finder = SrrFinder.getInstance(); 
-    SchemaDb db = finder.getSchemaDb();
-
-    if (ver == null)
-      ver = db.findLatestVersion();
+    SchemaDbCrr db = SchemaDbCrr.getInstance();
+    SchemaDb sdb = db.getSdb();
     
+    if (ver == null)
+      ver = sdb.findLatestVersion();
+      
     if (integrity == null)
       integrity = "no";
 
-    SchemaHolder sh = db.get(ver);
+    SchemaHolder sh = sdb.get(ver);
     if (sh == null) {
       result = new Result(20, "Schema version not found ");
       return Response.status(200).entity(result).build();
