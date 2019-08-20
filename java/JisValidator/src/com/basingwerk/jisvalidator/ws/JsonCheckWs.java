@@ -24,6 +24,7 @@ import com.basingwerk.jisvalidator.checkers.Result;
 import com.basingwerk.jisvalidator.checkers.StorageChecker;
 import com.basingwerk.jisvalidator.schema.CrrFinder;
 import com.basingwerk.jisvalidator.schema.SchemaDb;
+import com.basingwerk.jisvalidator.schema.SchemaHolder;
 import com.basingwerk.jisvalidator.schema.SrrFinder;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 
@@ -46,20 +47,22 @@ public class JsonCheckWs {
 
     Result result;
 
-    SrrFinder finder = SrrFinder.getInstance(); 
+    CrrFinder finder = CrrFinder.getInstance(); 
     SchemaDb db = finder.getSchemaDb();
+    
     if (ver == null)
       ver = db.findLatestVersion();
       
     if (integrity == null)
       integrity = "no";
-
-    Schema schema = db.get(ver).getSchema();
-    if (schema == null) {
+ 
+    SchemaHolder sh = db.get(ver);
+    if (sh == null) {
       result = new Result(20, "Schema version not found ");
       return Response.status(200).entity(result).build();
     }
-
+    Schema schema = sh.getSchema();
+    
     Map<String, List<InputPart>> uploadForm = input.getFormDataMap();
     List<InputPart> inputParts = uploadForm.get("jsonfile");
     if (inputParts == null)
@@ -92,7 +95,7 @@ public class JsonCheckWs {
 
     Result result;
 
-    CrrFinder finder = CrrFinder.getInstance(); 
+    SrrFinder finder = SrrFinder.getInstance(); 
     SchemaDb db = finder.getSchemaDb();
 
     if (ver == null)
@@ -101,11 +104,12 @@ public class JsonCheckWs {
     if (integrity == null)
       integrity = "no";
 
-    Schema schema = db.get(ver).getSchema();
-    if (schema == null) {
+    SchemaHolder sh = db.get(ver);
+    if (sh == null) {
       result = new Result(20, "Schema version not found ");
       return Response.status(200).entity(result).build();
     }
+    Schema schema = sh.getSchema();
 
     Map<String, List<InputPart>> uploadForm = input.getFormDataMap();
     List<InputPart> inputParts = uploadForm.get("jsonfile");
