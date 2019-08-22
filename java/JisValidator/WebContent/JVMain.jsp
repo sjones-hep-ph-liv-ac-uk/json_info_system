@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="com.basingwerk.jisvalidator.newschema.SchemaDbCrr"%>
-<%@page import="com.basingwerk.jisvalidator.newschema.SchemaDbSrr"%>
-<%@page import="com.basingwerk.jisvalidator.newschema.SchemaDb"%>
-<%@page import="com.basingwerk.jisvalidator.newschema.SchemaHolder"%>
+<%@page import="com.basingwerk.jisvalidator.schema.SchemaDbCrr"%>
+<%@page import="com.basingwerk.jisvalidator.schema.SchemaDbSrr"%>
+<%@page import="com.basingwerk.jisvalidator.schema.SchemaDb"%>
+<%@page import="com.basingwerk.jisvalidator.schema.SchemaHolder"%>
 <%@page import="java.util.Set"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>

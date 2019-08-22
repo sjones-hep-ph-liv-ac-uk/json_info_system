@@ -40,9 +40,7 @@
 
   <form name="JVMain" action="JVComputeController" method="post" >
          <br>
-         <textarea readonly rows = "30" cols = "132" name = "jistext" class="span6 input-large search-query">
-            ${theSchema}
-         </textarea><br>
+         <textarea readonly rows = "30" cols = "132" name = "jistext" class="span6 input-large search-query">${theSchema}</textarea><br>
          
       </form>
 
