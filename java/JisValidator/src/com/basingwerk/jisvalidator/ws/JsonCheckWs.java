@@ -19,9 +19,12 @@ import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
-import com.basingwerk.jisvalidator.checkers.ComputeChecker;
+
+import com.basingwerk.jisvalidator.checkers.Checker;
+import com.basingwerk.jisvalidator.checkers.ComputeIntegrityChecker;
+import com.basingwerk.jisvalidator.checkers.IIntegrityChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
-import com.basingwerk.jisvalidator.checkers.StorageChecker;
+import com.basingwerk.jisvalidator.checkers.StorageIntegrityChecker;
 import com.basingwerk.jisvalidator.schema.SchemaDb;
 import com.basingwerk.jisvalidator.schema.SchemaDbCrr;
 import com.basingwerk.jisvalidator.schema.SchemaDbSrr;
@@ -54,7 +57,7 @@ public class JsonCheckWs {
       ver = db.findLatestVersion();
       
     if (integrity == null)
-      integrity = "no";
+      integrity = "yes";
 
     SchemaHolder sh = db.get(ver);
     if (sh == null) {
@@ -76,7 +79,9 @@ public class JsonCheckWs {
         InputStream istream = inputPart.getBody(InputStream.class, null);
 
         String json = convertStreamToString(istream);
-        ComputeChecker checker = new ComputeChecker(json, schema, integrity);
+        IIntegrityChecker ic = new ComputeIntegrityChecker(json);
+        Checker checker = new Checker(json,schema,integrity,ic);
+        
         result = checker.check();
         return Response.status(200).entity(result).build();
       } catch (IOException e) {
@@ -101,7 +106,7 @@ public class JsonCheckWs {
       ver = db.findLatestVersion();
       
     if (integrity == null)
-      integrity = "no";
+      integrity = "yes";
 
     SchemaHolder sh = db.get(ver);
     if (sh == null) {
@@ -122,7 +127,9 @@ public class JsonCheckWs {
         // Handle the body of that part with an InputStream
         InputStream istream = inputPart.getBody(InputStream.class, null);
         String json = convertStreamToString(istream);
-        StorageChecker checker = new StorageChecker(json, schema, integrity);
+        IIntegrityChecker ic = new StorageIntegrityChecker(json);
+        Checker checker = new Checker(json,schema,integrity,ic);
+        
         result = checker.check();
         return Response.status(200).entity(result).build();
 

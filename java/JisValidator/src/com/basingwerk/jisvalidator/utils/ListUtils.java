@@ -5,10 +5,9 @@ import java.util.HashMap;
 
 public class ListUtils {
   
-  
-
   public static String getExtrinsics(ArrayList<String> bigList, ArrayList<String> smallList) {
     // All in small list must exist in big list, else return list of missing
+    
     String extrinsics = "";
     for (String small : smallList) {
       Boolean itExists = false;
@@ -28,7 +27,6 @@ public class ListUtils {
     String[] a = new String[list.size()];
     return getDuplicates(list.toArray(a));
   }
-
 
   public static String getDuplicates(String[] list) {
     // Return any duplicates in a list

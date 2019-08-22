@@ -7,6 +7,7 @@ public class SniffTest {
 
   public static String check(String json) {
     // Basic check just to see that it's well formed. No point bothering with anything else if it doesn't pass this.
+    
     final JsonSurfer surfer = JsonSurfer.gson();
     try {
       surfer.collectAll(json, Object.class, "$");

@@ -10,13 +10,13 @@ import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageEndpoint;
 import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageShare;
 import com.basingwerk.jisvalidator.utils.ListUtils;
 
-public class StorageIntegrityChecker {
+public class StorageIntegrityChecker implements IIntegrityChecker    {
 
   private Logger logger;
   private JsonSurfer surfer;
   String theJson;
 
-  public StorageIntegrityChecker(String json) throws CheckerException {
+  public StorageIntegrityChecker(String json) {
     logger = Logger.getLogger(StorageIntegrityChecker.class);
     theJson = json;
     surfer = JsonSurfer.gson();

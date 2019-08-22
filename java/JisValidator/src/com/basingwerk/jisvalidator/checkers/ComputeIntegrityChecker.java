@@ -8,21 +8,23 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 
-public class ComputeIntegrityChecker {
+public class ComputeIntegrityChecker implements IIntegrityChecker  {
 
   private JsonParser jParser;
+  private String json;
 
-  public ComputeIntegrityChecker(String json) throws CheckerException {
-    JsonFactory jfactory = new JsonFactory();
-
-    try {
-      jParser = jfactory.createParser(json);
-    } catch (IOException e) {
-      throw new CheckerException("Could not create a json parser");
-    }
+  public ComputeIntegrityChecker(String json) {
+    this.json = json;
   }
 
   public String check() {
+    JsonFactory jfactory = new JsonFactory();
+    try {
+      jParser = jfactory.createParser(json);
+    } catch (IOException e) {
+      return ("Counld not make JSON parser " + e.getMessage());
+    }
+    
     int currentLevel = -1;
     HashMap<String, Boolean> allResources = new HashMap<String, Boolean>();
     Boolean inResourceVOs = false;

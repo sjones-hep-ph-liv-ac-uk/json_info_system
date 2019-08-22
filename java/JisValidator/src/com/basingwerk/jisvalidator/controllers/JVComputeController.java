@@ -1,5 +1,6 @@
 package com.basingwerk.jisvalidator.controllers;
 
+import com.basingwerk.jisvalidator.checkers.Checker;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
-import com.basingwerk.jisvalidator.checkers.ComputeChecker;
+import com.basingwerk.jisvalidator.checkers.ComputeIntegrityChecker;
+import com.basingwerk.jisvalidator.checkers.IIntegrityChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
 import com.basingwerk.jisvalidator.schema.SchemaDbCrr;
 import com.basingwerk.jisvalidator.schema.SchemaHolder;
@@ -47,7 +49,8 @@ public class JVComputeController extends HttpServlet {
     Schema schema = sh.getSchema(); 
     
     String integrity = (String) session.getAttribute("checkCrrIntegrity");
-    ComputeChecker checker = new ComputeChecker(json, schema, integrity);
+    IIntegrityChecker ic = new ComputeIntegrityChecker(json);
+    Checker checker = new Checker(json,schema,integrity,ic);
 
     Result result = checker.check();
 

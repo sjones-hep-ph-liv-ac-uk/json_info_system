@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
-import com.basingwerk.jisvalidator.checkers.StorageChecker;
+import com.basingwerk.jisvalidator.checkers.StorageIntegrityChecker;
 import com.basingwerk.jisvalidator.schema.SchemaDbSrr;
 import com.basingwerk.jisvalidator.schema.SchemaHolder;
+import com.basingwerk.jisvalidator.checkers.Checker;
+import com.basingwerk.jisvalidator.checkers.IIntegrityChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
 
 /**
@@ -47,8 +49,9 @@ public class JVStorageController extends HttpServlet {
     Schema schema = sh.getSchema(); 
     
     String integrity = (String) session.getAttribute("checkSrrIntegrity");
-    StorageChecker checker = new StorageChecker(json, schema, integrity);
-
+    IIntegrityChecker ic = new StorageIntegrityChecker(json);
+    Checker checker = new Checker(json,schema,integrity,ic);
+    
     Result result = checker.check();
 
     if (result.getCode() == Result.OK) {
