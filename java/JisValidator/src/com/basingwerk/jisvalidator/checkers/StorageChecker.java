@@ -1,12 +1,8 @@
 package com.basingwerk.jisvalidator.checkers;
 
-import java.io.InputStream;
-import java.util.HashMap;
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
-import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 public class StorageChecker {
 
@@ -19,18 +15,21 @@ public class StorageChecker {
     this.jsonToCheck = j;
     this.schema = s;
     logger = Logger.getLogger(StorageChecker.class);
+
     if (integrity.equals("yes"))
       checkIntegrity = true;
   }
 
   public Result check() {
 
-    String error = "No error";
+    String sniffTest = SniffTest.check(jsonToCheck);
+    if (sniffTest.length() > 0)
+      return new Result(Result.NOTWELLFORMED, "JSON was not well formed " + sniffTest);
+
     try {
       schema.validate(new JSONObject(jsonToCheck));
     } catch (Exception e) {
-      error = e.getMessage();
-      return new Result(Result.SCHEMAFAULT, "Validator error: " + error);
+      return new Result(Result.SCHEMAFAULT, "Validator error: " + e.getMessage());
     }
 
     // It's well formed JSON, and it complies with the schema. Does it have
@@ -48,8 +47,7 @@ public class StorageChecker {
       return new Result(Result.OK, "Validator and integrity checker found no errors");
 
     } catch (CheckerException e) {
-      error = e.getMessage();
-      return new Result(Result.PROGRAMFAULT, "Program error: " + error);
+      return new Result(Result.PROGRAMFAULT, "Program error: " + e.getMessage());
     }
   }
 }

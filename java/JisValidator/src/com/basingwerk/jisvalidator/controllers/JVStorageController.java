@@ -11,11 +11,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 import com.basingwerk.jisvalidator.checkers.StorageChecker;
-import com.basingwerk.jisvalidator.newschema.SchemaHolder;
-import com.basingwerk.jisvalidator.newschema.SchemaDb;
-import com.basingwerk.jisvalidator.newschema.SchemaDbCrr;
-import com.basingwerk.jisvalidator.newschema.SchemaDbSrr;
-import com.basingwerk.jisvalidator.checkers.ComputeChecker;
+import com.basingwerk.jisvalidator.schema.SchemaDbSrr;
+import com.basingwerk.jisvalidator.schema.SchemaHolder;
 import com.basingwerk.jisvalidator.checkers.Result;
 
 /**

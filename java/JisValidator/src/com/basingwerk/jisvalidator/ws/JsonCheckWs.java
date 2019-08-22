@@ -22,10 +22,11 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 import com.basingwerk.jisvalidator.checkers.ComputeChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
 import com.basingwerk.jisvalidator.checkers.StorageChecker;
-import com.basingwerk.jisvalidator.newschema.SchemaDb;
-import com.basingwerk.jisvalidator.newschema.SchemaDbCrr;
-import com.basingwerk.jisvalidator.newschema.SchemaDbSrr;
-import com.basingwerk.jisvalidator.newschema.SchemaHolder;
+import com.basingwerk.jisvalidator.schema.SchemaDb;
+import com.basingwerk.jisvalidator.schema.SchemaDbCrr;
+import com.basingwerk.jisvalidator.schema.SchemaDbSrr;
+import com.basingwerk.jisvalidator.schema.SchemaHolder;
+
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 
 @Path("/jsoncheckws")

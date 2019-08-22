@@ -8,7 +8,7 @@ import com.basingwerk.jisvalidator.jsonsurferhelpers.DataStore;
 import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageCapacity;
 import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageEndpoint;
 import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageShare;
-import com.basingwerk.jisvalidator.utils.Utils;
+import com.basingwerk.jisvalidator.utils.ListUtils;
 
 public class StorageIntegrityChecker {
 
@@ -85,19 +85,19 @@ public class StorageIntegrityChecker {
       ssIdsUnique.put(ss.getId(), true);
 
       // Check VOs
-      String voDups = Utils.getDuplicates(ss.getVos());
+      String voDups = ListUtils.getDuplicates(ss.getVos());
       if (voDups.length() > 0)
         return "In storageshare " + ss.getName() + ", vos are not unique; " + voDups;
 
       // Check path(s)
-      String pathDups = Utils.getDuplicates(ss.getPath());
+      String pathDups = ListUtils.getDuplicates(ss.getPath());
       if (pathDups.length() > 0)
         return "In storageshare " + ss.getName() + ", path is not unique; " + pathDups;
 
       // Check accessmodes
       String[] am = ss.getAccessmode();
       if (am != null) {
-        String amDups = Utils.getDuplicates(am);
+        String amDups = ListUtils.getDuplicates(am);
         if (amDups.length() > 0)
           return "In storageshare " + ss.getName() + ", accessmode  is not unique: " + amDups;
       }

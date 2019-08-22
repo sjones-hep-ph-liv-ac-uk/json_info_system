@@ -15,8 +15,9 @@ public class Result implements Serializable {
 
   public static int OK = 0;
   public static int PROGRAMFAULT = 1;
-  public static int SCHEMAFAULT = 2;
-  public static int INTEGRITYFAULT = 3;
+  public static int NOTWELLFORMED = 2;
+  public static int SCHEMAFAULT = 3;
+  public static int INTEGRITYFAULT = 4;
 
   @XmlAttribute(name = "code")
   private final int code;

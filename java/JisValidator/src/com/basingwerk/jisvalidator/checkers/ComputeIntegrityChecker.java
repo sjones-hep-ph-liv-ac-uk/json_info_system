@@ -3,7 +3,7 @@ package com.basingwerk.jisvalidator.checkers;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import com.basingwerk.jisvalidator.utils.Utils;
+import com.basingwerk.jisvalidator.utils.ListUtils;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
@@ -80,26 +80,26 @@ public class ComputeIntegrityChecker {
         if (currentLevel == 2) {
           if (cj == JsonToken.END_OBJECT) {
             // When existing a resource, ensure no duplication
-            String duplicateResourceVOs = Utils.getDuplicates(resourceVOs);
+            String duplicateResourceVOs = ListUtils.getDuplicates(resourceVOs);
             if (duplicateResourceVOs.length() != 0)
               return ("Duplicate resource VOs in " + currentResource);
 
-            String duplicateShareVOs = Utils.getDuplicates(shareVOs);
+            String duplicateShareVOs = ListUtils.getDuplicates(shareVOs);
             if (duplicateShareVOs.length() != 0)
               return ("Duplicate share VOs in " + currentResource);
 
-            String duplicateResourceShares = Utils.getDuplicates(resourceShares);
+            String duplicateResourceShares = ListUtils.getDuplicates(resourceShares);
             if (duplicateResourceShares.length() != 0)
               return ("Duplicate resource shares in " + currentResource);
 
-            String duplicateAccessPointShares = Utils.getDuplicates(accessPointShares);
+            String duplicateAccessPointShares = ListUtils.getDuplicates(accessPointShares);
             if (duplicateAccessPointShares.length() != 0)
               return ("Duplicate accesspoiunt shares in " + currentResource);
 
             // When exiting a resource make sure no VOs in the shares are extrinsic to the
             // VOs in the resource section
 
-            String illegalShareVOs = Utils.getExtrinsics(resourceVOs, shareVOs);
+            String illegalShareVOs = ListUtils.getExtrinsics(resourceVOs, shareVOs);
             if (illegalShareVOs.length() != 0) {
               return ("inconsistent assigned VOs in resource " + currentResource + ", check resource and share VOs for "
                   + illegalShareVOs);
@@ -107,7 +107,7 @@ public class ComputeIntegrityChecker {
 
             // When exiting a resource make sure no Shares in the accesspoints are extrinsic
             // to the shares in the resource section
-            String illegalAccessPointShares = Utils.getExtrinsics(resourceShares, accessPointShares);
+            String illegalAccessPointShares = ListUtils.getExtrinsics(resourceShares, accessPointShares);
             if (illegalAccessPointShares.length() != 0) {
               return ("inconsistent shares for resource " + currentResource + ", check shares for " + illegalAccessPointShares);
             }

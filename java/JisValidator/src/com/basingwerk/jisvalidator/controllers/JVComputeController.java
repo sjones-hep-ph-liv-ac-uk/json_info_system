@@ -12,11 +12,8 @@ import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 import com.basingwerk.jisvalidator.checkers.ComputeChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
-import com.basingwerk.jisvalidator.newschema.SchemaDb;
-import com.basingwerk.jisvalidator.newschema.SchemaDbCrr;
-import com.basingwerk.jisvalidator.newschema.SchemaHolder;
-//import com.basingwerk.jisvalidator.newschema.CrrFinder;
-//import com.basingwerk.jisvalidator.newschema.SchemaDb;
+import com.basingwerk.jisvalidator.schema.SchemaDbCrr;
+import com.basingwerk.jisvalidator.schema.SchemaHolder;
 
 
 /**

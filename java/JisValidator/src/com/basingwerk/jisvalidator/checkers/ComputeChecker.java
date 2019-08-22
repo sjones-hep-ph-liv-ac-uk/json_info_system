@@ -1,9 +1,12 @@
 package com.basingwerk.jisvalidator.checkers;
 
-import javax.servlet.http.HttpSession;
+import java.io.IOException;
+
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
 import org.json.JSONObject;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ComputeChecker {
 
@@ -16,18 +19,21 @@ public class ComputeChecker {
     this.jsonToCheck = j;
     this.schema = s;
     logger = Logger.getLogger(ComputeChecker.class);
+
     if (integrity.equals("yes"))
       checkIntegrity = true;
   }
 
   public Result check() {
 
-    String error = "No error";
+    String sniffTest = SniffTest.check(jsonToCheck);
+    if (sniffTest.length() > 0)
+      return new Result(Result.NOTWELLFORMED, "JSON was not well formed " + sniffTest);
+
     try {
       schema.validate(new JSONObject(jsonToCheck));
     } catch (Exception e) {
-      error = "Validator error: " + e.getMessage();
-      return new Result(Result.SCHEMAFAULT, error);
+      return new Result(Result.SCHEMAFAULT, "Validator error: " + e.getMessage());
     }
 
     if (checkIntegrity == false)
@@ -45,8 +51,8 @@ public class ComputeChecker {
       return new Result(Result.OK, "Validator and integrity checker found no errors");
 
     } catch (Exception e) {
-      error = e.getMessage();
-      return new Result(Result.PROGRAMFAULT, "Program error: " + error);
+      return new Result(Result.PROGRAMFAULT, "Program error: " + e.getMessage());
     }
   }
+
 }
