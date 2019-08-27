@@ -45,6 +45,7 @@ public class JVComputeController extends HttpServlet {
     String schemaVersion = (String) session.getAttribute("schemaVersion");
     
     SchemaDbCrr db = SchemaDbCrr.getInstance();
+    db.loadSchemas();
     SchemaHolder sh = db.get(schemaVersion);
     Schema schema = sh.getSchema(); 
     

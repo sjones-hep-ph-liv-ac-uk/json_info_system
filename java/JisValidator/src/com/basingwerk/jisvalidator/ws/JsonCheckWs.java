@@ -25,7 +25,7 @@ import com.basingwerk.jisvalidator.checkers.ComputeIntegrityChecker;
 import com.basingwerk.jisvalidator.checkers.IIntegrityChecker;
 import com.basingwerk.jisvalidator.checkers.Result;
 import com.basingwerk.jisvalidator.checkers.StorageIntegrityChecker;
-import com.basingwerk.jisvalidator.schema.SchemaDb;
+
 import com.basingwerk.jisvalidator.schema.SchemaDbCrr;
 import com.basingwerk.jisvalidator.schema.SchemaDbSrr;
 import com.basingwerk.jisvalidator.schema.SchemaHolder;
@@ -52,6 +52,7 @@ public class JsonCheckWs {
     Result result;
 
     SchemaDbCrr db = SchemaDbCrr.getInstance();
+    db.loadSchemas();
     
     if (ver == null)
       ver = db.findLatestVersion();
@@ -101,6 +102,7 @@ public class JsonCheckWs {
     Result result;
 
     SchemaDbSrr db = SchemaDbSrr.getInstance();
+    db.loadSchemas();
     
     if (ver == null)
       ver = db.findLatestVersion();

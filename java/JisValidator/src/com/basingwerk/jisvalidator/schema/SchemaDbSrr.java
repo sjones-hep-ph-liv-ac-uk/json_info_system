@@ -14,7 +14,7 @@ public class SchemaDbSrr extends SchemaDb {
   private static SchemaDbSrr SINGLE_INSTANCE = null;
 
   public static SchemaDbSrr getInstance() {
-    Logger logger = Logger.getLogger(SchemaDbCrr.class);
+    Logger logger = Logger.getLogger(SchemaDbSrr.class);
     if (SINGLE_INSTANCE == null) {
       synchronized (SchemaDbSrr.class) {
         SINGLE_INSTANCE = new SchemaDbSrr();

@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.everit.json.schema.Schema;
-
-import com.basingwerk.jisvalidator.schema.SchemaDb;
 import com.basingwerk.jisvalidator.schema.SchemaDbCrr;
 import com.basingwerk.jisvalidator.schema.SchemaDbSrr;
 import com.basingwerk.jisvalidator.schema.SchemaHolder;
@@ -62,6 +60,7 @@ public class JVMainController extends HttpServlet {
       sess.setAttribute("schemaVersion", schemaVersion);
 
       SchemaDbCrr db = SchemaDbCrr.getInstance();
+      db.loadSchemas();
       SchemaHolder sh = db.get(schemaVersion);
       String result = sh.getSchemaText(); 
 
@@ -89,6 +88,7 @@ public class JVMainController extends HttpServlet {
       sess.setAttribute("schemaVersion", schemaVersion);
 
       SchemaDbSrr db = SchemaDbSrr.getInstance();
+      db.loadSchemas();
       SchemaHolder sh = db.get(schemaVersion);
       String result = sh.getSchemaText(); 
       

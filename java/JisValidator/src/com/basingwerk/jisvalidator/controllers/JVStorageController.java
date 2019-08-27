@@ -45,6 +45,7 @@ public class JVStorageController extends HttpServlet {
     String schemaVersion = (String) session.getAttribute("schemaVersion");
     
     SchemaDbSrr db = SchemaDbSrr.getInstance();
+    db.loadSchemas();
     SchemaHolder sh = db.get(schemaVersion);
     Schema schema = sh.getSchema(); 
     

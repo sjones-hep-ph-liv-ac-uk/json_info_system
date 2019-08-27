@@ -10,7 +10,7 @@ import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageEndpoint;
 import com.basingwerk.jisvalidator.jsonsurferhelpers.StorageShare;
 import com.basingwerk.jisvalidator.utils.ListUtils;
 
-public class StorageIntegrityChecker implements IIntegrityChecker    {
+public class StorageIntegrityChecker implements IIntegrityChecker {
 
   private Logger logger;
   private JsonSurfer surfer;
@@ -39,13 +39,17 @@ public class StorageIntegrityChecker implements IIntegrityChecker    {
         }
 
         StorageCapacity offline = surfer.collectOne(theJson, StorageCapacity.class, "$.storageservice.storagecapacity.offline");
-        if (offline.validValues() != true) {
-          return "offline storagecapacity is invalid";
+        if (offline != null) {
+          if (offline.validValues() != true) {
+            return "offline storagecapacity is invalid";
+          }
         }
 
         StorageCapacity nearline = surfer.collectOne(theJson, StorageCapacity.class, "$.storageservice.storagecapacity.nearline");
-        if (nearline.validValues() != true) {
-          return "nearline storagecapacity is invalid";
+        if (nearline != null) {
+          if (nearline.validValues() != true) {
+            return "nearline storagecapacity is invalid";
+          }
         }
       }
 
@@ -62,13 +66,15 @@ public class StorageIntegrityChecker implements IIntegrityChecker    {
     HashMap<String, Boolean> sepIdsUnique = new HashMap<String, Boolean>();
 
     for (StorageEndpoint sep : seps) {
-      if (sepNamesUnique.containsKey(sep.getName()))
-        return "storageendpoint name " + sep.getName() + " is not unique";
+//      if (sepNamesUnique.containsKey(sep.getName()))
+//        return "storageendpoint name " + sep.getName() + " is not unique";
       sepNamesUnique.put(sep.getName(), true);
 
-      if (sepIdsUnique.containsKey(sep.getId()))
-        return "storageendpoint id " + sep.getId() + " is not unique";
-      sepIdsUnique.put(sep.getId(), true);
+      if (sep.getId() != null) {
+        if (sepIdsUnique.containsKey(sep.getId()))
+          return "storageendpoint id " + sep.getId() + " is not unique";
+        sepIdsUnique.put(sep.getId(), true);
+      }
     }
 
     // Check storageshares
@@ -76,13 +82,16 @@ public class StorageIntegrityChecker implements IIntegrityChecker    {
     HashMap<String, Boolean> ssIdsUnique = new HashMap<String, Boolean>();
 
     for (StorageShare ss : sss) {
-      if (ssNamesUnique.containsKey(ss.getName()))
-        return "storageshare name " + ss.getName() + " is not unique";
-      ssNamesUnique.put(ss.getName(), true);
-
-      if (ssIdsUnique.containsKey(ss.getId()))
-        return "storageshare id " + ss.getId() + " is not unique";
-      ssIdsUnique.put(ss.getId(), true);
+      if (ss.getName() != null) {
+        if (ssNamesUnique.containsKey(ss.getName()))
+          return "storageshare name " + ss.getName() + " is not unique";
+        ssNamesUnique.put(ss.getName(), true);
+      }
+      if (ss.getId() != null) {
+        if (ssIdsUnique.containsKey(ss.getId()))
+          return "storageshare id " + ss.getId() + " is not unique";
+        ssIdsUnique.put(ss.getId(), true);
+      }
 
       // Check VOs
       String voDups = ListUtils.getDuplicates(ss.getVos());
@@ -90,9 +99,12 @@ public class StorageIntegrityChecker implements IIntegrityChecker    {
         return "In storageshare " + ss.getName() + ", vos are not unique; " + voDups;
 
       // Check path(s)
-      String pathDups = ListUtils.getDuplicates(ss.getPath());
-      if (pathDups.length() > 0)
-        return "In storageshare " + ss.getName() + ", path is not unique; " + pathDups;
+      String paths[] = ss.getPath();
+      if (paths != null) {
+        String pathDups = ListUtils.getDuplicates(paths);
+        if (pathDups.length() > 0)
+          return "In storageshare " + ss.getName() + ", path is not unique; " + pathDups;
+      }
 
       // Check accessmodes
       String[] am = ss.getAccessmode();
@@ -112,10 +124,11 @@ public class StorageIntegrityChecker implements IIntegrityChecker    {
         return "datastore name " + ds.getName() + " is not unique";
       dsNamesUnique.put(ds.getName(), true);
 
-      if (dsIdsUnique.containsKey(ds.getId()))
-        return "datastore id " + ds.getId() + " is not unique";
-      dsIdsUnique.put(ds.getId(), true);
-
+      if (ds.getId() != null) {
+        if (dsIdsUnique.containsKey(ds.getId()))
+          return "datastore id " + ds.getId() + " is not unique";
+        dsIdsUnique.put(ds.getId(), true);
+      }
     }
 
     // For each storageendpoint, ensure one assignedshare "all",
@@ -147,22 +160,23 @@ public class StorageIntegrityChecker implements IIntegrityChecker    {
     // or that each assignedendpoint is amongst storageendpoints
     for (StorageShare ss : sss) {
       String assignedEndpoints[] = ss.getAssignedendpoints();
-
-      HashMap<String, Boolean> aepUnique = new HashMap<String, Boolean>();
-      for (String aep : assignedEndpoints) {
-        if (aepUnique.containsKey(aep)) {
-          return "In storageshare " + ss.getName() + ", assignedendpoint " + aep + " is not unique";
-        }
-        aepUnique.put(aep, true);
-
-        if (aep.equals("all")) {
-          if (assignedEndpoints.length != 1) {
-            return "In storageshare " + ss.getName() + ", assignedendpoint has all as well as discrete values";
+      if (assignedEndpoints != null) {
+        HashMap<String, Boolean> aepUnique = new HashMap<String, Boolean>();
+        for (String aep : assignedEndpoints) {
+          if (aepUnique.containsKey(aep)) {
+            return "In storageshare " + ss.getName() + ", assignedendpoint " + aep + " is not unique";
           }
-        } else {
+          aepUnique.put(aep, true);
 
-          if (sepNamesUnique.containsKey(aep) != true) {
-            return "In storageshare " + ss.getName() + " assignedendpoint " + aep + " does not exist as a storageendpoints ";
+          if (aep.equals("all")) {
+            if (assignedEndpoints.length != 1) {
+              return "In storageshare " + ss.getName() + ", assignedendpoint has all as well as discrete values";
+            }
+          } else {
+
+            if (sepNamesUnique.containsKey(aep) != true) {
+              return "In storageshare " + ss.getName() + " assignedendpoint " + aep + " does not exist as a storageendpoints ";
+            }
           }
         }
       }

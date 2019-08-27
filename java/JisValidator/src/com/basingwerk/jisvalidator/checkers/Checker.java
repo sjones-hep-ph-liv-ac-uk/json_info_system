@@ -5,14 +5,14 @@ import org.everit.json.schema.Schema;
 import org.json.JSONObject;
 
 public class Checker {
-  
+
   private String jsonToCheck;
   private Schema schema;
   private Logger logger;
   private Boolean checkIntegrity = false;
   private IIntegrityChecker ic;
 
-  public Checker (String j, Schema s, String integrity, IIntegrityChecker ic) {
+  public Checker(String j, Schema s, String integrity, IIntegrityChecker ic) {
     this.jsonToCheck = j;
     this.schema = s;
     this.ic = ic;
@@ -39,7 +39,7 @@ public class Checker {
 
     // It's well formed JSON, and it complies with the schema. Does it have semantic
     // integrity?
-    try {
+//    try {
       String result = ic.check();
 
       if (result.length() != 0)
@@ -47,8 +47,8 @@ public class Checker {
 
       return new Result(Result.OK, "Validator and integrity checker found no errors");
 
-    } catch (Exception e) {
-      return new Result(Result.PROGRAMFAULT, "Program error: " + e.getMessage());
-    }
+//    } catch (Exception e) {
+//      return new Result(Result.PROGRAMFAULT, "Program error: " + e.getMessage());
+//    }
   }
 }

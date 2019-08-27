@@ -1,13 +1,25 @@
 package com.basingwerk.jisvalidator.jsonsurferhelpers;
 
 public class StorageCapacity {
-  private int totalsize;
-  private int usedsize;
-  private int reservedsize;
+  private long totalsize;
+  private long usedsize;
+  private long reservedsize;
+  
+  public long getTotalsize() {
+    return totalsize;
+  }
+
+  public long getUsedsize() {
+    return usedsize;
+  }
+
+  public long getReservedsize() {
+    return reservedsize;
+  }
 
   public boolean validValues() {
 
-    if (reservedsize + usedsize >= totalsize)
+    if (reservedsize + usedsize > totalsize)
       return false;
 
     if (reservedsize < -1 | usedsize < -1 | totalsize < -1)
