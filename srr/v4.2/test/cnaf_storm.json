@@ -1,0 +1,224 @@
+{
+    "storageservice": {
+        "capabilities": [
+            "data.management.transfer", 
+            "data.management.storage"
+        ], 
+        "implementation": "storm", 
+        "implementationversion": "1.11.15", 
+        "latestupdate": 1541146921, 
+        "name": "INFN-T1", 
+        "qualitylevel": "production", 
+        "storageendpoints": [
+            {
+                "assignedshares": [
+                    "all"
+                ], 
+                "capabilities": [
+                    "data.management.transfer", 
+                    "data.management.storage"
+                ], 
+                "endpointurl": "httpg://storm-fe.cr.cnaf.infn.it:8444/srm/managerv2", 
+                "interfacetype": "srm", 
+                "interfaceversion": "2.2", 
+                "name": "INFN-T1_srm", 
+                "qualitylevel": "production"
+            }, 
+            {
+                "assignedshares": [
+                    "all"
+                ], 
+                "capabilities": [
+                    "data.management.transfer", 
+                    "data.management.storage"
+                ], 
+                "endpointurl": "http://gridftp-storm-atlas.cr.cnaf.infn.it:8085/", 
+                "interfacetype": "DAV", 
+                "interfaceversion": "1.1", 
+                "name": "INFN-T1_http", 
+                "qualitylevel": "production"
+            }, 
+            {
+                "assignedshares": [
+                    "all"
+                ], 
+                "capabilities": [
+                    "data.management.transfer", 
+                    "data.management.storage"
+                ], 
+                "endpointurl": "https://gridftp-storm-atlas.cr.cnaf.infn.it:8443/", 
+                "interfacetype": "DAV", 
+                "interfaceversion": "1.1", 
+                "name": "INFN-T1_https", 
+                "qualitylevel": "production"
+            }
+        ], 
+        "storageshares": [
+            {
+                "accesslatency": "nearline", 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "name": "ATLASGROUPTAPE", 
+                "path": [
+                    "/atlas/atlasgrouptape"
+                ], 
+                "retentionpolicy": "custodial", 
+                "servingstate": "open", 
+                "timestamp": 1541146921, 
+                "totalsize": 7209516512837632, 
+                "usedsize": 6101464135137620, 
+                "vos": [
+                    "atlas"
+                ]
+            }, 
+            {
+                "accesslatency": "online", 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "name": "ATLASHOTDISK", 
+                "path": [
+                    "/atlas/atlashotdisk"
+                ], 
+                "retentionpolicy": "replica", 
+                "servingstate": "open", 
+                "timestamp": 1541146921, 
+                "totalsize": 5000000438272, 
+                "usedsize": 8650752, 
+                "vos": [
+                    "atlas"
+                ]
+            }, 
+            {
+                "accesslatency": "online", 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "name": "ATLASDATADISK", 
+                "path": [
+                    "/atlas"
+                ], 
+                "retentionpolicy": "replica", 
+                "servingstate": "open", 
+                "timestamp": 1541146921, 
+                "totalsize": 6030000000073728, 
+                "usedsize": 5725479698713330, 
+                "vos": [
+                    "atlas"
+                ]
+            }, 
+            {
+                "accesslatency": "nearline", 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "name": "ATLASDATATAPE", 
+                "path": [
+                    "/atlas/atlasdatatape"
+                ], 
+                "retentionpolicy": "custodial", 
+                "servingstate": "open", 
+                "timestamp": 1541146921, 
+                "totalsize": 362838837166080, 
+                "usedsize": 140453408407552, 
+                "vos": [
+                    "atlas"
+                ]
+            }, 
+            {
+                "accesslatency": "nearline", 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "name": "ATLASMCTAPE", 
+                "path": [
+                    "/atlas/atlasmctape"
+                ], 
+                "retentionpolicy": "custodial", 
+                "servingstate": "open", 
+                "timestamp": 1541146921, 
+                "totalsize": 362838837166080, 
+                "usedsize": 186877894526821, 
+                "vos": [
+                    "atlas"
+                ]
+            }, 
+            {
+                "accesslatency": "online", 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "name": "ATLASSCRATCHDISK", 
+                "path": [
+                    "/atlas/atlasscratchdisk"
+                ], 
+                "retentionpolicy": "replica", 
+                "servingstate": "open", 
+                "timestamp": 1541146921, 
+                "totalsize": 86000000827392, 
+                "usedsize": 48651543127805, 
+                "vos": [
+                    "atlas"
+                ]
+            }, 
+            {
+                "accesslatency": "online", 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "name": "DTEAM_TOKEN", 
+                "path": [
+                    "/dteam"
+                ], 
+                "retentionpolicy": "replica", 
+                "servingstate": "open", 
+                "timestamp": 1541146921, 
+                "totalsize": 1099511627776, 
+                "usedsize": 18404212736, 
+                "vos": [
+                    "dteam"
+                ]
+            }, 
+            {
+                "accesslatency": "online", 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "name": "OPS_TOKEN", 
+                "path": [
+                    "/ops"
+                ], 
+                "retentionpolicy": "replica", 
+                "servingstate": "open", 
+                "timestamp": 1541146921, 
+                "totalsize": 4294967296, 
+                "usedsize": 7208960, 
+                "vos": [
+                    "ops"
+                ]
+            }, 
+            {
+                "accesslatency": "online", 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "name": "INFO_TOKEN", 
+                "path": [
+                    "/info"
+                ], 
+                "retentionpolicy": "replica", 
+                "servingstate": "open", 
+                "timestamp": 1541146921, 
+                "totalsize": 1000000000, 
+                "usedsize": 7816, 
+                "vos": [
+                    "ops", 
+                    "dteam", 
+                    "atlas"
+                ]
+            }
+        ]
+    }
+}
+

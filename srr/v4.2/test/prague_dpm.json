@@ -1,0 +1,240 @@
+{
+    "storageservice": {
+        "datastores": [], 
+        "latestupdate": 1537785901, 
+        "name": "golias100.farm.particle.cz", 
+        "implementation": "DPM", 
+        "storageendpoints": [
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "gsiftp", 
+                "name": "gsiftp", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "gsiftp://golias100.farm.particle.cz/"
+            }, 
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "https", 
+                "name": "https", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "https://golias100.farm.particle.cz/"
+            }, 
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "xrootd", 
+                "name": "xrootd", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "root://golias100.farm.particle.cz/"
+            }, 
+            {
+                "qualitylevel": "production", 
+                "interfacetype": "srm", 
+                "name": "srm", 
+                "assignedshares": [
+                    "all"
+                ], 
+                "endpointurl": "srm://golias100.farm.particle.cz:8446/srm/managerv2?SFN=/"
+            }
+        ], 
+        "qualitylevel": "production", 
+        "storageshares": [
+            {
+                "name": "ROOT", 
+                "servingstate": "open", 
+                "totalsize": 3298534883328, 
+                "timestamp": 1537785901, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": -879709663640, 
+                "vos": [
+                    "cta", 
+                    "atlas/Role=lcgadmin", 
+                    "atlas/cz/Role=production", 
+                    "atlasprd", 
+                    "atlas/Role=production", 
+                    "atlas", 
+                    "atlassgm", 
+                    "atlas/cz", 
+                    "ops", 
+                    "dteam", 
+                    "ops/Role=lcgadmin", 
+                    "ipv6.hepix.org"
+                ], 
+                "path": [
+                    "/dpm/farm.particle.cz/home"
+                ]
+            }, 
+            {
+                "name": "ATLASDATADISK", 
+                "servingstate": "open", 
+                "totalsize": 2089072092774400, 
+                "timestamp": 1537785901, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 1821193950514079, 
+                "vos": [
+                    "atlas/Role=production"
+                ], 
+                "path": [
+                    "/dpm/farm.particle.cz/home/atlas"
+                ]
+            }, 
+            {
+                "name": "IPV6_HEPIX_ORG", 
+                "servingstate": "open", 
+                "totalsize": 21474836480, 
+                "timestamp": 1537785901, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "ipv6.hepix.org"
+                ], 
+                "path": [
+                    "/dpm/farm.particle.cz/home/ipv6.hepix.org"
+                ]
+            }, 
+            {
+                "name": "DUNEDATADISK", 
+                "servingstate": "open", 
+                "totalsize": 302365697638400, 
+                "timestamp": 1537785901, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 407972211980, 
+                "vos": [
+                    "dune/Role=Analysis", 
+                    "dune/Role=Production"
+                ], 
+                "path": [
+                    "/dpm/farm.particle.cz/home/dune"
+                ]
+            }, 
+            {
+                "name": "ATLASLOCALGROUPDISK", 
+                "servingstate": "open", 
+                "totalsize": 604731395276800, 
+                "timestamp": 1537785901, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 595010492461560, 
+                "vos": [
+                    "atlas"
+                ], 
+                "path": [
+                    "/dpm/farm.particle.cz/home/atlas/atlaslocalgroupdisk"
+                ]
+            }, 
+            {
+                "name": "DTEAM", 
+                "servingstate": "open", 
+                "totalsize": 1099511627776, 
+                "timestamp": 1537785901, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 58068466170, 
+                "vos": [
+                    "dteam"
+                ], 
+                "path": [
+                    "/dpm/farm.particle.cz/home/dteam"
+                ]
+            }, 
+            {
+                "name": "ops", 
+                "servingstate": "open", 
+                "totalsize": 21474836480, 
+                "timestamp": 1537785901, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 3588, 
+                "vos": [
+                    "ops", 
+                    "ops/Role=lcgadmin"
+                ], 
+                "path": [
+                    "/dpm/farm.particle.cz/home/ops"
+                ]
+            }, 
+            {
+                "name": "ATLASSCRATCHDISK", 
+                "servingstate": "open", 
+                "totalsize": 43980465111040, 
+                "timestamp": 1537785901, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 19213512871092, 
+                "vos": [
+                    "atlas"
+                ], 
+                "path": [
+                    "/dpm/farm.particle.cz/home/atlas/atlasscratchdisk"
+                ]
+            }, 
+            {
+                "name": "AUGERPROD", 
+                "servingstate": "open", 
+                "totalsize": 219902325555200, 
+                "timestamp": 1537785901, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 151565772900925, 
+                "vos": [
+                    "auger"
+                ], 
+                "path": [
+                    "/dpm/farm.particle.cz/home/auger"
+                ]
+            }, 
+            {
+                "name": "CTA", 
+                "servingstate": "open", 
+                "totalsize": 21990232555520, 
+                "timestamp": 1537785901, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "cta"
+                ], 
+                "path": [
+                    "/dpm/farm.particle.cz/home/cta"
+                ]
+            }, 
+            {
+                "name": "NOVA", 
+                "servingstate": "open", 
+                "totalsize": 107374182400, 
+                "timestamp": 1537785901, 
+                "assignedendpoints": [
+                    "all"
+                ], 
+                "usedsize": 0, 
+                "vos": [
+                    "<unknown>"
+                ], 
+                "path": [
+                    "/dpm/farm.particle.cz/home/nova"
+                ]
+            }
+        ], 
+        "implementationversion": "1.10.4"
+    }
+}
+

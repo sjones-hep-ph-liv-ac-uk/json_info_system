@@ -1,0 +1,206 @@
+{"storageservice": {
+    "id": "prometheus.desy.de",
+    "servicetype": "org.wlcg.se",
+    "implementation": "dcache",
+    "implementationversion": "5.0.0-SNAPSHOT",
+    "capabilities": [
+        "data.transfer",
+        "data.access.flatfiles",
+        "data.access.streaming",
+        "data.management.storage",
+        "data.management.transfer"
+    ],
+    "qualitylevel": "testing",
+    "storagecapacity": {
+        "online": {
+            "totalsize":  9.56663858847e+11,
+            "usedsize":  5.42134593725e+11,
+            "reservedsize": 0
+        }
+    },
+    "lastupdated": 1540220182,
+    "storageendpoints": [
+        {
+            "name": "HTTP and WebDAV endpoint on prometheus.desy.de",
+            "id": "prometheus.desy.de#webdav-insecure@dCacheDomain",
+            "endpointurl": "http://prometheus.desy.de:80/",
+            "interfacetype": "http",
+            "interfaceversion": "1.1",
+            "capabilities": [
+                "data.management.transfer",
+                "data.management.storage",
+                "data.access.flatfiles",
+                "data.transfer"
+            ],
+            "qualitylevel": "testing",
+            "assignedshares": [
+                "all"
+            ]
+        },
+        {
+            "name": "GSI dcap endpoint on prometheus.desy.de",
+            "id": "prometheus.desy.de#DCap-gsi-prometheus@dCacheDomain",
+            "endpointurl": "gsidcap://prometheus.desy.de:22128/",
+            "interfacetype": "gsidcap",
+            "interfaceversion": "1.3.0",
+            "capabilities": [
+                "data.management.storage",
+                "data.access.flatfiles",
+                "data.transfer"
+            ],
+            "qualitylevel": "testing",
+            "assignedshares": [
+                "all"
+            ]
+        },
+        {
+            "name": "srm endpoint on prometheus.desy.de",
+            "id": "prometheus.desy.de#SRM-prometheus@dCacheDomain",
+            "endpointurl": "httpg://prometheus.desy.de:8443/srm/managerv2",
+            "interfacetype": "srm",
+            "interfaceversion": "2.2",
+            "capabilities": [
+                "data.management.transfer",
+                "data.management.storage"
+            ],
+            "qualitylevel": "testing",
+            "assignedshares": [
+                "all"
+            ]
+        },
+        {
+            "name": "xrootd endpoint on prometheus.desy.de",
+            "id": "prometheus.desy.de#xrootd@dCacheDomain",
+            "endpointurl": "root://prometheus.desy.de:1094/",
+            "interfacetype": "root",
+            "interfaceversion": "2.4",
+            "capabilities": [
+                "data.management.storage",
+                "data.access.flatfiles",
+                "data.transfer"
+            ],
+            "qualitylevel": "testing",
+            "assignedshares": [
+                "all"
+            ]
+        },
+        {
+            "name": "https endpoint on prometheus.desy.de",
+            "id": "prometheus.desy.de#webdav-secure-grid@dCacheDomain",
+            "endpointurl": "https://prometheus.desy.de:2443/",
+            "interfacetype": "https",
+            "interfaceversion": "1.1",
+            "capabilities": [
+                "data.management.storage",
+                "data.access.flatfiles",
+                "data.transfer"
+            ],
+            "qualitylevel": "testing",
+            "assignedshares": [
+                "all"
+            ]
+        },
+        {
+            "name": "Plain FTP endpoint on prometheus.desy.de",
+            "id": "prometheus.desy.de#FTP-prometheus@dCacheDomain",
+            "endpointurl": "ftp://prometheus.desy.de:22126/",
+            "interfacetype": "ftp",
+            "interfaceversion": "1.0.0",
+            "capabilities": [
+                "data.management.storage",
+                "data.access.flatfiles",
+                "data.transfer"
+            ],
+            "qualitylevel": "testing",
+            "assignedshares": [
+                "all"
+            ]
+        },
+        {
+            "name": "GridFTP (gsiftp) endpoint on prometheus.desy.de",
+            "id": "prometheus.desy.de#GFTP-prometheus@dCacheDomain",
+            "endpointurl": "gsiftp://prometheus.desy.de:2811/",
+            "interfacetype": "gsiftp",
+            "interfaceversion": "1.0.0",
+            "capabilities": [
+                "data.management.storage",
+                "data.access.flatfiles",
+                "data.transfer"
+            ],
+            "qualitylevel": "testing",
+            "assignedshares": [
+                "all"
+            ]
+        },
+        {
+            "name": "xrootd endpoint on prometheus.desy.de",
+            "id": "prometheus.desy.de#xrootd-gsi@dCacheDomain",
+            "endpointurl": "root://prometheus.desy.de:1095/",
+            "interfacetype": "root",
+            "interfaceversion": "2.4",
+            "capabilities": [
+                "data.management.storage",
+                "data.access.flatfiles",
+                "data.transfer"
+            ],
+            "qualitylevel": "testing",
+            "assignedshares": [
+                "all"
+            ]
+        },
+        {
+            "name": "gkftp endpoint on prometheus.desy.de",
+            "id": "prometheus.desy.de#KFTP-prometheus@dCacheDomain",
+            "endpointurl": "gkftp://prometheus.desy.de:22127/",
+            "interfacetype": "gkftp",
+            "interfaceversion": "1.0.0",
+            "capabilities": [
+                "data.management.storage",
+                "data.access.flatfiles",
+                "data.transfer"
+            ],
+            "qualitylevel": "testing",
+            "assignedshares": [
+                "all"
+            ]
+        },
+        {
+            "name": "Plain dcap endpoint on prometheus.desy.de",
+            "id": "prometheus.desy.de#DCap-prometheus@dCacheDomain",
+            "endpointurl": "dcap://prometheus.desy.de:22125/",
+            "interfacetype": "dcap",
+            "interfaceversion": "1.3.0",
+            "capabilities": [
+                "data.management.storage",
+                "data.access.flatfiles",
+                "data.transfer"
+            ],
+            "qualitylevel": "testing",
+            "assignedshares": [
+                "all"
+            ]
+        }
+    ],
+    "storageshares": [
+        {
+            "name": "ATLASSCRATCHDISK",
+            "totalsize": 268435456000,
+            "usedsize": 0,
+            "numberoffiles": 0,
+            "timestamp": 1540220096,
+            "vos": ["atlas"],
+            "assignedendpoints": ["all"]
+        },
+        {
+            "name": "ATLASDATADISK",
+            "totalsize": 107374182400,
+            "usedsize": 0,
+            "numberoffiles": 0,
+            "timestamp": 1540220096,
+            "vos": ["atlas"],
+            "assignedendpoints": ["all"]
+        }
+    ]
+}}
+
+

@@ -1,0 +1,963 @@
+{
+   "storageservice" : {
+      "implementation" : "EOS",
+      "implementationversion" : "4.3.12-1",
+      "latestupdate" : 1537783210,
+      "name" : "eosatlas",
+      "storagecapacity" : {
+         "offline" : {
+            "totalsize" : 0,
+            "usedsize" : 0
+         },
+         "online" : {
+            "totalsize" : 36463102500500003,
+            "usedsize" : 25415438544087833
+         }
+      },
+      "storageendpoints" : [
+         {
+            "assignedshares" : [ "all" ],
+            "endpointurl" : "root://eosatlas.cern.ch",
+            "interfacetype" : "xrootd",
+            "name" : "eosatlasxrootd"
+         },
+         {
+            "assignedshares" : [ "all" ],
+            "endpointurl" : "gsiftp://eosatlassftp.cern.ch",
+            "interfacetype" : "gsiftp",
+            "name" : "eosatlasgsiftp"
+         },
+         {
+            "assignedshares" : [ "all" ],
+            "endpointurl" : "http://eosatlashttp.cern.ch",
+            "interfacetype" : "http",
+            "name" : "eosatlashttp"
+         }
+      ],
+      "storageshares" : [
+         {
+            "numberoffiles" : 111191,
+            "path" : [ "/eos/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 0,
+            "usedsize" : 26480097977,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 500000000000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 36652,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/asg-calib/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1000000000000,
+            "usedsize" : 39950370716,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 143,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/atlas-mc-share/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 4000000000000,
+            "usedsize" : 871519163106,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 483339,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/data-art/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 3232871777320,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 1217819,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/data-dqm/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 20000000000000,
+            "usedsize" : 10358396127771,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 70510,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/data-prep/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 500000000000,
+            "usedsize" : 163347533712,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 103407,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-afp/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000,
+            "usedsize" : 1024700120036,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 92380,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-alfa/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 13500000000000,
+            "usedsize" : 13192064403439,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 133457,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-bcm/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1000000000000,
+            "usedsize" : 269206608898,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 2108,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-csc/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 3000000000000,
+            "usedsize" : 2236868399620,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 421999,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-ctp/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 8731697736493,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 208334,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-dcs/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 500000000000,
+            "usedsize" : 46017289315,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 682,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-fsi/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 7000000000000,
+            "usedsize" : 6400268337861,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 75953,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-ftk/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 20000000000000,
+            "usedsize" : 169273826632,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 16924,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-gfex-upgrade/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 5000000000000,
+            "usedsize" : 3768100016399,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 42083,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-hgtd/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 15000000000000,
+            "usedsize" : 12669285081313,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 2,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-htt/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 50000000000000,
+            "usedsize" : 7424636972,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 3101,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-ibl/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 3000000000000,
+            "usedsize" : 439226857035,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 1,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-indet/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000,
+            "usedsize" : 54312,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 195816,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-itk-pixel/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 397509201587,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 636989,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-l1calo/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 20000000000000,
+            "usedsize" : 16674755986274,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 1725906,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-larg/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 25000000000000,
+            "usedsize" : 22846571110651,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 13901,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-lucid/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 6000000000000,
+            "usedsize" : 5609000430593,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 23343,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-lumi/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1000000000000,
+            "usedsize" : 238727803424,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 1,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-mdt/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 30,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-mmg/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 55193,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-muon/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 15000000000000,
+            "usedsize" : 10963034614438,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 50339,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-nsw-stgc/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 97334807181,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 4633,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-nsw/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1000000000000,
+            "usedsize" : 953281904,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 1,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-pix/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1000000000000,
+            "usedsize" : 30,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 2294,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-pixdq/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000,
+            "usedsize" : 268590762541,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 35871,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-rpc-upgrade/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 3000000000000,
+            "usedsize" : 2962338296214,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 1517855,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-rpc/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 3409721855268,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 240306,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-sct/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 5000000000000,
+            "usedsize" : 3901186350820,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 52614,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-slhc/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 13000000000000,
+            "usedsize" : 6484483776084,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 63003,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-tgc/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 9757687969770,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 86099,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-tile/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 55000000000000,
+            "usedsize" : 50975796895919,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 11636,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-trt-tb/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1000000000000,
+            "usedsize" : 114784729046,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 157968,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-trt/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 13000000000000,
+            "usedsize" : 9324815836336,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 5320,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/det-zdc/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000,
+            "usedsize" : 1928852964803,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 15,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/larg-upgrade-FELIX/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1000000000000,
+            "usedsize" : 3688284727,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 116081,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/larg-upgrade/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 19000000000000,
+            "usedsize" : 4300247900113,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 55739,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/penn-ww/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 8046097676143,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 7688,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/perf-db/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 500000000000,
+            "usedsize" : 314852515236,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 11956,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/perf-egamma/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 3978731738663,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 119801,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/perf-flavtag/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 30000000000000,
+            "usedsize" : 12551025993576,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 703105,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/perf-idtracking/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 5000000000000,
+            "usedsize" : 3437540480270,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 84067,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/perf-jets/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 30000000000000,
+            "usedsize" : 9623777701638,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 15485,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/perf-lumi/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 2498534652564,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 233862,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/perf-muon/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 5000000000000,
+            "usedsize" : 4296407958193,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 32783,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/perf-tau/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 9454130850772,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 8807,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-beamspot/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1000000000000,
+            "usedsize" : 811948915547,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 18406,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-beauty/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 2616393043218,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 1332261,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-exotics/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 90000000000000,
+            "usedsize" : 39540058586519,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-fastmonitoring/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-gener/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-hdbs/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 48264,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-hi/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000,
+            "usedsize" : 663300007930,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 1300549,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-higgs/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 120000000000000,
+            "usedsize" : 66108130843531,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-magnet/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 2718,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-rig/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000,
+            "usedsize" : 1256835988177,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 74436,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-sm/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 30000000000000,
+            "usedsize" : 16288586953545,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 49133,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-susy/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 20000000000000,
+            "usedsize" : 8596409101722,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 391909,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-top/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 55000000000000,
+            "usedsize" : 37153497158580,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 71724,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-upgrade/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 868258533837,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 3591593,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/phys-val/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 96792098455,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 1489014,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/pixel-upgrade/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 25000000000000,
+            "usedsize" : 17014677725123,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 473,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/proj-bembk/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000,
+            "usedsize" : 23743297028,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 211196,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/proj-ctb/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 8490280954163,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 7403,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/proj-dynafed/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 51805884122,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 103618,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/proj-evind/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 145000000000000,
+            "usedsize" : 111434290512444,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 60,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/proj-pat/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1500000000000,
+            "usedsize" : 138314475073,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/proj-rucio/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 12073,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/proj-simcos/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 3000000000000,
+            "usedsize" : 454511465663,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 29963,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/proj-simul/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 100000000000000,
+            "usedsize" : 9406910623835,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 928912,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/proj-sit/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 24000000000000,
+            "usedsize" : 23998752976832,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 905,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/proj-spot/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 5000000000000,
+            "usedsize" : 1101872405861,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 11204,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/strip-upgrade/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 5000000000000,
+            "usedsize" : 867955925298,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/susy2/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 100000000000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 393852,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/tdaq-mon/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 21000000000000,
+            "usedsize" : 16061003176709,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 1160734,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/tdaq-opmon/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 60000000000000,
+            "usedsize" : 47058914858953,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 4550,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/tdaq-phaseII/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 3000000000000,
+            "usedsize" : 700340090274,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 14,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/test/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 500000000000,
+            "usedsize" : 7118450117,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 280059,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/tpx/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 40000000000000,
+            "usedsize" : 33411200516361,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 7522,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/trig-bjet/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 20000000000000,
+            "usedsize" : 3410255172674,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 773444,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/trig-daq/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 25000000000000,
+            "usedsize" : 17188822572435,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/trig-met/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 94823,
+            "path" : [ "/eos/atlas/atlascerngroupdisk/trig-rates/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000,
+            "usedsize" : 610593056146,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "name" : "ATLASDATADISK",
+            "numberoffiles" : 79761941,
+            "path" : [ "/eos/atlas/atlasdatadisk/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 15250000000000000,
+            "usedsize" : 14937012054156415,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "name" : "ATLASEOSDATADISK",
+            "numberoffiles" : 6,
+            "path" : [ "/eos/atlas/atlaseosdatadisk/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 5452595200,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "name" : "ATLASEOSSCRATCHDISK",
+            "numberoffiles" : 182730,
+            "path" : [ "/eos/atlas/atlaseosscratchdisk/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 10000000000000,
+            "usedsize" : 41744592955,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "name" : "ATLASGROUPDISK",
+            "numberoffiles" : 8410617,
+            "path" : [ "/eos/atlas/atlasgroupdisk/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1000000000000000,
+            "usedsize" : 486355665641482,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "name" : "ATLASHOTDISK",
+            "numberoffiles" : 17446,
+            "path" : [ "/eos/atlas/atlashotdisk/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 5000000000000,
+            "usedsize" : 2326680357697,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 2291195,
+            "path" : [ "/eos/atlas/atlaslocalgroupdisk/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 160000000000000,
+            "usedsize" : 55198478298181,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "name" : "ATLASLOCALGROUPDISK",
+            "numberoffiles" : 5930827,
+            "path" : [ "/eos/atlas/atlaslocalgroupdisk/dq2/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1240000000000000,
+            "usedsize" : 979410543658523,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "name" : "ATLASPRODDISK",
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/atlasproddisk/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 500000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "name" : "ATLASSCRATCHDISK",
+            "numberoffiles" : 3034336,
+            "path" : [ "/eos/atlas/atlasscratchdisk/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 750000000000000,
+            "usedsize" : 712005785019816,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 406887,
+            "path" : [ "/eos/atlas/atlastier0/daq/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000000,
+            "usedsize" : 26608679487510,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "name" : "ATLASTZDISK",
+            "numberoffiles" : 2575944,
+            "path" : [ "/eos/atlas/atlastier0/rucio/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 4500000000000000,
+            "usedsize" : 3932590814284297,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/atlastier0/test/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 100000000000000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 10470358,
+            "path" : [ "/eos/atlas/atlastier0/tzero/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000000,
+            "usedsize" : 669610072298129,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/group-wisc/dq2/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/group-wisc/users/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 319,
+            "path" : [ "/eos/atlas/opstest/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 502500000000,
+            "usedsize" : 16924699798,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/proc/conversion/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 1000000000000000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 79392238,
+            "path" : [ "/eos/atlas/proc/recycle/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000000,
+            "usedsize" : 1225514299433936,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 0,
+            "path" : [ "/eos/atlas/ruciodemonstrator/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 30000000000000,
+            "usedsize" : 0,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 1003,
+            "path" : [ "/eos/atlas/test/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 0,
+            "usedsize" : 759833,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 5,
+            "path" : [ "/eos/atlas/test/iven/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 0,
+            "usedsize" : 4631,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 5919489,
+            "path" : [ "/eos/atlas/unpledged/group-tokyo/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 3000000000000000,
+            "usedsize" : 894082415661301,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 17615614,
+            "path" : [ "/eos/atlas/unpledged/group-wisc/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 2000000000000000,
+            "usedsize" : 355867512891849,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 31594695,
+            "path" : [ "/eos/atlas/user/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 0,
+            "usedsize" : 405238122519836,
+            "vos" : [ "atlas" ]
+         },
+         {
+            "numberoffiles" : 795,
+            "path" : [ "/eos/atlas/vm/" ],
+            "timestamp" : 1537783210,
+            "totalsize" : 0,
+            "usedsize" : 13841492537,
+            "vos" : [ "atlas" ]
+         }
+      ]
+   }
+}
+
+
